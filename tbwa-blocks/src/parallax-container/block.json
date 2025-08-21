@@ -1,0 +1,31 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "tbwa-blocks/parallax-container",
+	"version": "1.0",
+	"title": "Parallax Container",
+	"category": "tbwa-blocks",
+	"description": "A block with parallax that can contain other blocks.",
+	"attributes": {
+		"parallaxEnabled": {
+			"type": "boolean", 
+			"default": true
+		},
+		"parallaxOpacity": {
+			"type": "boolean", 
+			"default": true
+		},
+		"parallaxLineSpacing": {
+			"type": "boolean", 
+			"default": false
+		},
+		"parallaxSpeed": {
+			"type": "number", 
+			"default": 25
+		}
+	},
+	"textdomain": "tbwa-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

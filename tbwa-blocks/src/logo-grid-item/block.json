@@ -1,0 +1,51 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "tbwa-blocks/logo-grid-item",
+	"version": "1.0",
+	"title": "Logo Grid Item",
+	"category": "tbwa-blocks",
+	"parent":["tbwa-blocks/logo-grid"],
+	"description": "Shows a single logo item within a Logo Grid.",
+	"supports": {
+		"html":false
+	},
+	"attributes": {
+		"mediaId": {
+			"type": "number", 
+			"default": 0
+		}, 
+		"mediaUrl": {
+			"type": "string", 
+			"default": ""
+		}, 
+		"mediaAlt": {
+			"type": "string", 
+			"default": ""
+		}, 
+		"mediaTitle": {
+			"type": "string", 
+			"default": ""
+		},
+		"mediaType": {
+			"type": "string", 
+			"default": ""
+		}, 
+		"mediaMime": {
+			"type": "string", 
+			"default": ""
+		}, 
+		"linkUrl": {
+			"type": "string", 
+			"default": ""
+		},
+		"linkTarget": {
+			"type": "string", 
+			"default": "_parent"
+		}
+	},
+	"textdomain": "tbwa-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

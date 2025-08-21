@@ -1,0 +1,25 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "tbwa-blocks/card-title",
+	"version": "1.0",
+	"title": "Card Title",
+	"category": "tbwa-blocks",
+	"description": "Container used within the card block.",
+	"parent":["tbwa-blocks/card-body"],
+	"attributes": {
+		"linkUrl": {
+			"type": "string", 
+			"default": ""
+		},
+		"linkTarget": {
+			"type": "string", 
+			"default": "_parent"
+		}
+	},
+	"supports": {
+		"html":false
+	},
+	"textdomain": "tbwa-blocks",
+	"editorScript": "file:./index.js"
+}

@@ -1,0 +1,17 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "tbwa-blocks/page",
+	"version": "1.0",
+	"title": "Page",
+	"category": "tbwa-blocks",
+	"description": "Top level block required for smooth scrolling and page transitions, used in the Page Templates.",
+	"supports": {
+		"html": false
+	},
+	"parent": ["core/post-content"],
+	"textdomain": "tbwa-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css" 
+}

@@ -1,0 +1,47 @@
+@use '../common' as *;
+
+.wp-block-tbwa-blocks-work-next {
+
+	display:flex;
+	@include elastic('padding-top', 60, 180);
+
+	//  Custom margins
+	.title { 
+		@include elastic('padding-top', 10, 15);
+		padding-bottom:0px;
+	}
+	.excerpt { 
+		@include elastic('padding-top', 8, 10);
+		padding-bottom:40px;
+		@include md {
+			@include elastic('padding-bottom', 40);
+		}
+	}
+
+	//  No bottom margin
+	.wp-block-tbwa-blocks-section > div {
+		padding-bottom:0px;
+	}
+
+	.read_article {
+		margin-top: 30px;
+		margin-bottom: 30px;
+
+		@include md {
+			margin-top: 32px;
+			margin-bottom: 45px;
+		}
+
+		@include lg {
+			margin-top: 35px;
+			margin-bottom: 60px;
+		}
+	}
+
+}
+
+.scrolling-auto-next {
+	footer, .wp-block-tbwa-blocks-footer {
+		display: none;
+	}
+}

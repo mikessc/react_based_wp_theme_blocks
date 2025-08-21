@@ -1,0 +1,21 @@
+
+
+.wp-block-tbwa-blocks-language-selector-item {
+	
+	position:relative;
+
+	margin-top:4px;
+	margin-bottom:4px;
+	margin-left:0px;
+	margin-right:0px;
+
+	display:flex;
+	min-width:120px;
+
+	.no-media-selected, img { 
+		width:21px;
+		height:14px;
+		margin-right:12px;
+	}
+
+}

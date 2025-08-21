@@ -1,0 +1,41 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "tbwa-blocks/heading-circle",
+	"version": "1.0",
+	"title": "Heading Circle",
+	"category": "tbwa-blocks",
+	"description": "A circle with text inside.",
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"text": {
+			"type": "string",
+			"source": "html",
+			"selector": "h5",
+			"attribute": "text"
+		},
+		"copy": {
+			"type": "string",
+			"source": "html",
+			"selector": "h6"
+		},
+		"url": {
+			"type": "string",
+			"default": ""
+		},
+		"target": {
+			"type": "boolean",
+			"default": false
+		},
+		"hover": {
+			"type": "boolean",
+			"default": false
+		}
+	},
+	"textdomain": "tbwa-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

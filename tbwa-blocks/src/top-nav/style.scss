@@ -1,0 +1,565 @@
+@use '../common' as *;
+
+
+/*  Height is based on 80px. */
+.wp-block-tbwa-blocks-top-nav, 
+.wp-block-tbwa-blocks-top-nav .logo, 
+.wp-block-tbwa-blocks-top-nav .column-outer  {
+	@include elastic('min-height', 56, 80);   
+}
+
+//  Body no scroll
+body { 
+	&.noscroll {
+		height:100vh;
+		overflow:hidden;
+	}
+}
+
+/* Target all Top Nav's on the page */
+.wp-block-tbwa-blocks-top-nav {
+	background-color:$color-black;
+	position:relative;
+	top:0px;
+	left:0px;
+	width:100%;
+
+	&.solid_bg .column-outer {
+		background-color: $color-black;
+	}
+
+
+	&.first.menu-open {
+		position:absolute;
+		height:100vh;
+		@include md {
+			position:relative;
+			height:auto;
+		}
+		.column-outer { 
+			margin-top:0px!important;
+		}
+	}
+
+
+
+	/* Column Outer */
+	.column-outer-1 {
+		position:absolute;
+		top:0px;
+	}
+	.column-outer-2 {
+		position:relative;
+		top:0px;
+	}
+	.column-outer {
+		top:0px;
+		left:0px;
+		width:100%;
+
+		/* Column */
+		.column { 
+
+			@include md {
+				display:flex;
+
+				.logo { order:1; }
+				.buttons { order:2; }
+				.search { order:3; }
+				.menu { order:4; }
+
+				align-items:center;
+			}
+
+			@include elastic('max-width', $column-width);
+			margin-left:auto;
+			margin-right:auto;
+
+			padding-left:0px;
+			padding-right:0px;
+			@include md {
+				padding-left:$column-margin + px;
+				padding-right:$column-margin + px;
+			}
+			@include lg {
+				padding-left:0px;
+				padding-right:0px;
+			}
+
+			/* Logo */
+			.logo { 
+				position:absolute;
+				top:0;  
+				left:24px;
+				@include md {
+					position:relative;
+					top:auto;
+					left:auto;
+					display:flex;
+					justify-content: center;
+					align-items: center;
+				}
+				&.danlogo {
+					top:3px;
+					@include md {
+						top:auto;
+					}
+				}
+				a, .backslash, .tbwa { 
+					display:inline-block;
+					@include elasticMany((
+						('width', 110, 132),
+						('height', 60, 74)
+					));
+					.logo_image {
+						max-width: 100%;
+						max-height: 32px;
+						
+						@include md {
+							position: absolute;
+							top: 50%;
+							transform: translateY(-50%);
+						}
+					}
+					&.noDefault {
+						display:inline-block;
+						width: 50.1333vw;
+						height: 4.13vw;
+						min-height: 56px;
+						@include sm {
+							width: 32.5520vw;
+						}
+						@include md {
+							width: 16.2866vw;
+						}
+						.logo_image {
+							max-width: 100%;
+							max-height: 32px;
+							position: absolute;
+							top: 50%;
+							transform: translateY(-50%);
+						}
+					}
+				}
+
+				a { 
+					outline:none;
+					position:relative;
+					.backslash { 
+						position:absolute;
+						top:0px;
+						left:0px;
+					}
+					.tbwa { 
+						position:absolute;
+						top:0px;
+						left:0px;
+					}
+				}
+			}
+
+			//  Button Outer 
+			//    Mobile: fills width, sits below top nav
+			//    Desktop: flex grows to fill
+			.buttons { 
+				width:100%;
+				padding-top:56px;
+				/* a {
+					//outline:none;
+				} */
+				@include md {
+					padding-top:0px;
+					justify-content:flex-end;
+					flex-grow:2;
+				}
+
+				//  Button Inner
+				//    Mobile: Center text
+				//    Desktop: Right Align
+				> div, > nav { 
+					text-align:center;
+					overflow:hidden;
+					@include md {
+						text-align:left;
+						@include elastic('width', 988);
+						display:flex;
+						justify-content:space-between;
+						align-items: center;
+						@include elastic('padding-top', 12);
+						@include elastic('padding-bottom', 10);
+					}
+
+					//  Add an empty flex element to create even spacing after the last button
+					&:after { 
+						content:"";
+					}
+
+				}
+
+			}
+
+			/* Search */
+			.search { 
+
+				display:inline-block;
+				position:absolute;
+				top:0px;
+				right:0px;
+				cursor:pointer;
+				@include md {
+					position:relative;
+					top:auto;
+					right:auto;
+				}
+				@include elasticMany((
+					('width', 24, 24),
+					('height', 56, 80)
+				));
+
+				/* Toggle the search form visibility */
+				form { 
+					display:none;
+				}
+				&.show { 
+					form { 
+						display:inline-block;
+					}
+				}
+
+
+				//  Search Icon   (icon is 24x24, but svg is 24x32 to give it a larger hit area)
+				.search-icon {
+					position:absolute;
+					right:72px;
+					@include md {
+						right:0px;
+					}
+					@include elasticMany((
+						('top', 11, 24), 
+						('width', 24, 24), 
+						('height', 34, 32)
+					));
+					display:none;
+					&.show { 
+						display:inline-block;
+					}
+					@include md { 
+						display:inline-block;
+					}
+				}
+
+				//  Slide to the left
+				@keyframes search-icon-to-the-left {
+					0% {
+						right:72px;
+					}
+					100% {
+						right:calc(100vw - 24px - 24px);
+					}
+				}
+				@include md {
+					@keyframes search-icon-to-the-left {
+						0% {
+							right:0px;
+						}
+						100% {
+							right:calc(440 / 1920 * 992) + px;
+						}
+					}
+				}
+				@include lg {
+					@keyframes search-icon-to-the-left {
+						0% {
+							right:0px;
+						}
+						100% {
+							right:calc(440 / 1920 * 100) + vw;
+						}
+					}
+				}
+				@include xl {
+					@keyframes search-icon-to-the-left {
+						0% {
+							right:0px;
+						}
+						100% {
+							right:440px;
+						}
+					}
+				}
+
+				&.show .search-icon { 
+					animation-name: search-icon-to-the-left;
+					animation-duration: 0.33s;
+					animation-iteration-count: 1;
+					animation-timing-function: ease-out;
+					right:calc(100vw - 24px - 24px);
+					@include md {
+						@include elastic('right', 440);
+					}
+				}
+
+				//  Form
+				form { 
+					background-color:$color-black; 
+					position:absolute;
+					box-sizing: border-box;
+					top:0px;
+					right:72px;
+					width:calc(100vw - 72px - 24px);
+					@include md {
+						right:0px;
+						width:auto;
+					}
+					@include elasticMany((
+						('height', 56, 80), 
+						('padding-left', 24, 24),
+						('padding-right', 24, 24)
+					));
+
+					//  Input Field
+					input { 
+
+						background-color:$color-black;  
+
+						border:0;
+						border-top:1px solid $color-black;
+						border-bottom:1px solid $color-white;
+						border-radius:0px; 
+						
+						color:$color-white;
+						
+						&::placeholder {
+							color:$color-dark-grey;
+							opacity: 1.0;
+						}
+
+						font-family:$font-stack;
+						font-weight:$font-regular;
+						display:inline-block;
+						line-height:1em;
+						position:absolute;
+						top:0px;
+						right:0px;
+
+						width:100%;
+						@include md {
+							@include elastic('width', 480);
+						}
+
+						@include elasticMany((
+							('height', 48, 56), 
+							('font-size', 25, 25), 
+							('margin-top', 2, 12), 
+							('padding-top', 12, 12), 
+							('padding-bottom', 12, 12), 
+							('padding-left', 52, 60), 
+							('padding-right', 36, 36)
+						));
+
+						//  Clears the 'X' from Safari 
+						appearance: none;
+						-webkit-appearance: none;
+
+						//  Clears the 'X' from Internet Explorer 
+						&::-ms-clear {  display: none; width : 0; height: 0; }
+						&::-ms-reveal {  display: none; width : 0; height: 0; }
+
+						//  Clears the 'X' from Chrome 
+						&::-webkit-search-decoration,
+						&::-webkit-search-cancel-button,
+						&::-webkit-search-results-button,
+						&::-webkit-search-results-decoration { display: none; }
+
+						//  Clear the blue outline on the field
+						&:focus { 
+							outline: none !important;
+						}
+
+					}
+
+
+					//  Clear search field icon
+					.search-icon-clear { 
+						background-color:transparent;
+						position:absolute;
+						top:0px;
+						right:0px;
+						@include elasticMany((
+							('width', 24, 24), 
+							('height', 32, 32), 
+							('padding-top', 12, 24)
+						));
+						display:none;
+						&.show {
+							display:inline-block;
+						}
+					}
+
+				}
+			}
+
+			/* Menu Button */
+			.menu { 
+				display:inline-block;
+				position:absolute;
+				cursor:pointer;
+				top:11px;
+				right:24px;
+				@include md {
+					display:none;
+					position:relative;
+					top:auto;
+					right:auto;
+				}
+				svg {
+					width:24px;
+					height:32px;
+					display:none;
+					&.show { 
+						display:inline-block;
+					}
+				}
+			}
+
+
+		}
+	}
+}
+
+
+//  Target the first Top Nav, inside the header.
+.wp-block-tbwa-blocks-top-nav.first {
+	.column-outer {
+		position:fixed;
+		z-index:850;
+	}
+	.column-outer-2 {
+		mix-blend-mode: difference;
+		.backslash {
+			visibility:hidden;
+		}
+	}
+	&.search-open, 
+	&.menu-open {
+		.column-outer-1 {
+			background-color:$color-black;
+		}
+		.column-outer-2 {
+			mix-blend-mode: normal;
+			.backslash {
+				visibility:visible;
+			}
+		}
+	}
+	&.menu-open {
+		.buttons {
+			background-color:$color-black;
+		}
+	}
+}
+
+
+//  Mobile: Tint the page when search or menu are open 
+.wp-block-tbwa-blocks-top-nav.first {
+	.tint-search { 
+		position:fixed;
+		display:block;
+		top:0px;
+		right:0px;
+		width:0vw;
+		height:0vh;
+		background-color:$color-black;
+		z-index:1;
+		opacity:0.5;
+		@include md {
+			display:none;
+		}
+	}
+	.tint-search {  
+		width:0vw;
+		height:150vh;
+		transition: width 0.25s ease-out 0s;
+	}
+	&.search-open .tint-search { 
+		width:100vw;
+	}
+
+}
+
+
+
+//  Mobile: Slide the buttons down when the menu opens
+.wp-block-tbwa-blocks-top-nav {
+	.buttons { 
+		height:0px;
+
+		display:flex;
+		flex-direction:column;
+		justify-content:flex-start;
+		align-items:center;
+
+		@include md {
+
+			display:flex;
+			flex-direction:row;
+			justify-content:normal;
+			align-items:normal;
+			@include elastic('min-height', 80, 80);
+
+		}
+
+		> div, > nav { 
+			padding-top:30px;
+		}
+	}
+	&.menu-open	.buttons { 
+		height:auto;
+	}
+}
+.wp-block-tbwa-blocks-top-nav.first {
+	.buttons { 
+		overflow:hidden;
+		height:0px;
+		min-height:0px;
+		clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
+
+		> div, > nav { 
+			padding-top:0px;
+		}
+
+		@include md {
+			overflow:visible;
+			height:auto;
+			margin-top:0px;
+			clip-path: none;
+		}
+
+	}
+	&.menu-open	.buttons { 
+		height:calc(100vh - 56px);
+		padding-top:calc(56px + 8vh)!important;
+		transition: clip-path 0.33s ease-out 0.15s;
+		clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+		@include md {
+			height:auto;
+			clip-path: none;
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

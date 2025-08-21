@@ -1,0 +1,15 @@
+@use '../common' as *;
+
+.wp-block-tbwa-blocks-legal-snippet {
+	margin-top:24px;
+	margin-bottom:24px;
+
+	> div { 
+		padding-top:0px;
+		padding-bottom:0px;
+	}
+
+	padding-top:90px;
+	padding-bottom:90px;
+
+}

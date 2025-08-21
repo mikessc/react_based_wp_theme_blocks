@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "tbwa-blocks/video",
+	"version": "1.0",
+	"title": "Video",
+	"category": "tbwa-blocks",
+	"description": "This block displays a video preview, and longer video when the preview is clicked. ",
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"preview": {
+			"type": "object",
+			"default": { "id":0, "url":"", "alt":"", "title":"", "type":"", "mime":""}
+		},
+		"principal": {
+			"type": "object",
+			"default": { "id":0, "url":"", "alt":"", "title":"", "type":"", "mime":""}
+		}
+	},
+	"textdoprincipal": "tbwa-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./frontend.js" 
+}

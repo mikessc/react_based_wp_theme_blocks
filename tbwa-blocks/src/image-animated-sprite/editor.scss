@@ -1,0 +1,16 @@
+.wp-block-tbwa-blocks-image-animated-sprite {
+	margin-top: 24px;
+	margin-bottom: 24px;
+
+	.no-media-selected {
+		display: flex;
+		padding: 40px;
+		line-height: 1em;
+		aspect-ratio: 1 / 1;
+		overflow: hidden;
+	}
+
+	img {
+		border: 0px;
+	}
+}

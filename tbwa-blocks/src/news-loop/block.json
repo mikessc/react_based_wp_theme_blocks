@@ -1,0 +1,26 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "tbwa-blocks/news-loop",
+	"version": "2.0",
+	"title": "News Loop",
+	"category": "tbwa-blocks",
+	"description": "Displays a list of all News Posts. ",
+	"supports": {
+		"html": true
+	},
+	"attributes": {
+		"category": {
+			"type": "string",
+			"default": ""
+		},
+		"categoryName": {
+			"type": "string",
+			"default": "Not Selected"
+		}
+	},
+	"textdomain": "tbwa-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

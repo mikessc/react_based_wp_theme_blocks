@@ -1,0 +1,19 @@
+@use '../common' as *;
+
+
+
+
+
+.wp-block-tbwa-blocks-parallax-container {
+	margin-top:24px;
+	margin-bottom:24px;
+	margin-left:0px;
+	margin-right:0px;
+
+	padding:10px;
+
+	border: 3px dashed red;
+	border-image: linear-gradient(45deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82) 1;
+	box-sizing: border-box;
+
+}

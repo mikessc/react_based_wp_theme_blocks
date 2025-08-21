@@ -1,0 +1,17 @@
+.wp-block-tbwa-blocks-news-loop {
+	margin-top:30px;
+	margin-bottom:30px;
+	position: relative;
+
+	.no-media-selected { 
+		padding-top:48px;
+		padding-bottom:48px;
+	}
+
+	.news-loop__category-select {
+		position: absolute;
+		top: 0;
+		left: 0;	
+	}
+}
+

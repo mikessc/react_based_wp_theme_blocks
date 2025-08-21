@@ -1,0 +1,10 @@
+.editor-styles-wrapper .block-editor-block-list__layout.is-root-container > :where(:not(.alignleft):not(.alignright):not(.alignfull)).editJobsBlock {
+ margin: 20px !important;
+ padding: 20px;
+ border: 1px dashed black;
+
+ .rich-text, select {
+	border: 1px solid lightgray;
+	padding: 5px 12px;
+ }
+}

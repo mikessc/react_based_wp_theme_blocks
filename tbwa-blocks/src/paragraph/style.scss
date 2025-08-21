@@ -1,0 +1,143 @@
+@use '../common' as *;
+
+
+.wp-block-tbwa-blocks-paragraph {
+	
+	padding-bottom:1em;
+	&:first-child { 
+		padding-top:0;
+	}
+	&:last-child { 
+		padding-bottom:0;
+	}
+
+	p { 
+		font-weight:$font-regular;
+		@include elastic('font-size', 16, 25);
+		letter-spacing:0;
+		line-height:1.5em;  //  Also need to change this in the theme Parallax.jsx
+		margin:0px;	
+		padding:0px;
+		color:$color-dark-grey;
+	}
+	p.large { 
+		@include elastic('font-size', 24, 40);
+	}
+	p.small { 
+		@include elastic('font-size', 14, 18);
+	}
+	p.tiny { 
+		@include elastic('font-size', 12, 12.5);
+	}
+	p.label { 
+		@include elastic('font-size', 12, 12.5);
+		text-transform:uppercase;
+	}
+
+	//  Oddity! Some paragraphs need a big bottom margin
+	.margin-bottom-90 {
+		@include elastic('padding-bottom', 60, 90);
+	}
+
+}
+
+
+
+
+//  Fancy hover animation
+.wp-block-tbwa-blocks-tabs .cloud, 
+.wp-block-tbwa-blocks-footer-button, 
+.wp-block-tbwa-blocks-paragraph-with-lead-in, 
+.wp-block-tbwa-blocks-paragraph { 
+	a {
+		display: inline-block;
+		vertical-align: top;
+		transform: perspective(1px) translateZ(0);
+		box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+		position: relative;
+		transition-property: color;
+		transition-duration: 0.3s;
+	}
+	a:before {
+		content: "";
+		position: absolute;
+		z-index: -1;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background:$color-yellow;
+		transform: scaleX(0);
+		transform-origin: 0 50%;
+		transition-property: transform;
+		transition-duration: 0.3s;
+		transition-timing-function: ease-out;
+	}
+	a:hover:before, a:focus:before, a:active:before {
+		transform: scaleX(1);
+	}
+
+	a:before { 
+		background:$color-yellow;
+	}
+	a:active:before { 
+		background:#4D4D4D;
+	}
+	a {
+		color:#4D4D4D;
+	}
+	a:hover {
+		color:$color-black;
+	}
+	a:focus {
+		color:$color-white;
+	}
+	a:active {
+		color:$color-white;
+	}
+}	
+
+
+.background-white .wp-block-tbwa-blocks-tabs .cloud, 
+.background-white .wp-block-tbwa-blocks-paragraph-with-lead-in, 
+.background-white .wp-block-tbwa-blocks-paragraph, 
+.background-black .background-white .wp-block-tbwa-blocks-paragraph {
+	p { 
+		color:$color-dark-grey;
+	}
+	a {
+		color:$color-dark-grey;
+	}
+	a:hover {
+		color:$color-black;
+	}
+}
+.background-black .wp-block-tbwa-blocks-tabs .cloud, 
+.background-black .wp-block-tbwa-blocks-paragraph-with-lead-in, 
+.background-black .wp-block-tbwa-blocks-paragraph, 
+.background-white .background-black .wp-block-tbwa-blocks-paragraph {
+	p { 
+		color:$color-light-grey;
+	}
+	a {
+		color:$color-light-grey;
+	}
+	a:hover {
+		color:$color-black;
+	}
+}
+.background-yellow .wp-block-tbwa-blocks-paragraph, 
+.background-white .background-yellow .wp-block-tbwa-blocks-paragraph,
+.background-black .background-yellow .wp-block-tbwa-blocks-paragraph {
+	p { 
+		color:$color-dark-grey;
+	}
+	a {
+		color:$color-dark-grey;
+	}
+	a:hover {
+		color:$color-black;
+	}
+}
+
+

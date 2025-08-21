@@ -1,0 +1,8 @@
+
+/* TBWA SHEADG - keep same font family name so we don't have to change on SCSS files */
+@font-face {
+  font-family: 'TBWAGrotesk';
+  font-weight: 400;
+  font-style: normal;
+  src: url('HU_140.ttf') format('truetype');
+}

@@ -1,0 +1,24 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "tbwa-blocks/homepage-hero",
+	"version": "1.0",
+	"title": "Homepage Hero",
+	"category": "tbwa-blocks",
+	"description": "The section is used at the top of the homepage to feature a carousel of images. ",
+	"supports": {
+		"html": false
+	},
+	"parent": ["core/post-content", "tbwa-blocks/page"],
+	"attributes": {
+		"backgroundColor": { 
+			"type": "string", 
+			"default": "black" 
+		}
+	},
+	"textdomain": "tbwa-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./frontend.js" 
+}

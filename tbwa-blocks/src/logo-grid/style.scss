@@ -1,0 +1,35 @@
+@use '../common' as *;
+
+
+.wp-block-tbwa-blocks-logo-grid {
+
+	margin-left:0%;
+	width:100%;
+	row-gap:20px;
+	column-gap:20px;
+
+	@include md {
+		@include elastic('row-gap', 50);
+		@include elastic('column-gap', 50);
+	}
+	@media (min-width: 1630px) {
+		margin-left:5%;
+		width:90%;
+	}
+	
+	display: flex;
+	flex-wrap: wrap;
+	grid-template-columns: repeat(auto-fill, 120px); 
+	justify-content: space-evenly;
+	align-content:center;
+
+	@media (min-width: 350px) {
+		grid-template-columns: repeat(auto-fill, 140px); 
+	}
+	@media (min-width: 390px) {
+		grid-template-columns: repeat(auto-fill, 160px); 
+	}
+
+
+}
+

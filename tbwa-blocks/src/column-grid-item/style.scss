@@ -1,0 +1,61 @@
+@use '../common' as *;
+
+
+//.wp-block-tbwa-blocks-column-grid-item:nth-child(3n) {
+//	background-color:rgba(255,0,0,0.25);
+//}
+//.wp-block-tbwa-blocks-column-grid-item:nth-child(3n+1) {
+//	background-color:rgba(0,255,0,0.25);
+//}
+//.wp-block-tbwa-blocks-column-grid-item:nth-child(3n+2) {
+//	background-color:rgba(0,0,255,0.25);
+//}
+
+
+.wp-block-tbwa-blocks-column-grid-item {
+	
+	@include elastic('padding-bottom', 30, 60);
+
+	&.cols-mobile-0 { display:none; }
+	&.cols-mobile-1 { display:block;grid-column:span 3; }
+	&.cols-mobile-2 { display:block;grid-column:span 6; }
+	&.cols-mobile-3 { display:block;grid-column:span 9; }
+	&.cols-mobile-4 { display:block;grid-column:span 12; }
+
+	@include sm { 
+		&.cols-tablet-0 { display:none; }
+		&.cols-tablet-1 { display:block;grid-column:span 1; }
+		&.cols-tablet-2 { display:block;grid-column:span 2; }
+		&.cols-tablet-3 { display:block;grid-column:span 3; }
+		&.cols-tablet-4 { display:block;grid-column:span 4; }
+		&.cols-tablet-5 { display:block;grid-column:span 5; }
+		&.cols-tablet-6 { display:block;grid-column:span 6; }
+		&.cols-tablet-7 { display:block;grid-column:span 7; }
+		&.cols-tablet-8 { display:block;grid-column:span 8; }
+		&.cols-tablet-9 { display:block;grid-column:span 9; }
+		&.cols-tablet-10 { display:block;grid-column:span 10; }
+		&.cols-tablet-11 { display:block;grid-column:span 11; }
+		&.cols-tablet-12 { display:block;grid-column:span 12; }
+	}
+
+	@include lg { 
+		&.cols-desktop-0 { display:none; }
+		&.cols-desktop-1 { display:block;grid-column:span 1; }
+		&.cols-desktop-2 { display:block;grid-column:span 2; }
+		&.cols-desktop-3 { display:block;grid-column:span 3; }
+		&.cols-desktop-4 { display:block;grid-column:span 4; }
+		&.cols-desktop-5 { display:block;grid-column:span 5; }
+		&.cols-desktop-6 { display:block;grid-column:span 6; }
+		&.cols-desktop-7 { display:block;grid-column:span 7; }
+		&.cols-desktop-8 { display:block;grid-column:span 8; }
+		&.cols-desktop-9 { display:block;grid-column:span 9; }
+		&.cols-desktop-10 { display:block;grid-column:span 10; }
+		&.cols-desktop-11 { display:block;grid-column:span 11; }
+		&.cols-desktop-12 { display:block;grid-column:span 12; }
+
+
+	}
+
+}
+
+

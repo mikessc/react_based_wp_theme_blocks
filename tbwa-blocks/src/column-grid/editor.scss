@@ -1,0 +1,26 @@
+@use '../common' as *;
+
+
+
+
+.wp-block-tbwa-blocks-column-grid {
+	display:block;
+	margin:0px;
+	padding:0px;
+	margin-top:25px;
+	margin-bottom:25px;
+
+	> .block-editor-inner-blocks {	
+		display:block;
+		width:100%;
+
+		> .block-editor-block-list__layout { 
+			width:100%;
+			display:grid;
+			grid-template-columns:repeat(12, [col-start] 6.18489%);
+			column-gap:2.34375%;
+		}
+
+	}
+
+}

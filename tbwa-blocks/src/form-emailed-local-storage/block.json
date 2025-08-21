@@ -1,0 +1,31 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "tbwa-blocks/form-download-emailed-local-storage",
+	"version": "1.0",
+	"title": "Emailed Download Form with Local Storage",
+	"category": "tbwa-blocks",
+	"description": "Displays form to download assets, this form will be emailed",
+	"supports": {
+		"html": true
+	},
+	"attributes": {
+		"mediaUrl": {
+			"type": "string"
+		},
+		"mediaName": {
+			"type": "string"
+		},
+		"email": {
+			"type": "string"
+		},
+		"subject": {
+			"type": "string"
+		}
+	},
+	"textdomain": "tbwa-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./frontend.js"
+}

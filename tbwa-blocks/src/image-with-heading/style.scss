@@ -1,0 +1,95 @@
+@use '../common' as *;
+
+
+.wp-block-tbwa-blocks-image-with-heading {
+
+	//box-sizing:border-box;
+	position:relative;
+	width:100%;
+
+	//  Fix the gap added by non-zero font size white space
+	font-size:0;
+	line-height:0;
+	//  Don't use flex for this, it breaks the layout somewhere?
+	//display:flex;
+
+	.no-media-selected { 
+		display:none;
+	}
+
+	&.proportion-8-by-9 { 
+		width:100%;
+		aspect-ratio:8 / 9;
+	}
+	&.proportion-8-by-4 { 
+		width:100%;
+		aspect-ratio:8 / 4;
+	}
+	&.proportion-16-by-9 { 
+		width:100%;
+		aspect-ratio:16 / 9;
+	}
+	&.proportion-original { 
+		width:100%;
+		height:auto;
+	}
+
+	&.proportion-8-by-9,  
+	&.proportion-8-by-4,  
+	&.proportion-16-by-9,  
+	&.proportion-original, 
+	&.proportion-top-cut { 
+		img, video { 
+			width:100%;
+			height:100%;
+			object-fit:cover;
+		 	object-position:center center;
+		}
+	}
+
+	&.proportion-original-size { 
+		width:initial;
+		height:initial;
+	}
+
+	.h2:last-child { 
+		position:absolute;
+		bottom:0px;
+		left:0px;
+		@include elasticMany((
+			('padding-left', 15, 25),
+			('padding-right', 15, 25), 
+			('padding-bottom', 8, 15)
+		));
+	}
+
+	&.text-color-white .h2 { 
+		color:$color-white;
+	}
+	&.text-color-black .h2 { 
+		color:$color-black;
+	}
+
+
+	&.border-white { 
+		border:1px solid $color-white;
+	}
+	&.border-black { 
+		border:1px solid $color-black;
+	}
+	&.border-light-grey { 
+		border:1px solid $color-light-grey;
+	}
+	&.border-dark-grey { 
+		border:1px solid $color-dark-grey;
+	}
+
+	&.margin-bottom-25 { 
+		@include elastic('margin-bottom', 25);
+	}
+	&.margin-bottom-50 { 
+		@include elastic('margin-bottom', 50);
+	}
+
+
+}

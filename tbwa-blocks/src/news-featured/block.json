@@ -1,0 +1,22 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "tbwa-blocks/news-featured",
+	"version": "1.0",
+	"title": "News Featured",
+	"category": "tbwa-blocks",
+	"description": "The block shows a single featured summary for one news page you select. ",
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"postID": {
+			"type": "string", 
+			"default": ""
+		}
+	},
+	"textdomain": "tbwa-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

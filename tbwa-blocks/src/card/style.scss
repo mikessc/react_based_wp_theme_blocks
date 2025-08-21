@@ -1,0 +1,39 @@
+@use '../common' as *;
+
+
+.wp-block-tbwa-blocks-card {
+	position: relative;
+
+	.wp-block-tbwa-blocks-card-label { 
+		display:none;
+	}
+	&.enable-paragraph-small .wp-block-tbwa-blocks-card-label { 
+		display:block;
+	}
+
+	.wp-block-tbwa-blocks-card-title { 
+		display:none;
+	}
+	&.enable-heading .wp-block-tbwa-blocks-card-title { 
+		display:block;
+	}
+
+	.wp-block-tbwa-blocks-card-text { 
+		display:none;
+	}
+	&.enable-paragraph-standard .wp-block-tbwa-blocks-card-text { 
+		display:block;
+	}
+	
+	.wp-block-tbwa-blocks-card-title {
+		a::after {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			content: '';
+		}
+	}
+}
+

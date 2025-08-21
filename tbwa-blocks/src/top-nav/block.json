@@ -1,0 +1,51 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "tbwa-blocks/top-nav",
+	"version": "1.0",
+	"title": "Top Nav",
+	"category": "tbwa-blocks",
+	"description": "Top Navigation used on most pages thoughout the site.",
+	"supports": {
+	},
+	"attributes": {
+		"filter": {
+			"type": "boolean",
+			"default": true
+		},
+		"solidBG": {
+			"type": "boolean",
+			"default": false
+		},
+		"mediaId": {
+			"type": "string",
+			"default": ""
+		},
+		"mediaAlt": {
+			"type": "string",
+			"default": ""
+		},
+		"mediaTitle": {
+			"type": "string",
+			"default": ""
+		},
+		"mediaUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"mediaType": {
+			"type": "string",
+			"default": ""
+		},
+		"mediaMime": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"parent": ["core/post-content"],
+	"textdomain": "tbwa-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./frontend.js" 
+}

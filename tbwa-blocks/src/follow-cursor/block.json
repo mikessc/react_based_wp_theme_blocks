@@ -1,0 +1,47 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "tbwa-blocks/follow-cursor",
+	"version": "1.0",
+	"title": "Follow Cursor",
+	"category": "tbwa-blocks",
+	"description": "Adds a follow cursor to the previous block of the page. ",
+	"attributes": {
+		"cursor": {
+			"type": "string", 
+			"default": "arrow-right"
+		},
+		"cursorName": {
+			"type": "string", 
+			"default": "Arrow Right"
+		},
+		"position": {
+			"type": "string", 
+			"default": "right"
+		},
+		"size": {
+			"type": "string", 
+			"default": "small"
+		},
+		"color": {
+			"type": "string", 
+			"default": "black-white"
+		},
+		"linkUrl": {
+			"type": "string", 
+			"default": ""
+		},
+		"linkTarget": {
+			"type": "string", 
+			"default": "_parent"
+		}
+	}, 
+	"supports": {
+		"html": false
+	},
+	"textdomain": "tbwa-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./frontend.js" 
+}

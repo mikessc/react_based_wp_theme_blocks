@@ -1,0 +1,30 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "tbwa-blocks/work-featured-loop",
+	"version": "1.0",
+	"title": "Work Featured Loop",
+	"category": "tbwa-blocks",
+	"description": "Displays a list of latest Work Posts. ",
+	"supports": {
+		"html": true
+	},
+	"attributes": {
+		"numberOfItems": {
+			"type": "number",
+			"default": 3
+		},
+		"showSeeMore": {
+			"type": "boolean",
+			"default": true
+		},
+		"seeMoreText": {
+			"type": "string",
+			"default": "See more work"
+		}
+	},
+	"textdomain": "tbwa-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

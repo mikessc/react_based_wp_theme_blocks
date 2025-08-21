@@ -1,0 +1,28 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "tbwa-blocks/ticker-text",
+	"version": "1.0",
+	"title": "Ticker Text",
+	"category": "tbwa-blocks",
+	"description": "This ticker text block is a top level block, used at the top of the homepage. ",
+	"supports": {
+		"html": false
+	},
+	"parent": ["core/post-content", "tbwa-blocks/page"],
+	"attributes": {
+		"background": {
+			"type": "string", 
+			"default": "black"
+		},
+		"title": {
+			"type": "string", 
+			"default": "Ticker text goes here"
+		}
+	},
+	"textdomain": "tbwa-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./frontend.js" 
+}

@@ -1,0 +1,110 @@
+@use '../common' as *;
+
+/*  Admin editor defaults */
+.editor-styles-wrapper {
+	background-color:$color-white;
+	font: 100% $font-stack;
+	color: $color-black;
+	font-weight:300;
+	margin:10px;
+}
+
+/*  Add the yellow bar below the page title when editing a page */
+.edit-post-visual-editor__post-title-wrapper {
+	border-bottom:10px solid $color-yellow;
+	text-align: center;
+}
+
+/*  Page Title Style */
+h1.wp-block-post-title {
+	font-family:$font-stack;
+	font-weight:$font-medium;
+	background-color:#444;
+	background: repeating-linear-gradient( -45deg, #666, #666 10px, #999 10px, #999 20px);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+/* ToolbarDropdownMenu active item, highlight in TBWA yellow */
+.components-dropdown-menu__menu .components-dropdown-menu__menu-item.is-active svg, .components-dropdown-menu__menu .components-menu-item.is-active svg {
+	color: #000000;
+	background: $color-white;
+	box-shadow: 0 0 0 2px $color-yellow;
+	border-radius: 1px;
+}
+.components-button[aria-expanded="true"], 
+.components-button:hover {
+  color: var($color-yellow);
+}
+.components-button:focus:not(:disabled) {
+	box-shadow: 0 0 0 var(--wp-admin-border-width-focus) var($color-yellow);
+	box-shadow:none;
+	outline: 3px solid transparent;
+}
+
+/*  The inserter bar that appears between blocks, by default has a black hover state thats hard to see.  */
+.block-editor-block-list__insertion-point-inserter .block-editor-inserter__toggle.components-button.has-icon:hover {
+	background: #999;
+}
+
+
+/* Used to color the media not found area used in Image and Section with Media blocks */
+.no-media-selected { 
+	@include elastic('font-size', 80);
+	font-weight:bold;
+	text-align:center;
+	display:flex;
+	align-items: center;
+	justify-content: center;
+	color:#333;
+	background-color:#000;
+	background: repeating-linear-gradient( -45deg, #333, #333 10px, #111 10px, #111 20px);
+	text-shadow: -4px -4px 0 #111, 4px -4px 0 #111, -4px 4px 0 #111, 4px 4px 0 #111;
+}
+.background-white .no-media-selected { 
+	color:#CCC;
+	background-color:#EEE;
+	background: repeating-linear-gradient( -45deg, #CCC, #CCC 10px, #EEE 10px, #EEE 20px);
+	text-shadow: -4px -4px 0 #EEE, 4px -4px 0 #EEE, -4px 4px 0 #EEE, 4px 4px 0 #EEE;
+}
+
+//  Remove the yellow behind the theme block icons in the toolbar
+//.components-toolbar-group .block-editor-block-icon.has-colors {
+//	background-color:transparent;
+//}
+
+//  Fix the width of the icon in the block toolbar
+.block-editor-block-toolbar__block-controls .block-editor-block-switcher .components-dropdown-menu__toggle .block-editor-block-icon, .block-editor-block-toolbar__block-controls .block-editor-block-switcher__no-switcher-icon .block-editor-block-icon {
+	width: 32px !important;
+}
+
+//  Make the inserter [+] yellow
+.block-editor-block-list__block .block-list-appender .block-editor-inserter__toggle.components-button.has-icon, .block-editor-block-list__block .block-list-appender .block-list-appender__toggle {
+	background-color:$color-yellow;
+	svg path { 
+		fill:black;
+	}
+}
+
+//  Remove admin borders
+img {
+	border-style: none!important;
+}
+
+//  Wordpress 6.0.1 introduced this 840px fixed padding in the admin. :( 
+.editor-styles-wrapper .block-editor-block-list__layout.is-root-container > :where(:not(.alignleft):not(.alignright)) {
+	max-width: none!important;
+}
+
+
+
+
+
+
+//  Sections sometimes need to have zero padding above and below
+.wp-block-tbwa-blocks-section.tbwa-oddity-d5yc-section-no-top-padding { 
+	padding-top:0px!important;
+	//padding-bottom:0px!important;
+}
+
+

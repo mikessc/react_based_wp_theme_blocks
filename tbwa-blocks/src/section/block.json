@@ -1,0 +1,31 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "tbwa-blocks/section",
+	"version": "1.0",
+	"title": "Section",
+	"category": "tbwa-blocks",
+	"description": "The Section block adds a top level block designating the black or white background color. ",
+	"supports": {
+		"html": false
+	},
+	"parent": ["core/post-content", "tbwa-blocks/page"],
+	"attributes": {
+		"background": {
+			"type": "string", 
+			"default": "black"
+		},
+		"stripe": {
+			"type": "string", 
+			"default": "none"
+		},
+		"width": {
+			"type": "string", 
+			"default": "standard"
+		}
+	},
+	"textdomain": "tbwa-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

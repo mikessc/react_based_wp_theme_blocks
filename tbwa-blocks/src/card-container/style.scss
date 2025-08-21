@@ -1,0 +1,21 @@
+@use '../common' as *;
+
+
+.wp-block-tbwa-blocks-card-container {
+	
+	@include elastic('margin-top', 30, 0);
+
+	.tbwa-card { 
+		@include elastic('margin-bottom', 30, 0);
+	}
+	
+	> .h1, > .h2, > .h3, > .h4, > .h5, > .h6 { 
+		@include elastic('margin-bottom', 60, 90);
+	}
+
+
+
+
+
+}
+

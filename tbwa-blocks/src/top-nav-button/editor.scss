@@ -1,0 +1,15 @@
+@use '../common' as *;
+
+
+.wp-block-tbwa-blocks-top-nav-button {
+
+	> * { 
+		padding-top:10px;
+		padding-bottom:10px;
+		padding-left:10px;
+		padding-right:10px;
+		margin-right:20px;
+	}
+
+}
+

@@ -1,0 +1,196 @@
+@import './common';
+////////////////////
+//  Variables
+body {
+    --layout-stack-gap: 1rem;
+}
+
+////////////////////
+//  Layout
+.l-stack {
+    display: grid;
+    row-gap: var(--layout-stack-gap);
+}
+
+.l-stack-gap-xl {
+    --layout-stack-gap: 4rem;
+}
+.l-stack-gap-md {
+    --layout-stack-gap: 2rem;
+}
+
+.l-stack > * {
+    margin-bottom: 0;
+    margin-top: 0;
+    padding-bottom: 0;
+    padding-top: 0;
+}
+
+.l-stack > * > :first-child {
+    margin-top: 0;
+}
+
+.l-stack > * > :last-child {
+    margin-bottom: 0;
+}
+
+////////////////////
+//  Form patterns
+form {
+    --form-text: $color-dark-grey;
+    --form-focus: $color-black;
+    --form-disabled: $color-form-on-white-disabled;
+    --form-btn-hover-bg: $color-black;
+    --form-btn-hover-co: $color-white;
+    --form-accent: $color-yellow;
+    --form-error: $color-error-red;
+    --form-font-size: 1rem;
+    --form-line-height: 1.4;
+    --form-check-size: 1.375rem;
+
+	@include md {
+		--form-font-size: 1.125rem;
+		--form-line-height: 1.2;
+	}
+	@include lg {
+		--form-font-size: 1.172rem;
+		--form-check-size: 1.625rem;
+	}
+	@include xl {
+		--form-font-size: 1.5625rem;
+		--form-check-size: 1.875rem;
+	}
+
+
+	& form {
+		--form-text: #D9D9D9;
+		--form-focus: $color-white;
+		--form-disabled: #$color-form-on-black-disabled;
+		--form-btn-hover-bg: $color-white;
+		--form-btn-hover-co: $color-black;
+	}
+
+	.error {
+		color: var(--form-error);
+		margin: calc(var(--layout-stack-gap) / -2) 0 0;
+	}
+
+	.inline {
+		align-items: flex-start;
+		display: flex;
+		column-gap: 16px;
+	}
+}
+
+
+label, input, select {
+    color: var(--form-text);
+    font-size: var(--form-font-size);
+}
+
+label {
+    display: inline-block;
+    line-height: var(--form-line-height);
+
+	&:hover {
+		color: var(--form-focus);
+	}
+}
+
+
+input, select {
+    font-weight: 400;
+
+	&:focus,
+	&:focus {
+		outline: none;
+	}
+}
+
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select {
+    background-color: transparent;
+    border-color: var(--form-text);
+    border-width: 0 0 1px 0;
+    color: var(--form-text);
+    display: block;
+    font-family: inherit;
+    width: 100%;
+
+	&:focus {
+		border-color: var(--form-focus);
+		box-shadow: var(--form-focus) 0 1px;
+		color: var(--form-focus);
+	}
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    accent-color: var(--form-accent);
+    background-color: transparent;
+    border: 1px solid var(--form-text);
+    border-radius: 2px;
+    height: var(--form-check-size);
+    margin: 0;
+    min-width: var(--form-check-size);
+    width: var(--form-check-size);
+
+	&:focus-visible {
+		border-color: var(--form-focus);
+		outline: 1px solid var(--form-focus);
+	}
+	
+	&:checked {
+		background-color: var(--form-accent);
+		border-color: var(--form-accent);
+		&:before {
+			background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjIiIGhlaWdodD0iMjIiIHZpZXdCb3g9IjAgMCAyMiAyMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgaWQ9Ikljb24gTGVmdCI+CjxwYXRoIGlkPSJWZWN0b3IiIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNMTguODE5NiA2LjkwMjk0TDkuMTY2OCAxNi41NTU3TDMuMTgwNjYgMTAuNTY5Nkw0LjE1Mjk0IDkuNTk3MzNMOS4xNjY4IDE0LjYxMTJMMTcuODQ3MyA1LjkzMDY2TDE4LjgxOTYgNi45MDI5NFoiIGZpbGw9IiMwQTBBMEQiLz4KPC9nPgo8L3N2Zz4K");
+			background-position: center;
+			background-size: cover;
+			content: "";
+			display: block;
+			height: 100%;
+			text-align: center;
+			width: 100%;
+		}
+	}
+}
+
+input[type="submit"] {
+    background-color: var(--form-accent);
+    border: 2px solid var(--form-accent);
+    color: var(--tbwa-brand-primary);
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1rem;
+    padding: 21px 36px 22px;
+    transition:all .1s ease-in-out;
+
+	@include md {
+		padding-bottom: 26px;
+		padding-top: 25px;
+	}
+	@include lg {
+		padding-bottom: 29px;
+		padding-top: 27px;
+	}
+	@include xl {
+		padding-bottom: 28px;
+		padding-top: 28px;
+	}
+
+	&:hover,
+	&:focus {
+		background-color: var(--form-btn-hover-bg);
+		border-color: var(--form-btn-hover-bg);
+		color: var(--form-btn-hover-co);
+	}
+}
+
+
+////////////////////
+//  Utilities
+.fw-medium      { font-weight: 500; }

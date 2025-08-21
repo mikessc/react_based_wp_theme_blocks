@@ -1,0 +1,203 @@
+@use '../common' as *;
+
+.wp-block-tbwa-blocks-homepage-hero {
+	position: relative;
+
+	width: 100%;
+
+	@include md { 
+		.no-widow-desktop { 
+			white-space: no-wrap;
+			display: inline-block;
+		}
+	}
+
+	.hero-column {
+		position: absolute;
+		top: 90vw;
+		width: calc(100% - 48px);
+		padding-left: $column-margin + px;
+		padding-right: $column-margin + px;
+		z-index: 150;
+
+		@include md { 
+			@include elastic('top', 355, 600);
+		}
+
+		@include md {
+			@include elastic('max-width', $column-width);
+			left: 50%;
+			transform: translateX(-50%);
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		@include lg {
+			padding-left: 0px;
+			padding-right: 0px;
+		}
+
+		.bottom-container {
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+		}
+
+	}
+
+
+	//  Indicators
+	.indicators { 
+		display: flex;
+		justify-content: left;
+		align-items: center;
+		padding: 0 12px;
+		background-color: rgba(0, 0, 0, .3);
+		border-radius: 15px;
+		//mix-blend-mode: exclusion;
+
+		.indicator-min, .indicator-max { 
+			@include elasticMany((
+				('width', 36),
+				('height', 36)
+			));
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.indicator { 
+			position: relative;
+			.indicator-base { 
+				@include elastic('width', 95);
+				height: 1px;
+				background-color: RGBA(255,255,255,0.5);
+			}
+			.indicator-knob { 
+				//transition: all 0.5s ease-in-out;
+				position: absolute;
+				top: 0px;
+				left: 0%;
+				height: 1px;
+				width: 0%;
+				background-color: $color-white;
+			}
+		}
+		.indicator-play-pause {
+			position: relative;
+			@include elasticMany((
+				('width', 32), 
+				('height', 32) 
+			));
+			.button-play,  
+			.button-pause { 
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				@include elasticMany((
+					('width', 32), 
+					('height', 32)
+				));
+				cursor: pointer;
+			}
+			.button-play {
+				display: none;
+			}
+		}
+
+	}
+
+	.items {  
+		position: relative;
+		width: 100%;
+		font-size: 0;
+
+		height: 160vw;
+		@media (min-width: 768px) {
+			@include elastic('height', 580, 870);
+		}
+	}
+
+	.controls {
+		height: 48px;
+		width: 48px;
+		background-color: rgba(0, 0, 0, .3);
+		border-radius: 50%;
+		position: relative;
+
+		@media (min-width: 768px) {
+			height: auto;
+			width: auto;
+			border-radius: 15px;
+			padding: 5px 12px;
+		}
+
+		.control {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			padding: 0;
+			overflow: hidden;
+			cursor: pointer;
+			border: none;
+			background: none;
+			color: $color-white;
+			display: flex;
+			align-items: center;
+			font-size: 0 !important;
+			font-weight: 400;
+			font: 100% "TBWAGrotesk", "times", Helvetica, sans-serif;
+
+			@media (min-width: 768px) {
+				position: relative;
+				top: unset;
+				left: unset;
+				transform: none;
+				font-size: 18px !important;
+				gap: 10px;
+			}
+
+			&.hide {
+				display: none;
+			}
+		}
+	}
+}
+
+.homepage-hero-arrows {
+	position: absolute;
+    height: 100%;
+    width: 100%;
+
+	@include lg {
+		display: none;
+	}
+
+	.prev, .next {
+		height: 80px;
+		width: 80px;
+		mix-blend-mode: exclusion;
+		position: absolute;
+		top: 30%;
+		transform: translateY(-30%);
+		z-index: 150;
+
+		@include md {
+			height: 96px;
+			width: 96px;
+		}
+
+		svg {
+			height: 100%;
+			width: 100%;
+		}
+	}
+
+	.prev {
+		left: 24px;
+	}
+
+	.next {
+		right: 24px;
+	}
+}

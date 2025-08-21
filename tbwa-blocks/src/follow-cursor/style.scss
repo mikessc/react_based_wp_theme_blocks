@@ -1,0 +1,132 @@
+@use '../common' as *;
+
+
+.wp-block-tbwa-blocks-follow-cursor {
+	display:none;
+}
+
+.tbwa-touch-screen .wp-block-tbwa-blocks-follow-cursor {
+
+	display:flex;
+	position:relative;
+	a { 
+		position:relative;
+		display:inline-block;
+		svg { 
+			position:absolute;
+		}
+	}
+
+	@include elastic('padding-top', 24);
+
+	//  Cursor horizontal position
+	justify-content: center;
+	&.position-left,  
+	&.position-overlap-left { 
+		justify-content: left;
+	}
+	&.position-right, 
+	&.position-overlap-right { 
+		justify-content: right;
+	}
+
+	//  Cursor Size
+	@include elastic('height', $follow-cursor-small);
+	a, svg { 
+		@include elasticMany((
+			('width', $follow-cursor-small), 
+			('height', $follow-cursor-small)
+		));
+	}
+	&.size-medium { 
+		@include elastic('height', $follow-cursor-medium);
+		a, svg { 
+			@include elasticMany((
+				('width', $follow-cursor-medium),  
+				('height', $follow-cursor-medium)
+			));
+		}
+	}
+	&.size-large { 
+		@include elastic('height', $follow-cursor-large);
+		a, svg { 
+			@include elasticMany((
+				('width', $follow-cursor-large),  
+				('height', $follow-cursor-large)
+			));
+		}
+	}
+
+	//  Overlay previous element
+	&.position-overlap-left, 
+	&.position-overlap-center,  
+	&.position-overlap-right { 
+		height:0px;
+		a { 
+			@include elastic('top', calc(($follow-cursor-small - 20) * -1));
+		}
+		&.size-medium { 
+			a { 
+				@include elastic('top', calc(($follow-cursor-medium - 20) * -1));
+			}
+		}
+		&.size-large { 
+			a { 
+				@include elastic('top', calc(($follow-cursor-large - 20) * -1));
+			}
+		}
+	}
+
+	//  Hidden	
+	&.position-hidden {  
+		display:none;
+	}
+
+	//  Color
+	mix-blend-mode: exclusion;
+	&.color-yellow {
+		mix-blend-mode: normal;
+	}
+	&.color-yellow svg .svg-background { 
+		fill:$color-yellow;
+	}
+	&.color-yellow svg .svg-foreground { 
+		fill:#000000;
+	}
+
+	//  Mobile floating animation 
+	&.position-left, 
+	&.position-center,  
+	&.position-right,  
+	&.position-overlap-left, 
+	&.position-overlap-center,  
+	&.position-overlap-right { 
+		svg { 
+			animation: tbwa-blocks-follow-cursor-float 6s ease-in-out infinite; 
+		}
+		@include md { 
+			animation: none;
+		}
+	}
+
+}
+
+
+
+@keyframes tbwa-blocks-follow-cursor-float {
+	0% {
+		transform: translateY(10px);
+	}
+	50% {
+		transform: translateY(-10px);
+	}
+	100% {
+		transform: translateY(10px);
+	}
+}
+
+
+
+
+
+

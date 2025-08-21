@@ -1,0 +1,9 @@
+@use '../common' as *;
+
+.block-editor-block-list__block {
+    .wp-block-tbwa-blocks-form-download {
+        button {
+            color: $color-light-grey;
+        }
+    }
+}

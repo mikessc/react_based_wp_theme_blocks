@@ -1,0 +1,23 @@
+@use '../common' as *;
+
+
+.wp-block-tbwa-blocks-heading-circle-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+
+	@include md {
+		&.lonely-circle-companion {
+			.wp-block-tbwa-blocks-heading-circle {
+				&:nth-last-child(2) {
+					margin-left: 8%;
+				}
+
+				&:last-child {
+					margin-right: 8%;
+				}
+			}
+		}
+	}
+}
+

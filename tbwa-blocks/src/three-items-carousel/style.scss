@@ -1,0 +1,167 @@
+@use '../common' as *;
+
+.carousel-heading {
+	&.wp-block-tbwa-blocks-section {
+		padding: 4.15vw 0 2.6vw;
+	}
+}
+
+
+.wp-block-tbwa-blocks-three-items-carousel {
+	position:relative;
+	width:100%;
+	overflow:hidden;
+
+	.indicators { 
+		position:absolute;
+		bottom: 0;
+		width:100%;
+		display:flex;
+		justify-content:center;
+		align-items:center;
+		//mix-blend-mode:exclusion;
+
+		.indicator-min, .indicator-max { 
+			@include elasticMany((
+				('width', 36),
+				('height', 36)
+			));
+			display:flex;
+			justify-content:center;
+			align-items:center;
+			color:$color-white;
+		}
+		.indicator { 
+			position:relative;
+			.indicator-base { 
+				@include elastic('width', 95);
+				height:1px;
+				background-color:RGBA(255,255,255,0.5);
+			}
+			.indicator-knob { 
+				//transition:all 0.5s ease-in-out;
+				position:absolute;
+				top:0px;
+				left:0%;
+				height:1px;
+				width:0%;
+				background-color:$color-white;
+			}
+		}
+		.indicator-play-pause {
+			position:relative;
+			@include elasticMany((
+				('width', 32), 
+				('height', 32) 
+			));
+			.button-play,  
+			.button-pause { 
+				position:absolute;
+				top:0px;
+				left:0px;
+				@include elasticMany((
+					('width', 32), 
+					('height', 32)
+				));
+				cursor:pointer;
+			}
+			.button-play {
+				display:none;
+			}
+		}
+	}
+
+	.items { 
+		height: 36.1vw;
+		padding: 0 0 4.687vw 0;
+
+		@include xs {
+			height: 72vw;
+		}
+
+		@include sm {
+			height: 36.1vw;
+		}
+	}
+
+	.arrows {
+		.arrow-left, .arrow-right {
+			cursor: pointer;
+			position: absolute;
+			z-index: 30;
+			top: 30%;
+			transform: scale(1);
+			width: 4.95vw;
+			height: 4.95vw;
+
+			@include xs {
+				width: 11vw;
+				height: 11vw;
+				top: 22%;
+			}
+
+			@include sm {
+				width: 4.95vw;
+				height: 4.95vw;
+				top: 30%;
+			}
+		}
+
+		.arrow-left {
+			background: url(./images/arrow-left.png);
+			background-size: cover;
+			left: 16%;
+
+			&:hover {
+				background: url(./images/arrow-left-hover.png);
+				background-size: cover;
+			}
+
+			@include xs {
+				left: 2%;
+			}
+
+			@include sm {
+				left: 16%;
+			}
+		}
+
+		.arrow-right {
+			background: url(./images/arrow-right.png);
+			background-size: cover;
+			right: 16%;
+
+			&:hover {
+				background: url(./images/arrow-right-hover.png);
+				background-size: cover;
+			}
+
+			@include xs {
+				right: 2%;
+			}
+
+			@include sm {
+				right: 16%;
+			}
+		}
+	}
+
+}
+
+
+.wp-block-tbwa-blocks-three-items-carousel.indicator-black { 
+	.indicators { 
+		.indicator-min, .indicator-max { 
+			color:$color-black;
+		}
+		.indicator { 
+			.indicator-base { 
+				background-color:RGBA(0,0,0,0.5);
+			}
+			.indicator-knob { 
+				background-color:$color-black;
+			}
+		}
+	}
+}
+

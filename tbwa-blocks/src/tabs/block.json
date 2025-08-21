@@ -1,0 +1,17 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "tbwa-blocks/tabs",
+	"version": "1.0",
+	"title": "Tabs",
+	"category": "tbwa-blocks",
+	"description": "A group of tabs with a very custom interface.",
+	"supports": {
+		"html":false
+	},
+	"textdomain": "tbwa-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./frontend.js"
+}

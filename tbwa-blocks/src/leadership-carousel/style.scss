@@ -1,0 +1,405 @@
+@use '../common' as *;
+
+.carousel-heading {
+	&.wp-block-tbwa-blocks-section {
+		padding: 30px 0;
+	}
+}
+
+.block-editor-inner-blocks .wp-block-tbwa-blocks-button-ctas {
+	position: relative !important;
+	max-width: unset !important;
+	right: unset !important;
+	margin: 0;
+}
+
+.wp-block-tbwa-blocks-leadership-carousel {
+	position:relative;
+	width:100%;
+
+	.indicators { 
+		position:absolute;
+		width:100%;
+		display:flex;
+		justify-content:center;
+		align-items:center;
+		//mix-blend-mode:exclusion;
+
+		@include elastic('bottom', 33.75);
+
+		@include sm {
+			@include elastic('bottom', 51.84);
+		}
+
+		@include lg {
+			@include elastic('bottom', 135);
+		}
+
+		@include xl {
+			@include elastic('bottom', 180);
+		}
+
+		.indicator-min, .indicator-max { 
+			@include elasticMany((
+				('width', 36),
+				('height', 36)
+			));
+			display:flex;
+			justify-content:center;
+			align-items:center;
+			color:$color-white;
+		}
+		.indicator { 
+			position:relative;
+			.indicator-base { 
+				@include elastic('width', 95);
+				height:1px;
+				background-color:RGBA(255,255,255,0.5);
+			}
+			.indicator-knob { 
+				//transition:all 0.5s ease-in-out;
+				position:absolute;
+				top:0px;
+				left:0%;
+				height:1px;
+				width:0%;
+				background-color:$color-white;
+			}
+		}
+		.indicator-play-pause {
+			position:relative;
+			@include elasticMany((
+				('width', 32), 
+				('height', 32) 
+			));
+			.button-play,  
+			.button-pause { 
+				position:absolute;
+				top:0px;
+				left:0px;
+				@include elasticMany((
+					('width', 32), 
+					('height', 32)
+				));
+				cursor:pointer;
+			}
+			.button-play {
+				display:none;
+			}
+		}
+	}
+
+	.slick-arrow {
+		cursor: pointer;
+		position: absolute;
+		z-index: 30;
+		top: 29.5vw;
+		transform: scale(1);
+		width: 4.95vw;
+		height: 4.95vw;
+		font-size: 0;
+		border: none;
+
+		@include xs {
+			width: 11vw;
+			height: 11vw;
+			top: 29.5vw;
+		}
+
+		@include sm {
+			width: 4.95vw;
+			height: 4.95vw;
+			top: 12vw;
+		}
+	}
+
+	.slick-prev {
+		background: url(./images/arrow-left.png);
+		background-size: cover;
+		left: 26.5%;
+
+		&:hover {
+			background: url(./images/arrow-left-hover.png);
+			background-size: cover;
+		}
+
+		@include xs {
+			left: 2%;
+		}
+
+		@include sm {
+			left: 26.5%;
+		}
+	}
+
+	.slick-next {
+		background: url(./images/arrow-right.png);
+		background-size: cover;
+		right: 26.5%;
+
+		&:hover {
+			background: url(./images/arrow-right-hover.png);
+			background-size: cover;
+		}
+
+		@include xs {
+			right: 2%;
+		}
+
+		@include sm {
+			right: 26.5%;
+		}
+	}
+
+}
+
+.wp-block-tbwa-blocks-section.inserted-carousel-cta {
+	padding: 0 0 92px;
+
+	.wp-block-tbwa-blocks-button-cta {
+		.size-large {
+			font-size: 4vw;
+			line-height: .75vw;
+	
+			.arrowIcon {
+				width: 4vw;
+				display: inline-flex;
+				vertical-align: middle;
+			}
+	
+			@include sm {
+				font-size: 2.1vw;
+	
+				.arrowIcon {
+					width: 2.5vw;
+				}
+			}
+	
+			@include md {
+				font-size: 2.1vw;
+	
+				.arrowIcon {
+					width: 2.5vw;
+				}
+			}
+	
+			@include lg {
+				.arrowIcon {
+					width: 2.25vw;
+				}
+			}
+		}
+	}
+}
+
+
+.wp-block-tbwa-blocks-leadership-carousel.indicator-blacks { 
+	.indicators { 
+		.indicator-min, .indicator-max { 
+			color:$color-black;
+		}
+		.indicator { 
+			.indicator-base { 
+				background-color:RGBA(0,0,0,0.5);
+			}
+			.indicator-knob { 
+				background-color:$color-black;
+			}
+		}
+	}
+}
+
+.slick-slider {
+
+	.slick-slide {
+		margin-top: 13.75vw;
+		margin-left: 1px;
+
+		@include sm {
+			margin-top: 3vw;
+		}
+
+		&.center- {
+			&left, &right {
+				width: 27vw;
+				margin-top: 7.5vw;
+
+				@include sm {
+					width: 12.4vw;
+					margin-top: 1.8vw;
+				}
+
+				& .wp-block-tbwa-blocks-image {
+					width: 100%;
+					height: 55vw;
+
+					@include sm {
+						width: 100%;
+						height: 22.5vw;
+					}
+				}
+
+				.wp-block-tbwa-blocks-image {
+					img {
+						transform: skewX(-18deg);
+						transform-origin: top;
+						width: 285%;
+		
+						@include xs {
+							width: 235%;
+						}
+		
+						@include sm {
+							width: 162%;
+						}
+					}
+				}
+
+			}
+
+			&left {
+				margin-left: 0;
+
+				@include sm {
+					margin-left: .25vw;
+				}
+			}
+
+			&right {
+				margin-right: 3.75vw;
+				margin-left: 3.75vw;
+
+				@include sm {
+					margin-right: 1vw;
+					margin-left: 1vw;
+				}
+			}
+		}
+
+		.wp-block-tbwa-blocks-image {
+			transform: skewX(18deg);
+			overflow: hidden;
+			width: 15.5vw;   
+			height: 42.5vw;
+			transform-origin: top;
+
+			@include sm {
+				width: 3.54vw;
+				height: 20.16vw; 
+			}
+
+			img {
+				transform: skewX(-18deg)  translateX(-25%);
+				transform-origin: top;
+				width: 254%;
+
+				@include sm {
+					width: 512%;
+				}
+			}
+		}
+		.wp-block-tbwa-blocks-paragraph, h4 {
+			display: none;
+		}
+	}
+	.slick-center {
+		width: 38vw;
+		margin: 0 .2vw 0 .15vw;
+
+		@include sm {
+			width: 15.37vw;
+			margin: 0 .2vw 0 .15vw;
+		}
+
+		.wp-block-tbwa-blocks-image {
+			width: 100%;    
+			height: 70vw;
+
+			@include sm {
+				width: 15.37vw;
+				height: 26.85vw;
+			}
+
+			img {
+				width: 161%;
+				transform: skewX(-18deg)  translateX(0);
+
+				@include sm {
+					width: 155%;
+				}
+			}
+		}
+		.h4, .wp-block-tbwa-blocks-paragraph {
+			display: block;
+			padding-left: 5vw;
+			padding-right: 5vw;
+			width: 100vw;
+			transform: translateX(-20%);
+			text-align: center;
+			box-sizing: border-box;
+
+			@include sm {
+				padding-left: 8.7vw;
+				padding-right: unset;
+				transform: unset;
+				text-align: left;
+				width: 160%;
+			}
+		}
+
+		.h4 {
+			font-weight: 500;
+			//font-size: 2.0833vw;
+			padding-top: 0.5vw;
+
+			@include xs {
+				//font-size: 4vw;
+				padding-top: 4vw;
+			}
+
+			@include sm {
+				font-size: 2.0833vw;
+				padding-top: 0.5vw;
+			}
+		}
+	}
+}
+
+.slick-dots {
+	margin: 0;
+	position: absolute;
+	z-index: 700;
+	bottom: -34px;
+	
+	@include sm {
+		min-width: 15.37vw;
+		left: 50%;
+		transform: translateX(-50%);
+		padding-left: 8.2vw;
+		bottom: -44px;
+	}
+
+	li {
+		list-style: none;
+		display: inline-block;
+
+		button {
+			font-size: 0;
+			height: 1px;
+			width: 5px;
+			background: rgba(255, 255, 255, 0.5);;
+			border: none;
+			padding: 0;
+
+			@include sm {
+				width: 10px;
+			}
+		}
+	}
+
+	.slick-active {
+		button {
+			background: $color-white;
+		}
+	}
+}

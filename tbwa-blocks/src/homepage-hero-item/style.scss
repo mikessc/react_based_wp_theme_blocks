@@ -1,0 +1,189 @@
+@use '../common' as *;
+
+.wp-block-tbwa-blocks-homepage-hero-item {
+
+	position:absolute;
+	display:none;
+	top:0px;
+	left:0px;
+	width:100%;
+	margin:0px;
+	overflow: hidden;
+	&.animate { 
+		transition:left 1.0s ease-in-out;
+	}
+
+	//  Background
+	.background,  
+	.background img,
+	.background video { 
+		height:106.25vw;
+		@include md { 
+			@include elastic('height', 300, 660);
+		}
+		user-select: none;
+	}
+
+	.background { 
+		position:absolute;
+		width:100%;
+	}
+	.background img, 
+	.background video { 
+		object-fit:cover;
+		width:100%;
+	}
+	&.active {
+		.background img, 
+		.background video { 
+			object-position:center center;
+		}
+	}
+	&.animate {
+		.background img, 
+		.background video { 
+			transition:object-position 0.75s ease-out 0.0s, clip-path 0.75s ease-out 0.0s;
+		}
+	}
+	&.animate.active {
+		.background img, 
+		.background video { 
+			transition:object-position 0.75s ease-out 0.0s, clip-path 0.5s ease-out 0.5s;
+		}
+	}
+	.background img, 
+	.background video { 
+		//clip-path:polygon(0% 0%, 68% 0%, 100% 100%, 32% 100%);
+	}
+	&.active .background img, 
+	&.active .background video { 
+		//clip-path:polygon(0 0%, 100% 0%, 100% 100%, 0% 100%);
+	}
+
+
+	//  Column
+	.column {
+		position:relative;
+
+
+		@include md {
+			@include elastic('max-width', $column-width);
+			margin-left:auto;
+			margin-right:auto;
+		}
+
+		padding-left:$column-margin + px;
+		padding-right:$column-margin + px;
+		@include lg {
+			padding-left:0px;
+			padding-right:0px;
+		}		
+
+
+		padding-top:120vw;
+		@media (min-width: #{$screen-md}) {
+			@include elastic('padding-top', 660);
+		}
+
+	}
+
+
+	//  Foreground
+	.foreground-open, .foreground-open img, .foreground-open video,  
+	.foreground-closed, .foreground-closed img, .foreground-closed video { 
+		width:100vw;
+		height:100vw;
+		@include md { 
+			@include elasticMany((
+				('width', 290, 660),
+				('height', 290, 660)
+			));
+		}
+	}
+	.foreground-open, .foreground-closed {
+		position:absolute;
+		top:12.5vw;
+		z-index: 100;
+		@include md { 
+			@include elastic('top', 40, 80);
+		}
+		right:20px;
+		@include lg {
+			right:0px;
+		}
+	}
+
+
+	//  Horizontal parallax ease on the foreground
+	//  Clip path animation on foreground-open
+	&.animate {
+		.foreground-open, .foreground-closed { 
+			transition:transform 0.5s ease-out 0.0s, clip-path 0.75s ease-out 0.0s;
+		}
+	}
+	&.animate.active {
+		.foreground-open, .foreground-closed { 
+			transition:transform 0.5s ease-out 0.5s, clip-path 0.75s ease-out 0.75s;
+		}
+	}
+	.foreground-open, .foreground-closed { 
+		transform:translateX(-40vw);
+		img { 
+			pointer-events: none;
+			user-select: none;
+		}
+	}
+	&.active {
+		.foreground-open, .foreground-closed { 
+			transform:translateX(0);
+		}
+	}
+	.foreground-open { 
+		clip-path:polygon(-36.58% 0%, 100% 0%, 136.58% 100%, 0% 100%);
+	}
+	&.active .foreground-open { 
+		clip-path:polygon(63.47% 0%, 63.47% 0%, 100% 100%, 100% 100%);
+	}
+
+
+	//  Text - Slide on/off
+	.h4 { 
+		width:100%;
+	}
+	@include md { 
+		.h4 { 
+			width:74.47%;
+		}
+	}
+	&.animate {
+		.text p { 
+			transition:transform 1.0s ease-out;
+		}
+		.text .h4 { 
+			transition:transform 1.0s ease-out;
+		}
+	}
+	.text p { 
+		transform:translateX(10vw);
+		padding-top:1.25em;
+		padding-bottom:0px;
+		//white-space:nowrap;
+	}
+	&.active .text p { 
+		transform:translateX(0);
+	}
+	.text .h4 { 
+		transform:translateX(15vw);
+		padding-top:0px;
+		//white-space:nowrap;
+	}
+	&.active .text .h4 { 
+		transform:translateX(0);
+	}
+	.text { 
+		@include elastic('min-height', 160);
+	}
+
+
+
+}

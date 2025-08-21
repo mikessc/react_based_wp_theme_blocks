@@ -1,0 +1,55 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "tbwa-blocks/language-selector-item",
+	"version": "1.0",
+	"title": "Language Selector Item",
+	"category": "tbwa-blocks",
+	"parent": ["tbwa-blocks/language-selector"],
+	"description": "An item in the language selector.",
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"title": {
+			"type": "string",
+			"default": ""
+		},
+		"mediaId": {
+			"type": "number", 
+			"default": 0
+		}, 
+		"mediaUrl": {
+			"type": "string", 
+			"default": ""
+		}, 
+		"mediaAlt": {
+			"type": "string", 
+			"default": ""
+		}, 
+		"mediaTitle": {
+			"type": "string", 
+			"default": ""
+		},
+		"mediaType": {
+			"type": "string", 
+			"default": ""
+		}, 
+		"mediaMime": {
+			"type": "string", 
+			"default": ""
+		}, 
+		"linkUrl": {
+			"type": "string", 
+			"default": ""
+		},
+		"linkTarget": {
+			"type": "string", 
+			"default": "_parent"
+		}
+	},
+	"textdomain": "tbwa-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

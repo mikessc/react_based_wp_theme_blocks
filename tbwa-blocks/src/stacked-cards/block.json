@@ -1,0 +1,18 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "tbwa-blocks/stacked-cards",
+	"version": "1.0",
+	"title": "Stacked Cards",
+	"category": "tbwa-blocks",
+	"description": "A stack of four cards with a very custom interface.",
+	"supports": {
+		"html":false
+	},
+	"parent": ["tbwa-blocks/stacked-cards-container"],
+	"textdomain": "tbwa-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./frontend.js"
+}

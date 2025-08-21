@@ -1,0 +1,47 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "tbwa-blocks/column-grid-item",
+	"version": "1.0",
+	"title": "Column Grid Item",
+	"category": "tbwa-blocks",
+	"parent": ["tbwa-blocks/column-grid"],
+	"description": "Single Column within a 12 Column Grid.",
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"desktop": {
+			"type": "number", 
+			"default": 4
+		},
+		"tablet": {
+			"type": "number", 
+			"default": 6
+		},
+		"mobile": {
+			"type": "number", 
+			"default": 4
+		}, 
+		"parallaxEnabled": {
+			"type": "boolean", 
+			"default": false
+		},
+		"parallaxOpacity": {
+			"type": "boolean", 
+			"default": true
+		},
+		"parallaxLineSpacing": {
+			"type": "boolean", 
+			"default": false
+		},
+		"parallaxSpeed": {
+			"type": "number", 
+			"default": 25
+		}
+	},
+	"textdomain": "tbwa-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

@@ -1,0 +1,30 @@
+@use '../common' as *;
+
+
+.wp-block-tbwa-blocks-tab {
+
+	margin-top:25px;
+	margin-bottom:25px;
+	max-height:none;
+
+	display:flex;
+	.column-title { 
+		padding:25px;
+		width:50%;
+		border:1px dashed #CCC;
+		font-size:50px;
+		font-weight:$font-medium;
+		letter-spacing:-0.02em;
+		line-height:1.2em;
+
+	}
+	.column-content { 
+		padding:10px;
+		width:50%;
+		border-top:1px dashed #CCC;
+		border-right:1px dashed #CCC;
+		border-bottom:1px dashed #CCC;
+	}
+
+}
+

@@ -1,0 +1,404 @@
+@use '../common' as *;
+
+html {
+	//  Must be set to auto for the Smooth Scroll 
+	scroll-behavior: auto;
+}
+body {
+	background-color:$color-black;
+	font: 100% $font-stack;
+	color: $color-black;
+	font-weight:300;
+	margin:0px;
+	padding:0px;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-text-size-adjust: none;
+
+	.wp-block-tbwa-blocks-work-next > div:first-child {
+		width: 100%;
+	}
+
+	&.password-protected {
+		background: $color-black;
+		
+		.wp-block-tbwa-blocks-work-next {
+			display: none;
+		}
+
+		.wp-block-tbwa-blocks-page {
+			background: $color-black;
+
+			#smooth-scroll-wrapper-outer, #smooth-scroll-wrapper-inner {
+				background: $color-black;
+				height: 100%;
+
+				#smooth-scroll-wrapper-inner {
+					background: $color-black;
+				}
+			}
+		}
+
+		#page-transition-wrapper {
+			height: 100%;
+		}
+
+		.entry-content {
+			position: relative;
+			text-align: center;
+			color: white;
+			width: 90%;
+			height: 50%;
+			padding: 80px 20px;
+
+			.post-password-message {
+				font-size: 22px;
+			}
+
+			.post-password-form__input {
+				height: 50px;
+				font-size: 22px;
+				outline: none;
+				border: 0;
+				padding-left: 10px;
+			}
+
+			.color-yellow {
+				color: $color-yellow;
+
+				&:hover {
+					color: $color-black
+				}
+			}
+		}
+	}
+}
+.wp-site-blocks {
+	background-color:$color-black;
+	overflow:hidden;
+	min-height:110vh;
+}
+.wp-block-tbwa-blocks-page { 
+	background-color:$color-white;
+}
+strong { 
+	font-weight:$font-bold;
+}
+
+//  Page Transition
+#page-transition-overlay {
+	position:fixed;
+	z-index:999;
+	top:0px;
+	left:0px;
+	width:100vw;
+	height:100vh;
+	display:none;
+	background-color:$color-yellow;
+	background-image:url('images/page-transition-spinner.gif');
+	background-repeat:no-repeat;
+	background-position:center center;
+	background-size:250px 250px;
+}
+
+#page-transition-overlay::before {
+	content: "";
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	background-color: rgba($color-yellow, 1);
+	transition: background-color 0.25s linear;
+}
+#page-transition-overlay.delayed::before {
+	background-color: rgba($color-yellow, 0); 
+}
+
+
+
+//  Parallax
+.wp-debug { 
+	//div[data-parallax] {
+	//	border:3px dashed red;
+	//	border-image: linear-gradient(45deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82) 1;
+	//	box-sizing:border-box;
+	//}
+}
+
+
+
+//  Smooth Scroll
+@include md {
+	.tbwa-smooth-scroll-enabled {
+		#smooth-scroll-wrapper-outer {
+			position:fixed;
+			display:block;
+			width:100%;
+			#smooth-scroll-wrapper-inner { 
+				position:relative;
+				background-color:$color-white;
+			} 
+		}
+	}
+}
+
+
+//  Follow Cursor
+#follow-cursor { 
+	pointer-events:none;
+	transition:transform 0.5s ease-out;
+	transform-origin:0 0;
+	position:fixed;
+	overflow:hidden;
+	font-size:0;
+	line-height:0;
+	mix-blend-mode: exclusion;
+	svg { 
+		display:none;
+		top:0px;
+		left:0px;
+		@include elasticMany((
+			('width', 200),
+			('height', 200)
+		));
+	}
+	&.color-yellow svg .svg-background { 
+		fill:$color-yellow;
+	}
+	&.color-yellow svg .svg-foreground { 
+		fill:#000000;
+	}
+	&.color-yellow-inverted svg .svg-background { 
+		fill:$color-yellow-inverted;
+	}
+	&.color-yellow-inverted svg .svg-foreground { 
+		fill:#FFFFFF;
+	}
+}
+
+
+//  These Cards are used for:
+//  - Work Loop
+//  - Work Featured
+//  - Search Loop
+//  - News Loop
+//  - Card Block
+//  The leadership loop card is similar, but does not use this css.
+//  They have custom spacing and a custom hover state
+.tbwa-card { 
+
+	//  Spacing
+	a { 
+
+	}
+	.wp-block-tbwa-blocks-image {
+		@include elastic('margin-bottom', 15, 32);
+	}	
+	.copy { 
+		.wp-block-tbwa-blocks-card-label, 
+		.wp-block-tbwa-blocks-paragraph.client-name,   
+		.wp-block-tbwa-blocks-paragraph.date { 
+			@include elastic('padding-bottom', 7.5, 17);
+			p.small { 
+
+			}
+		}
+		.wp-block-tbwa-blocks-card-title, 
+		h5.h5.title { 
+			@include elastic('padding-bottom', 7.5, 15);
+		}
+		.wp-block-tbwa-blocks-paragraph.sub-title { 
+			p.small { 
+
+			}
+		}
+		.wp-block-tbwa-blocks-card-text, 
+		.wp-block-tbwa-blocks-paragraph.excerpt { 
+			p.standard { 
+
+			}
+		}
+	}
+
+	//  Image scales on hover
+	a {
+		text-decoration:none;
+	}
+
+	.wp-block-tbwa-blocks-image {
+		overflow:hidden;
+
+		img {
+			transition:transform $rollover-duration ease-in-out;
+			transform:scale(1.0);
+		}
+	}
+
+	&:hover {
+		a {
+			text-decoration:none;
+		}
+
+		.wp-block-tbwa-blocks-image {
+			img { 
+				transform:scale(1.2);
+			}
+		}
+	}
+}
+
+//  Copy gets darker or lighter on hover
+.tbwa-card:hover .copy { 
+	p, h1, h2, h3, h4, h5, h6 { 
+		transition:color $rollover-duration ease-in-out;
+		color:$color-black;
+	}
+}
+.background-black .tbwa-card:hover .copy { 
+	p, h1, h2, h3, h4, h5, h6 { 
+		transition:color $rollover-duration ease-in-out;
+		color:$color-white;
+	}
+}
+
+
+
+//  Cookie Notification Overlay
+.tbwa-cookie-notification-enabled #cookie-notification-overlay { 
+
+	//  Full page width, fixed bottom
+	position:fixed;
+	z-index:960;
+	left:0px;
+	bottom:0px;
+	width:100%;
+
+	background-color:$color-white;
+	&.background-black { 
+		background-color:$color-black;
+	}
+
+	> div { 
+
+		//  Flex items
+		display:flex;
+		flex-direction:column;
+		justify-content:flex-end;
+		align-items:flex-start;
+		flex-wrap: wrap;
+		.message { 
+			flex-grow:1;
+			padding-bottom:30px;
+			order:1;
+		}
+		.accept { 
+			order:2;
+		}
+		.reject { 
+			order:3;
+		}
+		.wp-block-tbwa-blocks-button { 
+			width:100%;
+			button { 
+				width:100%;
+				margin-right:0px;
+				margin-bottom:0px;
+			}
+		}
+		@include sm {
+			flex-direction:row;
+			align-items:center;
+			.message { 
+				padding-bottom:0px;
+				order:1;
+			}
+			.accept { 
+				order:3;
+			}
+			.reject { 
+				order:2;
+			}
+			.wp-block-tbwa-blocks-button { 
+				width:auto;
+				button { 
+					width:auto;
+				}
+			}
+		}
+		@include md {
+			flex-wrap:nowrap;
+		}
+
+		//  Standard Column Width 
+		position:relative;
+		padding-left:$column-margin + px;
+		padding-right:$column-margin + px;
+		@include md {
+			@include elastic('max-width', $column-width);
+			margin-left:auto;
+			margin-right:auto;
+		}
+		@include lg {
+			padding-left:0px;
+			padding-right:0px;
+		}		
+
+		//  Spacing
+		@include elasticMany((
+			('padding-left', 24, 30), 
+			('padding-right', 24, 30), 
+			('padding-top', 30, 30), 
+			('padding-bottom', 30, 30), 
+			('gap', 30, 30)
+		));
+
+
+	}
+
+}
+
+.hide-for-mobile {
+	display: none;
+
+	@include sm {
+		display: block;
+	}
+}
+
+/* Coockie notice */
+#onetrust-banner-sdk.has-reject-all-button .ot-bnr-save-handler,
+#onetrust-consent-sdk #onetrust-accept-btn-handler,
+#onetrust-banner-sdk.has-reject-all-button #onetrust-pc-btn-handler {
+	color: $color-black !important;
+}
+
+#onetrust-banner-sdk .ot-bnr-save-handler {
+	color: $color-white !important;
+	background-color: $color-yellow !important;
+	border-color: $color-white !important;
+}
+
+#onetrust-banner-sdk #onetrust-reject-all-handler,
+#onetrust-consent-sdk #onetrust-pc-sdk .ot-pc-refuse-all-handler {
+	color: $color-white !important;
+	background-color: $color-black !important;
+	border-color: $color-black !important;
+}
+
+.ot-floating-button__front {
+	background-image: url(images/gingerbread-pirate.png) !important;
+	background-color: transparent !important;
+	box-shadow: none !important;
+}
+
+#ot-sdk-btn-floating .ot-floating-button__back {
+	background-color: #FECC00 !important;
+}
+
+#ot-sdk-btn-floating .ot-floating-button__back svg {
+	filter: brightness(0);
+}
+
+#skip_to_main {
+	font-size: 0;
+}

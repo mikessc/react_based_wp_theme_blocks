@@ -1,0 +1,27 @@
+@use '../common' as *;
+
+
+
+
+.wp-block-tbwa-blocks-footer-buttons {
+
+	.buttons { 
+		column-count:1;
+		column-gap:4em;
+		@include sm {
+			column-count:2;
+		}
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+

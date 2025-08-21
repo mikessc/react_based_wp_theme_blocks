@@ -1,0 +1,45 @@
+@use '../common' as *;
+
+
+.wp-block-tbwa-blocks-logo-grid-item {
+
+	width:120px;
+	height:120px;
+	img { 
+		width:120px;
+		height:120px;
+	}
+
+	@media (min-width: 350px) {
+		width:140px;
+		height:140px;
+		img { 
+			width:140px;
+			height:140px;
+		}
+	}
+
+	@media (min-width: 390px) {
+		width:160px;
+		height:160px;
+		img { 
+			width:160px;
+			height:160px;
+		}
+	}
+
+	a { 
+		transition:opacity 0.25s ease-in-out;
+	}
+	a:hover { 
+		opacity:0.8;
+	}
+
+	img { 
+		filter: invert(27%) sepia(0%) saturate(34%) hue-rotate(242deg) brightness(94%) contrast(81%);
+	}
+}
+.background-black .wp-block-tbwa-blocks-logo-grid-item img { 
+	filter: invert(98%) sepia(0%) saturate(9%) hue-rotate(170deg) brightness(89%) contrast(93%);
+}
+

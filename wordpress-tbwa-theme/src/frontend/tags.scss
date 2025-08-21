@@ -1,0 +1,105 @@
+@use '../common' as *;
+
+//  This style of tag are used in the Work and News pages
+
+.tbwa-tag-categories {
+
+	position:relative;
+	display:block;
+	width:100%;
+	@include elasticMany((
+		('padding-top', 40, 40), 
+		('padding-bottom', 25, 25)
+	));
+
+	a { 
+		transition:all $rollover-duration linear;
+		border-radius:100px;
+		text-decoration:none;
+		display:inline-block;
+
+		font-size:12.5px;
+		line-height:1.3em;
+
+		padding-left:24px; 
+		padding-right:24px; 
+		padding-top:6px;
+		padding-bottom:5px; 
+		margin-bottom:8px; 
+		margin-left:0px; 
+		margin-right:10px; 
+	}
+	//  CSS exceptions, the order of these is important. 
+	//  iOS with touch
+	@supports (-webkit-overflow-scrolling: touch) {
+		a {
+			//background-color:#060!important;
+			padding-top:6px;
+			padding-bottom:9px; 
+		}
+	}
+	//  Desktop
+	@include md { 
+		a {
+			//background-color:#006!important;
+			padding-top:5px;
+			padding-bottom:7px; 
+		}
+	}
+	//  Firefox
+	@supports (-moz-appearance:meterbar) and (display:flex) {
+		a {
+			//background-color:#600!important;
+			padding-top:6px;
+			padding-bottom:5px; 
+		}
+	}
+
+}
+
+//  Right Align (on desktop)
+.tbwa-tag-categories.right {
+	@include md {
+		text-align:right;
+		a { 
+			margin-left:10px; 
+			margin-right:0px; 
+		}
+	}
+}
+
+//  On White
+.tbwa-tag-categories {
+	a { 
+		border:1px solid $color-black;
+		color:$color-black;
+	}
+	a:hover { 
+		background-color:$color-black;
+		border-color:$color-black;
+		color:$color-white;
+	}
+	.active { 
+		background-color:$color-yellow;
+		border-color:$color-yellow;
+		color:$color-black;
+	}
+}
+
+//  On Black
+.background-black .tbwa-tag-categories {
+	a { 
+		border:1px solid $color-white;
+		color:$color-white;
+	}
+	a:hover { 
+		background-color:$color-white;
+		border-color:$color-white;
+		color:$color-black;
+	}
+	.active { 
+		background-color:$color-yellow;
+		border-color:$color-yellow;
+		color:$color-black;
+	}
+}

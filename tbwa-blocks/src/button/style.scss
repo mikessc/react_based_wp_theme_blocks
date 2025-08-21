@@ -1,0 +1,145 @@
+@use '../common' as *;
+
+
+.wp-block-tbwa-blocks-button {
+	display:inline-block;
+
+	//  Frontend it's an a or button tag, admin it's a div
+	> * {
+		background-color:$color-yellow;
+		color:$color-black;
+		display:inline-block;
+		font-family:$font-stack;
+		font-weight:$font-regular;
+		text-decoration:none;
+		border:none;
+		@include elasticMany((
+			('padding-top', 24, 32), 
+			('padding-bottom', 22, 30), 
+			('padding-left', 40, 45), 
+			('padding-right', 40, 45), 
+			('margin-right', 24, 24), 
+			('margin-bottom', 24, 24), 
+			('font-size', 16, 25)
+		));
+	}
+
+	//  Disable the link
+	.disable { 
+		opacity:0.5;
+		pointer-events:none;
+	}
+
+	//  Fancy hover animation
+	a, button {
+		display: inline-block;
+		vertical-align: middle;
+		transform: perspective(1px) translateZ(0);
+		box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+		position: relative;
+		transition-property: color;
+		transition-duration: $rollover-duration;
+	}
+	a:before, button:before {
+		content: "";
+		position: absolute;
+		z-index: -1;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background:$color-white;
+		transform: scaleX(0);
+		transform-origin: 0 50%;
+		transition-property: transform;
+		transition-duration: $rollover-duration;
+		transition-timing-function: ease-out;
+	}
+	a:hover:before, a:focus:before, a:active:before, 
+	button:hover:before, button:focus:before, button:active:before {
+		transform: scaleX(1);
+	}
+
+
+	//  This style is only used in the cookie notification overlay
+	&.secondary a, &.secondary button { 
+		border:1px solid $color-black;
+		background-color:$color-white;
+		box-sizing:border-box;
+	}
+
+}	
+
+
+//  On white
+.background-white .wp-block-tbwa-blocks-button, 
+.background-black .background-white .wp-block-tbwa-blocks-button {
+	a:before, button:before { 
+		background:$color-black;
+	}
+	a:active:before, button:active:before { 
+		background:color-dark-grey;
+	}
+	a:hover, a:focus, a:active, button:hover, button:focus, button:active {
+		color:$color-white;
+	}
+}
+
+//  On black
+.background-black .wp-block-tbwa-blocks-button, 
+.background-white .background-black .wp-block-tbwa-blocks-button { 
+	a:before, button:before { 
+		background:$color-white;
+	}
+	a:active:before, button:active:before { 
+		background:$color-light-grey;
+	}
+	a:hover, a:focus, a:active, button:hover, button:focus, button:active {
+		color:$color-black;
+	}
+
+	&.secondary a, &.secondary button { 
+		border:1px solid $color-white;
+		background-color:$color-black;
+		color:$color-white;
+		box-sizing:border-box;
+	}
+
+}
+
+//  On yellow
+.background-yellow .wp-block-tbwa-blocks-button, 
+.background-black .background-yellow .wp-block-tbwa-blocks-button, 
+.background-white .background-yellow .wp-block-tbwa-blocks-button { 
+	> * { 
+		background-color:$color-white;
+	}
+	a:before, button:before { 
+		background:$color-black;
+	}
+	a:active:before, button:active:before { 
+		background:$color-light-grey;
+	}
+	a:hover, a:focus, a:active, button:hover, button:focus, button:active {
+		color:$color-white;
+	}
+}
+
+//  Centered
+.center { 
+	.wp-block-tbwa-blocks-button {
+		display:inline-block;
+		> * { 
+			@include elasticMany((
+				('margin-left', 12, 12), 
+				('margin-right', 12, 12) 
+			));
+		}
+	}
+}
+
+
+
+
+
+

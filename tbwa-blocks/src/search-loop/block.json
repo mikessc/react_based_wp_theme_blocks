@@ -1,0 +1,18 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "tbwa-blocks/search-loop",
+	"version": "1.0",
+	"title": "Search Loop",
+	"category": "tbwa-blocks",
+	"description": "Displays a list of search results loaded from the keywords query variable.",
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+	},
+	"textdomain": "tbwa-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

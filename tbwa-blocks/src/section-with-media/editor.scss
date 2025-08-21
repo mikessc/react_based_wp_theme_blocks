@@ -1,0 +1,63 @@
+.wp-block-tbwa-blocks-section-with-media {
+	margin-top:30px;
+	margin-bottom:30px;
+
+	.column-inner-inner { 
+		min-height:200px;
+		border:1px dashed rgba(128,128,128,0.25);
+	}
+
+	.media { 
+		border:1px dashed rgba(128,128,128,0.25);
+	}
+
+	.no-media-selected { 
+		display:block;
+		height:100%;
+		display:flex;
+	}
+
+}
+
+
+
+//  Inspector
+.wp-block-tbwa-blocks-section-with-media-inspector {
+
+	.wp-block-tbwa-blocks-section-with-media-media-select {
+		display:block;
+		width:100%;
+
+		> div { 
+			background-color:#F0F0F0;
+			border:1px solid #CCCCCC;
+			height:120px;
+			overflow:hidden;
+			display:flex;
+			justify-content:center;
+			align-items:center;
+
+			button {
+				height:120px;
+				border:none;
+				background-color:transparent;
+			}
+			img { 
+				object-fit:cover;
+				width:100%;
+				height:100%;
+				border-style:none;
+			}
+		}
+	}
+
+	.wp-block-tbwa-blocks-section-with-media-media-select {
+	}  
+	.wp-block-tbwa-blocks-section-with-media-media-select:only-of-type {
+		width:120px;
+		> div { 
+			height:135px;
+		}
+	}  
+
+}

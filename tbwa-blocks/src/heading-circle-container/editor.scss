@@ -1,0 +1,25 @@
+@use '../common' as *;
+
+
+
+
+.wp-block-tbwa-blocks-heading-circle-container {
+	margin-top:24px;
+	margin-bottom:24px;
+	margin-left:0px;
+	margin-right:0px;
+	display: block;
+	padding:10px;
+	border:1px dashed rgba(128,128,128,0.5);
+
+	.wp-block-tbwa-blocks-heading-circle {
+		margin: 10px 20px;
+		padding-bottom: 10px;
+		border-bottom: 1px solid rgba(128,128,128,0.5);
+
+		.block-editor-rich-text__editable {
+			padding: 10px 25px;
+		}
+	}
+
+}

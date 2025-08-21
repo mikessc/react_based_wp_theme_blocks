@@ -1,0 +1,195 @@
+@use '../common' as *;
+
+
+.wp-block-tbwa-blocks-heading-circle {
+	height: 0;
+	border: 1px solid black;
+	border-radius: 50%;
+	box-sizing: border-box;
+	position: relative;
+	background-color: transparent;
+	margin-bottom: 30px;
+	width: 80%;
+	padding: 80% 10% 0;
+
+	.background-black & {
+		border-color: $color-white;
+	}
+	
+	.stripe-white-black &, .stripe-black-white & {
+		mix-blend-mode: difference;
+
+		&:hover {
+			mix-blend-mode: initial;
+		}
+	}
+
+	@include xs {
+		width: 52.5%;
+		padding-top: 52.5%;
+		margin-right: -5%;
+
+		&:nth-child(odd) {
+			margin-left: -5%;
+		}
+	}
+
+	@include sm {
+		width: 33%;
+		padding-top: 33%;
+		margin-right: -2.5%;
+
+		&:nth-child(odd) {
+			margin-left: 0;
+		}
+
+		&:nth-child(3n+1) {
+			margin-left: -2.5%;
+		}
+	}
+
+	@include md {
+		width: 22.01%;
+		padding-top: 22.01%;
+
+		&:nth-child(3n+1) {
+			margin-left: 0;
+		}
+
+		&:first-child {
+			margin-left: -2.5%;
+		}
+	}
+
+	&.hoverEnabled {
+		&:hover {
+			background-color: #FECC00;
+			border: 1px solid #FECC00;
+			z-index: 20;
+
+			a .content__title {
+				cursor: pointer;
+			}
+		}
+
+		.content__title {
+			cursor: default;
+		}
+	}	
+
+	.wp-block-tbwa-blocks-heading-circle-container.background-black & {
+		border: 1px solid white;
+		color: white;
+
+		&:hover {
+			border: 1px solid #FECC00;
+			
+			.h5, .h6 {
+				color: black;
+			}
+		}
+	}
+
+	.circle__content {
+		box-sizing: border-box;
+		height: 100%;
+		width: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		padding: 0 15%;
+
+		.content__title {
+			margin: 0;
+		}
+
+		.content__copy {
+			margin: 0;
+		}
+	}
+
+	.black-container {
+		background-color: black;
+		margin-top: 50px;
+		padding: 50px;
+	}
+}	
+
+
+//  On white
+.background-white .wp-block-tbwa-blocks-heading-circle, 
+.background-black .background-white .wp-block-tbwa-blocks-heading-circle {
+	a:before, button:before { 
+		background:$color-black;
+	}
+	a:active:before, button:active:before { 
+		background:color-dark-grey;
+	}
+	a:hover, a:focus, a:active, button:hover, button:focus, button:active {
+		color:$color-white;
+	}
+}
+
+//  On black
+.background-black .wp-block-tbwa-blocks-heading-circle, 
+.background-white .background-black .wp-block-tbwa-blocks-heading-circle { 
+	a:before, button:before { 
+		background:$color-white;
+	}
+	a:active:before, button:active:before { 
+		background:$color-light-grey;
+	}
+	a:hover, a:focus, a:active, button:hover, button:focus, button:active {
+		color:$color-black;
+	}
+
+	&.secondary a, &.secondary button { 
+		border:1px solid $color-white;
+		background-color:$color-black;
+		color:$color-white;
+		box-sizing:border-box;
+	}
+
+}
+
+//  On yellow
+.background-yellow .wp-block-tbwa-blocks-heading-circle, 
+.background-black .background-yellow .wp-block-tbwa-blocks-heading-circle, 
+.background-white .background-yellow .wp-block-tbwa-blocks-heading-circle { 
+	> * { 
+		background-color:$color-white;
+	}
+	a:before, button:before { 
+		background:$color-black;
+	}
+	a:active:before, button:active:before { 
+		background:$color-light-grey;
+	}
+	a:hover, a:focus, a:active, button:hover, button:focus, button:active {
+		color:$color-white;
+	}
+}
+
+//  Centered
+.center { 
+	.wp-block-tbwa-blocks-heading-circle {
+		display:inline-block;
+		> * { 
+			@include elasticMany((
+				('margin-left', 12, 12), 
+				('margin-right', 12, 12) 
+			));
+		}
+	}
+}
+
+
+
+
+
+

@@ -1,0 +1,42 @@
+{
+   "version":2,
+   "settings":{
+      "appearanceTools":false,
+      "layout":{
+         "contentSize":"840px",
+         "wideSize":"1100px"
+      },
+      "color":{
+         "defaultPalette":false,
+         "defaultGradients":false,
+         "text":false,
+         "link":false
+      }
+   },
+   "templateParts":[
+      {
+         "name":"tbwa-header",
+         "title":"TBWA Header",
+         "area":"header"
+      },
+      {
+         "name":"tbwa-footer",
+         "title":"TBWA Footer",
+         "area":"footer"
+      }
+   ],
+   "customTemplates":[
+      {
+         "name":"index",
+         "title":"Generic Page"
+      },
+      {
+         "name":"page-blank",
+         "title":"Page Blank"
+      },
+      {
+         "name":"single-tbwa-work",
+         "title":"Work Detail Page"
+      }
+   ]
+}

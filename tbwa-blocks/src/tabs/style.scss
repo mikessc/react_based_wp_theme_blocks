@@ -1,0 +1,76 @@
+@use '../common' as *;
+
+
+.wp-block-tbwa-blocks-tabs {
+
+	//background-color:rgba(255,0,0,0.25);
+
+	display:flex;
+	@include elastic('gap', 36);
+
+	//  Cloud only shows on tablet and desktop
+	.cloud { 
+		display:none;
+	}
+	.inner-blocks { 
+		width:100%;
+	}
+	@include sm {
+		.cloud { 
+			display:block;
+		}
+		.inner-blocks { 
+			width:50%;
+		}
+	}
+
+
+	.cloud { 
+		width:50%;
+		@include elastic('font-size', 25, 50);
+		font-weight:$font-medium;
+		letter-spacing:-0.02em;
+		line-height:1.2em;
+		a { 
+			vertical-align: middle;
+			white-space:nowrap;
+			text-decoration:none;
+			display:inline-block;
+			cursor:pointer;
+		}
+
+		.backslash {
+			color:$color-yellow;
+			vertical-align:middle;
+		}
+	}
+
+	.inner-blocks { 
+	}
+
+
+}
+
+//  Text Color
+.wp-block-tbwa-blocks-tabs .cloud a {
+	color:$color-dark-grey;
+}
+.background-black .wp-block-tbwa-blocks-tabs .cloud a {
+	color:$color-light-grey;
+}
+.wp-block-tbwa-blocks-tabs .cloud a.active-desktop {
+	color:$color-black;
+}
+.background-black .wp-block-tbwa-blocks-tabs .cloud a.active-desktop {
+	color:$color-white;
+}
+
+
+
+
+
+
+
+
+
+

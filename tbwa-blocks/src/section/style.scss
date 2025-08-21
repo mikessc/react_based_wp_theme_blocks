@@ -1,0 +1,135 @@
+@use '../common' as *;
+
+
+
+//  Black background has white text,   White background has black text
+.background-black {
+	background-color:$color-black;
+	color:$color-white;
+}
+
+.background-white {
+	background-color:transparent;
+	color:$color-black;
+}
+
+.stripe-black-white, .background-white {
+	box-shadow: $color-white 0 1px 0 0;
+	-webkit-box-shadow: $color-white 0 1px 0 0;
+	-moz-box-shadow: $color-white 0 1px 0 0;
+}
+
+.stripe-white-black, .background-black {
+	box-shadow: $color-black 0 1px 0 0;
+	-webkit-box-shadow: $color-black 0 1px 0 0;
+	-moz-box-shadow: $color-black 0 1px 0 0;
+ }
+
+
+
+.wp-block-tbwa-blocks-section {
+
+	position:relative;
+	display:flex;
+	width:100%;
+
+	//  Same padding-top used below
+	@include elasticMany((
+		('min-height', 100), 
+		('padding-top', 60, 180), 			
+		('padding-bottom', 60, 180)
+	));
+
+	//  The Column
+	> div { 
+		position:relative;
+		width:100%;
+		padding-left:$column-margin + px;
+		padding-right:$column-margin + px;
+		box-sizing: border-box;
+		@include lg {
+			padding-left:0px;
+			padding-right:0px;
+		}		
+	}
+
+	&.width-full { 
+		> div { 
+			padding-left:0px;
+			padding-right:0px;
+		}
+	}
+	&.width-standard { 
+		> div { 
+			@include md {
+				@include elastic('max-width', $column-width);
+				margin-left:auto;
+				margin-right:auto;
+			}
+		}
+	}
+
+	//  Used by the language selector or news single page tags
+	&.no-padding { 
+		padding-top:0px;
+		padding-bottom:0px;
+		min-height:0px;
+	}
+	&.no-padding-top { 
+		padding-top:0px;
+		min-height:0px;
+	}
+	&.no-padding-bottom { 
+		padding-bottom:0px;
+		min-height:0px;
+	}
+
+}
+
+
+
+
+//  Stripe added over the background - stripe does not alter text color!
+.wp-block-tbwa-blocks-section.stripe-white-black {
+	background-color:transparent;
+	background: linear-gradient(180deg, transparent 50%, $color-black 50%);
+}
+.wp-block-tbwa-blocks-section.stripe-black-white {
+	background-color:$color-black;
+	background: linear-gradient(180deg, $color-black 50%, transparent 50%);
+}
+
+
+//  There's a 180px padding added top/bottom to all sections above
+//  But, if there's two sections with the same background colour, then they need only 90px. 
+.wp-block-tbwa-blocks-section.background-black + .background-black,  
+.wp-block-tbwa-blocks-section.background-white + .background-white {
+	padding-top:0px;
+
+	//  Offset the strip if there's un-even padding on the section
+	$n:90px;
+	&.stripe-white-black {
+		background-color:transparent;
+		background: linear-gradient(180deg, transparent calc(50% - $n), $color-black calc(50% - $n));
+	}
+	&.stripe-black-white {
+		background-color:$color-black;
+		background: linear-gradient(180deg, $color-black calc(50% - $n), transparent calc(50% - $n));
+	}
+
+}
+
+
+//  For homepage hero followed by another black section
+//  Same padding-top used above
+//.wp-block-tbwa-blocks-homepage-hero.background-black + .wp-block-tbwa-blocks-section.background-black {
+//	@include elastic('padding-top', 60, 180); 
+//}
+
+
+
+
+
+
+
+

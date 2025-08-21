@@ -1,0 +1,15 @@
+@use '../common' as *;
+
+
+.wp-block-tbwa-blocks-data-bite {
+	margin-top:24px;
+	margin-bottom:24px;
+	.content { 
+		sup { 
+			font-size: 50px;
+			vertical-align: top;
+			line-height:1.2em;
+		}
+	}
+}
+

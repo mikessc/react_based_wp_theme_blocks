@@ -1,0 +1,41 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "tbwa-blocks/social-icon-button",
+	"version": "1.0",
+	"title": "Social Icon Button",
+	"category": "tbwa-blocks",
+	"description": "A single social icon button used to link out to social media sites.",
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"icon": {
+			"type": "string",
+			"default": "instagram"
+		},
+		"url": {
+			"type": "string",
+			"source": "attribute",
+			"selector": "a",
+			"attribute": "href"
+		},
+		"target": {
+			"type": "string",
+			"source": "attribute",
+			"selector": "a",
+			"attribute": "target"
+		},
+		"rel": {
+			"type": "string",
+			"source": "attribute",
+			"selector": "a",
+			"attribute": "rel",
+			"default": "noreferrer noopener"
+		}
+	},
+	"textdomain": "tbwa-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

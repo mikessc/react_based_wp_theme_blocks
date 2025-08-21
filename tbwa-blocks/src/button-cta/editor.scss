@@ -1,0 +1,36 @@
+
+
+.wp-block-tbwa-blocks-button-cta {
+	margin-top:24px;
+	margin-bottom:24px;
+
+	.size-standard { 
+		font-size: 25px;
+	}
+	.size-large { 
+		font-size: 50px;
+	}
+	width:100%;
+
+	> div { 
+		display:flex;
+	}
+
+	padding-top:10px;
+	padding-bottom:10px;
+
+	&.is-selected { 
+		background-color:rgba(128, 128, 128, 0.05);
+	}
+
+	&.alignleft, 
+	&.aligncenter,  
+	&.alignright { 
+
+	}
+
+	.arrowIcon { 
+	}
+
+}
+

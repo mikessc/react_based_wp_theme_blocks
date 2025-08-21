@@ -1,0 +1,125 @@
+@use '../common' as *;
+
+.wp-block-tbwa-blocks-data-bite { 
+
+	@include elastic('padding-bottom', 45);
+	//border:1px dashed red;
+
+	.content { 
+		color:$color-yellow;
+		font-weight:$font-regular;
+		@include elastic('font-size', 50, 100);
+		max-width:360px;
+		letter-spacing:-0.02em;
+		line-height:1.2em;
+		sup { 
+			@include elastic('font-size', 25, 50);
+			vertical-align: top;
+			line-height:1.55em;
+			@include md { 
+				@include elastic('font-size', 50, 100);
+				vertical-align: baseline;
+				line-height:1.2em;
+			}
+		}
+	}
+	.detail { 
+		color:$color-dark-grey;
+		font-weight:$font-regular;
+		@include elastic('font-size', 16, 25);
+		@include elastic('max-width', 768, 360);
+		letter-spacing:0;
+		line-height:1.2em;
+	}
+
+}
+
+.background-black .wp-block-tbwa-blocks-data-bite { 
+	.detail { 
+		color:$color-light-grey;
+	}
+}
+
+//  If columns in the last row contain a data bite, 
+//  remove the bottom padding off that data bite
+//  Thankyou: https://keithclark.co.uk/articles/targeting-first-and-last-rows-in-css-grid-layouts/
+.wp-block-tbwa-blocks-columns {
+	.mobile-1 { 
+		.wp-block-tbwa-blocks-column:nth-last-child(1) {
+			.wp-block-tbwa-blocks-data-bite {
+				//border:1px dashed blue;
+				padding-bottom:0px;
+			}
+		}
+	}
+	.mobile-2 { 
+		.wp-block-tbwa-blocks-column:nth-child(2n+1):nth-last-child(-n+2), 
+		.wp-block-tbwa-blocks-column:nth-child(2n+1):nth-last-child(-n+2) ~ .wp-block-tbwa-blocks-column {
+			.wp-block-tbwa-blocks-data-bite {
+				//border:1px dashed blue;
+				padding-bottom:0px;
+			}
+		}
+	}
+
+	@include md {
+		.tablet-1 { 
+			.wp-block-tbwa-blocks-column:nth-last-child(1) {
+				.wp-block-tbwa-blocks-data-bite {
+					//border:1px dashed green;
+					padding-bottom:0px;
+				}
+			}
+		}
+		.tablet-2 { 
+			.wp-block-tbwa-blocks-column:nth-child(2n+1):nth-last-child(-n+2), 
+			.wp-block-tbwa-blocks-column:nth-child(2n+1):nth-last-child(-n+2) ~ .wp-block-tbwa-blocks-column {
+				.wp-block-tbwa-blocks-data-bite {
+					//border:1px dashed green;
+					padding-bottom:0px;
+				}
+			}
+		}
+		.tablet-3 { 
+			.wp-block-tbwa-blocks-column:nth-child(3n+1):nth-last-child(-n+3), 
+			.wp-block-tbwa-blocks-column:nth-child(3n+1):nth-last-child(-n+3) ~ .wp-block-tbwa-blocks-column {
+				.wp-block-tbwa-blocks-data-bite {
+					//border:1px dashed green;
+					padding-bottom:0px;
+				}
+			}
+		}
+	}
+
+	@include lg {
+		.desktop-1 { 
+			.wp-block-tbwa-blocks-column:nth-last-child(1) {
+				.wp-block-tbwa-blocks-data-bite {
+					//border:1px dashed cyan;
+					padding-bottom:0px;
+				}
+			}
+		}
+		.desktop-2 { 
+			.wp-block-tbwa-blocks-column:nth-child(2n+1):nth-last-child(-n+2), 
+			.wp-block-tbwa-blocks-column:nth-child(2n+1):nth-last-child(-n+2) ~ .wp-block-tbwa-blocks-column {
+				.wp-block-tbwa-blocks-data-bite {
+					//border:1px dashed cyan;
+					padding-bottom:0px;
+				}
+			}
+		}
+		.desktop-3 { 
+			.wp-block-tbwa-blocks-column:nth-child(3n+1):nth-last-child(-n+3), 
+			.wp-block-tbwa-blocks-column:nth-child(3n+1):nth-last-child(-n+3) ~ .wp-block-tbwa-blocks-column {
+				.wp-block-tbwa-blocks-data-bite {
+					//border:1px dashed cyan;
+					padding-bottom:0px;
+				}
+			}
+		}
+	}
+
+
+}
+

@@ -1,0 +1,131 @@
+@use '../common' as *;
+
+
+.wp-block-tbwa-blocks-stacked-cards-item {
+
+	//  Reverse stack depth
+	&:nth-child(1) { 
+		z-index:4;
+	}
+	&:nth-child(2) { 
+		z-index:3;
+	}
+	&:nth-child(3) { 
+		z-index:2;
+	}
+	&:nth-child(4) { 
+		z-index:1;
+	}
+
+	//  No drag or select
+	user-select:none;
+	user-drag:none;
+	cursor:pointer;
+
+	//  Width
+	width:100%;
+
+	//  Box shadow
+	> div {
+		box-shadow: 5px 5px 20px 10px rgba(0, 0, 0, 0.05);
+		@media (min-width: #{$screen-md}) {
+			box-shadow: 0px 0px calc(50 / 1920 * 992) + px calc(35 / 1920 * 992) + px + vw rgba(0, 0, 0, 0.05);
+		}
+		@media (min-width: #{$screen-lg}) {
+			box-shadow: 0px 0px calc(50 / 1920 * 100) + vw calc(35 / 1920 * 100) + vw rgba(0, 0, 0, 0.05);
+		}
+		@media (min-width: #{$screen-xl}) {
+			box-shadow: 0px 0px 50px 35px rgba(0, 0, 0, 0.05);
+		}
+	}
+
+	//  Normal vs selected
+	> div {
+		background-color:$color-white;
+	}
+	&.selected > div { 
+		background-color:$color-white;
+	}
+
+	//  No white space
+	display:flex;
+
+	//  
+	> div { 
+
+		//  Bottom align the media
+		display:flex;
+		flex-direction:column;
+		justify-content:space-between;
+
+		//  Animate the margin and width
+		transition: all 0.3s ease-in-out;
+
+		//  Content
+		.content { 
+			@include elastic('padding', 24, 90);
+			text-align:right;
+			.wp-block-tbwa-blocks-rule-line > div { 
+				float:right;
+			}
+		}
+
+		//  Media 
+		.media { 
+			
+			@include elasticMany((
+				('padding-left', 24, 90), 
+				('padding-right', 24, 90), 
+				('padding-bottom', 24, 90)
+			));
+			
+			> div, img, video { 
+				width:100%;
+				height:auto;
+				aspect-ratio:16 / 9;
+				object-fit:cover;
+				object-position:center center;
+			}
+
+
+		}
+	}
+}
+
+
+
+.background-black .wp-block-tbwa-blocks-stacked-cards-item {
+
+	//  Box shadow
+	> div {
+		box-shadow: 5px 5px 20px 10px rgba(255, 255, 255, 0.05);
+		@media (min-width: #{$screen-md}) {
+			box-shadow: 0px 0px calc(50 / 1920 * 992) + px calc(35 / 1920 * 992) + px + vw rgba(255, 0, 255, 0.05);
+		}
+		@media (min-width: #{$screen-lg}) {
+			box-shadow: 0px 0px calc(50 / 1920 * 100) + vw calc(35 / 1920 * 100) + vw rgba(255, 255, 255, 0.05);
+		}
+		@media (min-width: #{$screen-xl}) {
+			box-shadow: 0px 0px 50px 35px rgba(255, 255, 255, 0.05);
+		}
+	}
+
+	//  Normal vs selected
+	> div {
+		background-color:$color-black;
+	}
+	&.selected > div { 
+		background-color:$color-black;
+	}
+
+}
+
+
+
+
+
+
+
+
+
+

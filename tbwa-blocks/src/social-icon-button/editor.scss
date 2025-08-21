@@ -1,0 +1,39 @@
+@use '../common' as *;
+
+
+.wp-block-tbwa-blocks-social-icon-button {
+
+	width:33px;
+	height:33px;
+
+	//  Remove scale on hover
+	transition:none;
+	transform:none;
+	&:hover { 
+		transform:none;
+	}
+}
+
+
+//  Color on White Background
+.wp-block-tbwa-blocks-social-icon-button svg path {
+	animation: none;
+	fill:$color-black;
+	transform-origin:center center;
+}
+.wp-block-tbwa-blocks-social-icon-button:hover svg path {
+	fill:$color-black;
+	animation: none;
+}
+
+//  Color on Black Background
+.background-black {
+	.wp-block-tbwa-blocks-social-icon-button svg path {
+		animation: none;
+		fill:$color-white;
+	}
+	.wp-block-tbwa-blocks-social-icon-button:hover svg path {
+		animation: none;
+		fill:$color-white;
+	}
+}

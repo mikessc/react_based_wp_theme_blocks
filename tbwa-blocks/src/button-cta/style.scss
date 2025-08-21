@@ -1,0 +1,273 @@
+@use '../common' as *;
+
+.wp-block-tbwa-blocks-button-cta {
+	font-family:$font-stack;
+	font-weight:$font-regular;
+	line-height:2em; 
+	display:flex;
+	//animation: tbwa-blocks-button-cta-animate-on-page-load $rollover-duration-double forwards;
+
+	//  
+	> div, a { 
+		text-decoration:none;
+		align-items:center;
+	}
+	a:hover { 
+
+	}
+
+	//  Align 
+	&.alignleft {
+		justify-content:flex-start;
+		text-align:left;
+	}
+	&.aligncenter {
+		justify-content:center;
+		text-align:center;
+	}
+	&.alignright {
+		justify-content:flex-end;
+		text-align:right;
+	}
+
+
+	//  Size
+	.size-standard { 
+		@include elasticMany((
+			('font-size', 16, 25), 
+			('padding-top', 4, 10),
+			('padding-bottom', 3, 10)
+		));
+	}
+	.size-large { 
+		@include elasticMany((
+			('font-size', 40, 75), 
+			('padding-top', 7, 15),
+			('padding-bottom', 7, 15)
+		));
+	}
+
+	//  Arrow Icon
+	.arrowIcon { 
+		display:inline;
+		vertical-align:text-bottom;
+		@include elasticMany((
+			('padding-left', 2, 6),
+			('width', 16, 25),
+			('height', 16, 25)
+		));
+	}
+	.size-large .arrowIcon {
+		@include elasticMany((
+			('padding-left', 6, 12),
+			('width', 36, 75),
+			('height', 36, 75)
+		));
+	}
+	
+	//  Arrow Hover
+	a .arrowIcon { 
+		transition-duration: $rollover-duration;
+		transition-timing-function: ease-out;
+	}
+	a:hover .arrowIcon { 
+		fill:$color-black!important; 
+	}
+
+}
+
+//  Black Arrow
+.wp-block-tbwa-blocks-button-cta .arrowIcon { 
+	fill:$color-black;
+}
+//  White Arrow
+.background-black .wp-block-tbwa-blocks-button-cta .arrowIcon { 
+	fill:$color-white;
+}
+//  Yellow Arrow
+.wp-block-tbwa-blocks-button-cta .color-yellow .arrowIcon,  
+.background-black .wp-block-tbwa-blocks-button-cta .color-yellow .arrowIcon  { 
+	fill:$color-yellow;
+}
+
+
+
+//  Fancy hover animation
+.wp-block-tbwa-blocks-button-cta {
+	a {
+		display: inline-flex;
+		vertical-align: middle;
+		transform: perspective(1px) translateZ(0);
+		box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+		position: relative;
+		transition-property: color;
+		transition-duration: $rollover-duration;
+	}
+	a:before {
+		content: "";
+		position: absolute;
+		z-index: -1;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background:$color-yellow;
+		transform: scaleX(0);
+		transform-origin: 0 50%;
+		transition-property: transform;
+		transition-duration: $rollover-duration;
+		transition-timing-function: ease-out;
+	}
+	a:hover:before {
+		transform: scaleX(1);
+	}
+}
+
+
+
+//  On White
+.background-white .wp-block-tbwa-blocks-button-cta, 
+.background-black .background-white .wp-block-tbwa-blocks-button-cta {
+	> div, a { 
+		color:$color-black;
+		.icon path { 
+			fill:$color-black;
+			animation: none;
+		}
+ 		&.color-yellow { 
+			color:$color-yellow;
+			.icon path { 
+				fill:$color-yellow;
+				animation: tbwa-blocks-button-cta-hover-black-to-yellow $rollover-duration forwards;
+			}
+		}
+	}
+	a:hover { 
+		color:$color-black;
+		.icon path { 
+			fill:$color-black;
+			animation: none;
+		}
+	}
+	a.color-yellow:hover { 
+		color:$color-black;
+		.icon path { 
+			fill:$color-black;
+			animation: tbwa-blocks-button-cta-hover-yellow-to-black $rollover-duration forwards;
+		}
+	}
+}
+
+
+//  On Black
+.background-black .wp-block-tbwa-blocks-button-cta, 
+.background-white .background-black .wp-block-tbwa-blocks-button-cta {
+	> div, a { 
+		color:$color-white;
+		.icon path { 
+			fill:$color-white;
+			animation: tbwa-blocks-button-cta-hover-black-to-white $rollover-duration forwards;
+		}
+ 		&.color-yellow { 
+			color:$color-yellow;
+			.icon path { 
+				fill:$color-yellow;
+				animation: tbwa-blocks-button-cta-hover-black-to-yellow $rollover-duration forwards;
+			}
+		}
+	}
+	a:hover { 
+		color:$color-black;
+		.icon path { 
+			fill:$color-black;
+			animation: tbwa-blocks-button-cta-hover-white-to-black $rollover-duration forwards;
+		}
+	}
+	a.color-yellow:hover { 
+		color:$color-black;
+		.icon path { 
+			fill:$color-black;
+			animation: tbwa-blocks-button-cta-hover-yellow-to-black $rollover-duration forwards;
+		}
+	}
+}
+
+//  On Yellow
+.background-yellow .wp-block-tbwa-blocks-button-cta {
+	a:before {
+		background:$color-white;
+	}
+	> div, a { 
+		color:$color-black;
+		.icon path { 
+			fill:$color-black;
+			animation: none;
+		}
+ 		&.color-yellow { 
+			color:$color-black;
+			.icon path { 
+				fill:$color-black;
+				animation: none;
+			}
+		}
+	}
+	a:hover { 
+		color:$color-black;
+		.icon path { 
+			fill:$color-black;
+			animation: none;
+		}
+	}
+	a.color-yellow:hover { 
+		color:$color-black;
+		.icon path { 
+			fill:$color-black;
+			animation: none;
+		}
+	}
+}
+
+
+
+//  Focus
+.wp-block-tbwa-blocks-button-cta a:focus {
+	opacity:0.8; 
+}
+
+
+//  Icon fades
+@keyframes tbwa-blocks-button-cta-hover-black-to-yellow {
+	0%   { fill: $color-black; 	}
+	100% { fill: $color-yellow; }
+}
+@keyframes tbwa-blocks-button-cta-hover-yellow-to-black {
+	0%   { fill: $color-yellow; }
+	100% { fill: $color-black;  }
+}
+@keyframes tbwa-blocks-button-cta-hover-black-to-white {
+	0%   { fill: $color-black; 	}
+	100% { fill: $color-white; }
+}
+@keyframes tbwa-blocks-button-cta-hover-white-to-black {
+	0%   { fill: $color-white; }
+	100% { fill: $color-black;  }
+}
+@keyframes tbwa-blocks-button-cta-animate-on-page-load {
+	0% {
+		opacity: 0;
+		transform:translateX(-25px);
+	}
+	50% {
+		opacity: 0;
+		transform:translateX(-25px);
+	}
+	100% {
+		transform:none;
+		opacity: 1;
+	}
+}
+
+
+
+
+

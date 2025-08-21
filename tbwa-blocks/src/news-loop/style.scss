@@ -1,0 +1,60 @@
+@use '../common' as *;
+
+.wp-block-tbwa-blocks-news-loop {
+
+	position:relative;
+	display:block;
+	width:100%;
+
+ 	.wp-block-tbwa-blocks-section > div { 
+
+ 		//  No padding on the top of this section
+ 		padding-top:0px;
+
+ 	}
+
+	.items {
+
+		margin-right:auto;
+		display:grid;
+		@include elastic('gap', $column-gap);
+		grid-template-columns:1fr;
+
+		@include md {
+			&.tablet-1 { 
+				grid-template-columns:1fr;
+			}
+			&.tablet-2 { 
+				grid-template-columns:repeat(2, minmax(0, 1fr));
+			}
+		}
+
+		@include lg {
+			&.desktop-1 {
+				grid-template-columns:1fr;
+			}
+			&.desktop-2 {
+				grid-template-columns:repeat(2, minmax(0, 1fr));
+			}
+			&.desktop-3 {
+				grid-template-columns:repeat(3, minmax(0, 1fr));
+			}
+		}
+		@include xl {
+			&.desktop-1 {
+				grid-template-columns:1fr;
+			}
+			&.desktop-2 {
+				grid-template-columns:repeat(2, minmax(0, 1fr));
+			}
+		}
+	}
+
+	.item { 
+		display:flex;
+		flex-direction:column;
+		@include elastic('padding-bottom', 60);
+	}
+
+
+}

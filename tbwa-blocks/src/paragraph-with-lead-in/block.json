@@ -1,0 +1,30 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "tbwa-blocks/paragraph-with-lead-in",
+	"version": "1.0",
+	"title": "Paragraph with lead-in",
+	"category": "tbwa-blocks",
+	"description": "Custom paragraph block with additional lead in text at the start of the paragraph. ",
+	"supports": {
+		"html": true
+	},
+	"attributes": {
+		"size": {
+			"type": "string", 
+			"default": "standard"
+		},
+		"leadIn": {
+			"type": "string",
+			"default": ""
+		}, 
+		"content": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"textdomain": "tbwa-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

@@ -1,0 +1,34 @@
+@use '../common' as *;
+
+.wp-block-tbwa-blocks-quote { 
+	font-weight:$font-medium;
+	@include elastic('font-size', 50);
+	letter-spacing:-0.02em;
+	line-height:1.2em;
+	margin:0px;
+	padding:0px;
+	position:relative;
+
+	&:before { 
+		content: url('data:image/svg+xml;charset=UTF-8,<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 0L8.7386 24H13.7115L4.97289 0H0Z" fill="%230A0A0D"/><path d="M10.2885 0L19.0271 24H24L15.2614 0H10.2885Z" fill="%230A0A0D"/></svg>');
+		@include elasticMany((
+			('height', 24), 
+			('width', 24), 
+			('left', -32)
+		));
+		line-height:0px;
+		font-size:0px;
+		display:inline-block;
+		position:absolute;
+	}
+
+}
+
+.background-black .wp-block-tbwa-blocks-quote { 
+	background: -webkit-linear-gradient(#FFFFFF, #FFCB05);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	&:before { 
+		content: url('data:image/svg+xml;charset=UTF-8,<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 0L8.7386 24H13.7115L4.97289 0H0Z" fill="%23FFBE1B"/><path d="M10.2885 0L19.0271 24H24L15.2614 0H10.2885Z" fill="%23FFBE1B"/></svg>');
+	}
+}

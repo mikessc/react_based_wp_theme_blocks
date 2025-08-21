@@ -1,0 +1,15 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "tbwa-blocks/column-grid",
+	"version": "1.0",
+	"title": "Column Grid",
+	"category": "tbwa-blocks",
+	"description": "12 Column Grid container block.",
+	"supports": {
+	},
+	"textdomain": "tbwa-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

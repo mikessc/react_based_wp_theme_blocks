@@ -1,0 +1,47 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "tbwa-blocks/button-cta",
+	"version": "1.0",
+	"title": "Call to Action Button",
+	"category": "tbwa-blocks",
+	"description": "A call to action button with an arrow icon pointing to the right. ",
+	"supports": {
+		"html": false, 
+		"align": ["left", "center", "right"]
+	},
+	"attributes": {
+		"size": {
+			"type": "string",
+			"default": "standard"
+		},
+		"color": {
+			"type": "string",
+			"default": "standard"
+		},
+		"url": {
+			"type": "string",
+			"default": ""
+		},
+		"title": {
+			"type": "string",
+			"default": ""
+		},
+		"text": {
+			"type": "string",
+			"default": ""
+		},
+		"linkTarget": {
+			"type": "string",
+			"default": ""
+		},
+		"rel": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"textdomain": "tbwa-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

@@ -1,0 +1,99 @@
+@use '../common' as *;
+
+
+.wp-block-tbwa-blocks-follow-cursor {
+	display:inline-block;
+	margin-top:24px;
+	margin-bottom:24px;
+	margin-left:0px;
+	margin-right:0px;
+	width:100%;
+
+	padding-top:0px;
+	padding-bottom:0px;
+
+
+	//  Cursor SVG
+	svg { 
+		margin-left:48px;
+		margin-right:48px;
+		margin-top:10px;
+		margin-bottom:10px;
+	}
+
+	//  Horizontal position
+	display:flex;
+	justify-content: center;
+	&.position-left,  
+	&.position-overlap-left { 
+		justify-content: left;
+	}
+	&.position-right, 
+	&.position-overlap-right { 
+		justify-content: right;
+	}
+
+	//  Hidden
+	&.position-hidden {  
+		svg { 
+			opacity:0.5;
+		}
+	}
+
+	//  Cursor Size
+	svg { 
+		width:calc($follow-cursor-small) + px;
+		height:calc($follow-cursor-small) + px;
+	}
+	&.size-medium { 
+		svg { 
+			width:calc($follow-cursor-medium) + px;
+			height:calc($follow-cursor-medium) + px;
+		}
+	}
+	&.size-large { 
+		svg { 
+			width:calc($follow-cursor-large) + px;
+			height:calc($follow-cursor-large) + px;
+		}
+	}
+
+	//  Overlap previous block?
+	&.position-overlap-left, 
+	&.position-overlap-center,  
+	&.position-overlap-right { 
+		min-height:50px;
+		svg { 
+			filter: drop-shadow(0px 0px 3px rgba(0,0,0,0.10));
+			margin-top:calc(($follow-cursor-small - 20) * -1) + px;
+		}
+		&.size-medium { 
+			svg { 
+				margin-top:calc(($follow-cursor-medium - 20) * -1) + px;
+			}
+		}
+		&.size-large { 
+			svg { 
+				margin-top:calc(($follow-cursor-large - 20) * -1) + px;
+			}
+		}
+	}
+
+	//  Color
+	&.color-yellow svg .svg-background { 
+		fill:$color-yellow;
+	}
+	&.color-yellow svg .svg-foreground { 
+		fill:#000000;
+	}
+
+	//  Polka dots
+	background-image: 
+	radial-gradient(rgba(128,128,128,0.1) 23.6%, transparent 23.6%),
+	radial-gradient(rgba(128,128,128,0.1) 23.6%, transparent 23.6%);
+	background-position: 0px 0px, 50px 50px;
+	background-size: 100px 100px;
+	background-color: rgba(128,128,128,0.2);
+
+
+}

@@ -1,0 +1,70 @@
+@use '../common' as *;
+
+
+.wp-block-tbwa-blocks-social-icon-button {
+
+	@include elasticMany((
+		('margin-right', 36),
+		('margin-bottom', 36)
+	));
+	display:inline-flex;
+	align-items:center;
+	justify-content:center;
+	font-size:0px;
+
+	svg { 
+		@include elastic('width', 33, 33);
+		@include elastic('height', 33, 33);
+	}
+
+	//  Scale on hover
+	transition:transform $rollover-duration linear;
+	transform:scale(1);
+	&:hover { 
+		transform:scale(1.1);
+	}
+
+}
+
+
+//  Color on White Background
+.wp-block-tbwa-blocks-social-icon-button svg path {
+	animation: tbwa-blocks-social-icon-hover-background-white-off $rollover-duration forwards;
+	fill:$color-black;
+	transform-origin:center center;
+}
+.wp-block-tbwa-blocks-social-icon-button:hover svg path {
+	animation: tbwa-blocks-social-icon-hover-background-white-on $rollover-duration forwards;
+	fill:$color-yellow;
+}
+@keyframes tbwa-blocks-social-icon-hover-background-white-on {
+	0%   { fill: $color-black; 	}
+	100% { fill: $color-yellow; }
+}
+@keyframes tbwa-blocks-social-icon-hover-background-white-off {
+	0%   { fill: $color-yellow; }
+	100% { fill: $color-black;  }
+}
+
+//  Color on Black Background
+.background-black {
+	.wp-block-tbwa-blocks-social-icon-button svg path {
+		animation: tbwa-blocks-social-icon-hover-background-black-off $rollover-duration forwards;
+		fill:$color-white;
+		transform-origin:center center;
+	}
+	.wp-block-tbwa-blocks-social-icon-button:hover svg path {
+		animation: tbwa-blocks-social-icon-hover-background-black-on $rollover-duration forwards;
+		fill:$color-yellow;
+	}
+	@keyframes tbwa-blocks-social-icon-hover-background-black-on {
+		0%   { fill: $color-white; 	}
+		100% { fill: $color-yellow; }
+	}
+	@keyframes tbwa-blocks-social-icon-hover-background-black-off {
+		0%   { fill: $color-yellow; }
+		100% { fill: $color-white;  }
+	}
+}
+
+

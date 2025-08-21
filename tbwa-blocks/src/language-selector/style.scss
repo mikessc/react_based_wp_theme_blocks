@@ -1,0 +1,172 @@
+@use '../common' as *;
+
+
+.wp-block-tbwa-blocks-language-selector {
+
+	width:100%;
+	display:flex;
+	justify-content:flex-end;
+
+	//  Left / Center / Right align
+	justify-content:flex-end;
+	&.alignleft { 
+		justify-content:flex-start;
+	}
+	&.aligncenter { 
+		justify-content:center;
+	}
+	&.alignright { 
+		justify-content:flex-end;
+	}
+
+	//  
+	> form { 
+
+		display:flex;
+		flex-wrap:wrap;
+		align-items:flex-start;
+
+		//  Label (same as paragraph)
+		label { 
+			font-weight:$font-regular;
+			margin:0px;	
+			padding:0px;
+			letter-spacing:0;
+			line-height:1.5em;
+			color:$color-dark-grey;
+			white-space: nowrap;
+			overflow: hidden;
+			@include elasticMany((
+				('margin-top', 3, 3),
+				('margin-right', 12, 12), 
+				('font-size', 14, 18)
+			));
+		}
+
+		//  Select
+		select {
+		}
+
+		//  Buttons
+		button { 
+			display:flex;
+			align-items:center;
+			background-color:transparent;
+			border:none;
+			border-radius:0px;
+			cursor:pointer;
+			margin:0px;
+			padding:0px;
+			white-space:nowrap;
+			@include elasticMany((
+				('min-width', 120, 160), 
+				('padding-right', 24, 24)
+			));
+			transition: opacity 0.5s;
+			img { 
+				width:21px;
+				height:14px;
+				@include elastic('margin-right', 12, 12);	
+			}
+			span {  // (same as paragraph)
+				font-weight:$font-regular;
+				margin:0px;	
+				padding:0px;
+				letter-spacing:0;
+				line-height:1.5em;
+				color:$color-dark-grey;
+				@include elastic('font-size', 14, 18);
+			}
+		}
+		button:hover { 
+			span { 
+				color:$color-black;
+			}
+		}
+
+		//  Drop down
+		.dropdown { 
+			position:relative;
+			z-index:10;
+			.selected { 
+				button { 
+					border-bottom:1px solid $color-dark-grey;
+					width:100%;
+					@include elasticMany((
+						('padding-bottom', 5, 5),
+						('margin-left', 6, 6)
+					));
+				}
+				button:before { 
+					content:'';
+					background-repeat:no-repeat;
+					background-position:center;
+					background-image:url('data:image/svg+xml;charset=UTF-8,<svg viewBox="0 0 12 10" xmlns="http://www.w3.org/2000/svg"><path d="M11.969 3.66776V0.933802L6.16848 6.73428L0.368003 0.933802L0.368002 3.66776L6.16848 9.46824L11.969 3.66776Z" fill="%230A0A0D"/></svg>');
+					position:absolute;
+					@include elasticMany((
+						('top', 6, 10), 
+						('width', 12, 12), 
+						('height', 10, 10), 
+					));
+					right:0px;
+					display:block;
+					transform:rotate(0deg);
+					transition:transform 0.5s ease-out;
+				}
+			}
+			.list { 
+				display:none;
+				position:absolute;
+				background-color:$color-white;
+				left:0px;
+				@include elasticMany((
+					('top', 18, 25), 
+					('padding-left', 6, 6),
+					('margin-top', 15, 15),
+				));
+				&.visible { 
+					display:flex;
+					flex-direction:column;
+				}
+				button { 
+					@include elasticMany((
+						('padding-top', 5),
+						('padding-bottom', 5)
+					));
+				}
+			}
+		}
+
+
+	}
+
+}
+
+.background-black .wp-block-tbwa-blocks-language-selector {
+	label,  
+	button span { 
+		color:$color-light-grey;
+	}
+	button:hover span { 
+		color:$color-white;
+	}
+	.dropdown { 
+		.selected { 
+			button { 
+				border-bottom:1px solid $color-light-grey;
+			}
+			button:before { 
+				background-image:url('data:image/svg+xml;charset=UTF-8,<svg viewBox="0 0 12 10" xmlns="http://www.w3.org/2000/svg"><path d="M11.969 3.66776V0.933802L6.16848 6.73428L0.368003 0.933802L0.368002 3.66776L6.16848 9.46824L11.969 3.66776Z" fill="%23BDBDBD"/></svg>');
+			}
+		}
+		.list { 
+			background-color:$color-black;
+		}
+	}
+}
+
+
+
+
+
+

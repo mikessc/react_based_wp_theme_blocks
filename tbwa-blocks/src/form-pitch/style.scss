@@ -1,0 +1,278 @@
+@use '../common' as *;
+
+.wp-block-tbwa-blocks-form-pitch {
+    ////////////////////
+    //  Variables
+    body {
+        --layout-stack-gap: 1rem;
+    }
+
+    ////////////////////
+    //  Layout
+    .l-stack {
+        display: grid;
+        row-gap: var(--layout-stack-gap);
+    }
+
+    .l-stack-gap-xl {
+        --layout-stack-gap: 4rem;
+    }
+    .l-stack-gap-md {
+        --layout-stack-gap: 2rem;
+    }
+
+    .l-stack > * {
+        margin-bottom: 0;
+        margin-top: 0;
+        padding-bottom: 0;
+        padding-top: 0;
+    }
+
+    .l-stack > * > :first-child {
+        margin-top: 0;
+    }
+
+    .l-stack > * > :last-child {
+        margin-bottom: 0;
+    }
+
+    ////////////////////
+    //  Form patterns
+    form {
+        --form-disabled: $color-form-on-white-disabled;
+        --form-font-size: 1rem;
+        --form-line-height: 1.4;
+        --form-check-size: 1.375rem;
+
+        @include md {
+            --form-font-size: 1.125rem;
+            --form-line-height: 1.2;
+        }
+        @include lg {
+            --form-font-size: 1.172rem;
+            --form-check-size: 1.625rem;
+        }
+        @include xl {
+            --form-font-size: 1.5625rem;
+            --form-check-size: 1.875rem;
+        }
+
+        .error {
+            color: $color-error-red;
+            margin: calc(var(--layout-stack-gap) / -2) 0 0;
+        }
+
+        .inline {
+            align-items: baseline;
+            display: flex;
+            column-gap: 16px;
+        }
+
+        .required_field {
+            color: $color-error-red;
+        }
+    }
+
+    label, input, select, textarea {
+        color: $color-dark-grey;
+        font-size: var(--form-font-size);
+    }
+
+    label {
+        display: inline-block;
+        line-height: var(--form-line-height);
+
+        &:hover {
+            color: $color-black;
+        }
+    }
+
+
+    input, select {
+        font-weight: 400;
+
+        &:focus,
+        &:focus {
+            outline: none;
+        }
+    }
+
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="date"],
+    select {
+        background-color: transparent;
+        border-color: $color-dark-grey;
+        border-width: 0 0 1px 0;
+        color: $color-dark-grey;
+        display: block;
+        font-family: inherit;
+        width: 100%;
+
+        &:focus {
+            border-color: $color-black;
+            box-shadow: $color-black 0 1px;
+            color: $color-black;
+            outline: 2px solid $color-black;
+			outline-offset: 2px;
+        }
+    }
+
+    input[type="checkbox"] {
+        appearance: none;
+        accent-color: $color-yellow;
+        background-color: transparent;
+        border: 1px solid $color-dark-grey;
+        border-radius: 2px;
+        height: var(--form-check-size);
+        margin: 0;
+        min-width: var(--form-check-size);
+        width: var(--form-check-size);
+
+        &:focus-visible {
+            border-color: $color-black;
+            outline: 2px solid $color-black;
+			outline-offset: 2px;
+        }
+        
+        &:checked {
+            background-color: $color-yellow;
+            border-color: $color-yellow;
+            &:before {
+                background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjIiIGhlaWdodD0iMjIiIHZpZXdCb3g9IjAgMCAyMiAyMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgaWQ9Ikljb24gTGVmdCI+CjxwYXRoIGlkPSJWZWN0b3IiIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNMTguODE5NiA2LjkwMjk0TDkuMTY2OCAxNi41NTU3TDMuMTgwNjYgMTAuNTY5Nkw0LjE1Mjk0IDkuNTk3MzNMOS4xNjY4IDE0LjYxMTJMMTcuODQ3MyA1LjkzMDY2TDE4LjgxOTYgNi45MDI5NFoiIGZpbGw9IiMwQTBBMEQiLz4KPC9nPgo8L3N2Zz4K");
+                background-position: center;
+                background-size: cover;
+                content: "";
+                display: block;
+                height: 100%;
+                text-align: center;
+                width: 100%;
+            }
+        }
+    }
+
+    input[type="submit"] {
+        background-color: $color-yellow;
+        border: 2px solid $color-yellow;
+        color: var(--tbwa-brand-primary);
+        cursor: pointer;
+        font-family: inherit;
+        font-size: 1rem;
+        padding: 21px 36px 22px;
+        transition:all .1s ease-in-out;
+
+        @include md {
+            padding-bottom: 26px;
+            padding-top: 25px;
+        }
+        @include lg {
+            padding-bottom: 29px;
+            padding-top: 27px;
+        }
+        @include xl {
+            padding-bottom: 28px;
+            padding-top: 28px;
+        }
+
+        &:hover,
+        &:focus {
+            background-color: $color-black;
+            border-color: $color-black;
+            color: $color-white;
+            outline: 2px solid $color-black;
+			outline-offset: 2px;
+        }
+
+        &:disabled {
+            background-color: $color-light-grey;
+            color: $color-dark-grey;
+            border: none;
+            outline: none;
+
+            &:hover, &:focus {
+                background-color: $color-light-grey;
+                color: $color-dark-grey;
+                cursor: default;
+            }
+        }
+    }
+
+    option {
+        color: $color-black;
+    }
+
+    .background-black & form {
+        label, input, select {
+            color: $color-light-grey;
+        }
+        
+        label {
+            &:hover {
+                color: $color-white;
+            }
+        }
+        
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        select {
+            border-color: $color-light-grey;
+            color: $color-light-grey;
+        
+            &:focus {
+                border-color: $color-white;
+                box-shadow: $color-white 0 1px;
+                color: $color-white;
+            }
+        }
+        
+        input[type="checkbox"] {
+            border: 1px solid $color-light-grey;
+            
+            &:focus-visible {
+                border-color: $color-white;
+                outline: 1px solid $color-white;
+            }
+        }
+        
+        input[type="submit"] {
+            color: $color-black;
+        
+            &:hover,
+            &:focus {
+                background-color: $color-white;
+                border-color: $color-white;
+                color: $color-black;
+            }
+
+            &:disabled {
+                background-color: $color-light-grey;
+                color: $color-dark-grey;
+                border: none;
+                outline: none;
+    
+                &:hover, &:focus {
+                    background-color: $color-light-grey;
+                    color: $color-dark-grey;
+                    cursor: default;
+                }
+            }
+        }
+    }
+
+
+    ////////////////////
+    //  Utilities
+    .fw-medium      { font-weight: 500; }
+
+    #thanks-message {
+        display: none;
+    }
+
+    #fileDownload {
+        font-size: 0;
+    }
+}

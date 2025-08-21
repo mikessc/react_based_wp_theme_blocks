@@ -1,0 +1,38 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "tbwa-blocks/card",
+	"version": "1.0",
+	"title": "Card",
+	"category": "tbwa-blocks",
+	"description": "Single card that holds an image and some text, and optionally a link.",
+	"attributes": {
+		"enableParagraphSmall": {
+			"type": "boolean", 
+			"default": true
+		},
+		"enableHeading": {
+			"type": "boolean", 
+			"default": true
+		},
+		"enableParagraphStandard": {
+			"type": "boolean", 
+			"default": true
+		}, 
+		"linkUrl": {
+			"type": "string", 
+			"default": ""
+		},
+		"linkTarget": {
+			"type": "string", 
+			"default": "_parent"
+		}
+	},
+	"supports": {
+		"html":false
+	},
+	"textdomain": "tbwa-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

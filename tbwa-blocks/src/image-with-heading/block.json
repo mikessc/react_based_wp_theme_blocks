@@ -1,0 +1,89 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "tbwa-blocks/image-with-heading",
+	"version": "1.0",
+	"title": "Image with Heading",
+	"category": "tbwa-blocks",
+	"description": "Custom image block with additional title. ",
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"text": {
+			"type": "string", 
+			"default": "Lorem ipsum"
+		},
+		"textColor": {
+			"type": "string", 
+			"default": "white"
+		},
+		"proportion": {
+			"type": "string", 
+			"default": "16-by-9"
+		},
+		"border": {
+			"type": "string", 
+			"default": "none"
+		},
+		"marginBottom": {
+			"type": "string", 
+			"default": "none"
+		},
+		"mediaId": {
+			"type": "number", 
+			"default": 0
+		}, 
+		"mediaUrl": {
+			"type": "string", 
+			"default": ""
+		}, 
+		"mediaAlt": {
+			"type": "string", 
+			"default": ""
+		}, 
+		"mediaTitle": {
+			"type": "string", 
+			"default": ""
+		},
+		"mediaType": {
+			"type": "string", 
+			"default": ""
+		}, 
+		"mediaMime": {
+			"type": "string", 
+			"default": ""
+		}, 
+		"mediaWidth": {
+			"type": "number", 
+			"default": 0
+		}, 
+		"mediaHeight": {
+			"type": "number", 
+			"default": 0
+		}, 
+		"url": {
+			"type": "string",
+			"source": "attribute",
+			"selector": "a",
+			"attribute": "href"
+		},
+		"target": {
+			"type": "string",
+			"source": "attribute",
+			"selector": "a",
+			"attribute": "target"
+		},
+		"rel": {
+			"type": "string",
+			"source": "attribute",
+			"selector": "a",
+			"attribute": "rel",
+			"default": "noreferrer noopener"
+		}
+	},
+	"textdomain": "tbwa-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

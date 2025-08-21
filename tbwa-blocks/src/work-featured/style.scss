@@ -1,0 +1,36 @@
+@use '../common' as *;
+
+.wp-block-tbwa-blocks-work-featured {
+
+	display:flex;
+	
+
+	//  Text is above the image sometimes
+	flex-direction:column;
+	@include md {
+		&.jumbo { 
+			flex-direction:column-reverse;
+		}
+	}
+
+	//  On mobile, all the images should be the same proportion
+	.wp-block-tbwa-blocks-image.proportion-16-by-9 {
+		aspect-ratio: 8/9;
+	}
+	@include md {
+		.wp-block-tbwa-blocks-image.proportion-16-by-9 {
+			aspect-ratio: 16/9;
+		}
+	}
+
+	//  Custom spacing
+	.client-name { 
+	}
+	.title { 
+	}
+	.excerpt { 
+	}
+
+
+
+}

@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "tbwa-blocks/three-items-carousel",
+	"version": "1.0",
+	"title": "3 Items Carousel",
+	"category": "tbwa-blocks",
+	"description": "Displays multiple Carousel Items. ",
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"indicator": {
+			"type": "string", 
+			"default": "white"
+		},
+		"background": {
+			"type": "string",
+			"default": "black"
+		},
+		"text": {
+			"type": "string",
+			"source": "html",
+			"selector": "h3",
+			"attribute": "text"
+		}
+	},
+	"textdomain": "tbwa-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./frontend.js" 
+}

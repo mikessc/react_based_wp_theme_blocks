@@ -1,0 +1,37 @@
+@use '../common' as *;
+
+
+.wp-block-tbwa-blocks-footer-button {
+
+	@include elastic('padding-bottom', 10, 10);
+	
+	//  Fix for https://lightrun.com/answers/ampproject-amphtml-column-count-property-doesnt-work-on-safari
+	will-change: transform;
+
+	> * { 
+		display:inline-block;
+		font-family:$font-stack;
+		font-weight:$font-medium;
+		text-decoration:none;
+
+		white-space: nowrap;
+		
+		@include elasticMany((
+			('font-size', 25, 30), 
+			('padding-top', 5, 7), 
+			('padding-bottom', 3, 4), 
+		));
+	
+		letter-spacing:0;
+		line-height:1.0em;
+
+	}
+	a { 
+		color:$color-white;
+	}
+	a:hover { 
+		color:$color-black!important;
+	}
+
+}
+

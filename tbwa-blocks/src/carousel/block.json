@@ -1,0 +1,23 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "tbwa-blocks/carousel",
+	"version": "1.0",
+	"title": "Carousel",
+	"category": "tbwa-blocks",
+	"description": "Displays multiple Carousel Items. ",
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"indicator": {
+			"type": "string", 
+			"default": "white"
+		} 
+	},
+	"textdomain": "tbwa-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./frontend.js" 
+}

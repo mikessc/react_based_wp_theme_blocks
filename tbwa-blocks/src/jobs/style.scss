@@ -1,0 +1,42 @@
+@use '../common' as *;
+
+.wp-block-tbwa-blocks-jobs {
+	padding: 90px 0;
+
+	.jobs-feed-container {
+		max-width: 80vw;
+		margin: 0 auto;
+
+		.jobs__title {
+			padding-bottom: 90px;
+			font-weight: 500;
+		}
+
+		.jobs__list {
+			margin: 0;
+			padding: 0;
+
+			li {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+
+				a {
+					display: block;
+					border-bottom: 1px solid black;
+					padding: 40px 0;
+					text-decoration: none;
+					font-weight: 500;
+					position: relative;
+					background: url(icons/arrow.png) no-repeat center right;
+					transition: padding 300ms ease;
+
+					&:hover {
+						text-decoration: underline;
+						padding-left: 20px;
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,43 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "tbwa-blocks/stacked-cards-item",
+	"version": "1.0",
+	"title": "Stacked Cards Item",
+	"category": "tbwa-blocks",
+	"parent": ["tbwa-blocks/stacked-cards"],
+	"description": "A single card inside the Stacked Cards block.",
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"mediaId": {
+			"type": "number", 
+			"default": 0
+		}, 
+		"mediaUrl": {
+			"type": "string", 
+			"default": ""
+		}, 
+		"mediaAlt": {
+			"type": "string", 
+			"default": ""
+		}, 
+		"mediaTitle": {
+			"type": "string", 
+			"default": ""
+		},
+		"mediaType": {
+			"type": "string", 
+			"default": ""
+		}, 
+		"mediaMime": {
+			"type": "string", 
+			"default": ""
+		}
+	},
+	"textdomain": "tbwa-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

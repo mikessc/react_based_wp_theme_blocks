@@ -1,0 +1,149 @@
+@use '../common' as *;
+
+/*! @media (prefers-reduced-motion: reduce) */ 
+@media (prefers-reduced-motion: reduce) {
+	* {
+	  animation-duration: 0.001ms !important;
+	  animation-iteration-count: 1 !important;
+	  transition-duration: 0.001ms !important;
+	  scroll-behavior: auto !important;
+	}
+  
+	.wp-block-tbwa-blocks-paragraph-with-lead-in {
+	  * {
+		transition: none !important;
+		animation: none !important;
+	  }
+	  .standard {
+		.lead-in {
+		  line-height: 1.3em !important;
+		}
+		.content {
+		  line-height: 1.2em !important;
+		}
+	  }
+	  
+	  .large {
+		.lead-in {
+		  line-height: 1.65em !important;
+		  @supports (-moz-appearance:none) {
+			line-height: 1.375em !important;
+		  }
+		}
+		.content {
+		  line-height: 1em !important;
+		}
+	  }
+	}
+  }
+
+//  Usually needs 90 padding below
+.wp-block-tbwa-blocks-paragraph-with-lead-in > .large {
+	@include elastic('padding-bottom', 60, 90);
+}
+
+//  Except in these situations, where there would be no padding
+.wp-block-tbwa-blocks-section > div > .wp-block-tbwa-blocks-paragraph-with-lead-in:last-child > .large,
+.wp-block-tbwa-blocks-section > div > .wp-block-tbwa-blocks-parallax-container:last-child > .wp-block-tbwa-blocks-paragraph-with-lead-in  > .large {
+	padding-bottom:0;
+}
+
+
+.wp-block-tbwa-blocks-paragraph-with-lead-in {
+
+	//  Base
+	p { 
+		font-weight:$font-regular;
+		letter-spacing:0;
+		margin:0px;	
+		padding:0px;
+	}
+
+	//  On mobile the lead-in is 100% width
+	.lead-in { 
+		width:100%;
+		padding-bottom:15px;
+	}
+	@include md { 
+		.lead-in { 
+			width:auto;
+			padding-bottom:0px;
+		}
+	}
+
+	//  Text Size and Line Height
+	//  See the theme prallax.jsx file, the line heights here are also defined in the Parallax code. 
+	.standard {
+		.lead-in {
+			@include elastic('font-size', 12, 18);
+			line-height:1.3em;	//  Also need to change this in the theme Parallax.jsx
+		}
+		.content{ 
+			@include elastic('font-size', 16, 25);
+			line-height:1.2em;	//  Also need to change this in the theme Parallax.jsx
+		}
+	}
+	.large {
+		.lead-in { 
+			@include elastic('font-size', 12, 25);
+			line-height:1.65em;
+			@supports (-moz-appearance:none) {  //  FireFox
+				line-height:1.375em;	//  Also need to change this in the theme Parallax.jsx
+				//color:red!important;
+			}
+		}
+		.content { 
+			@include elastic('font-size', 40, 75);
+			line-height:1em;
+		}
+	}
+
+	//  Lead-in 
+	.lead-in { 
+		display:inline;
+		float:left;
+		@include elastic('padding-right', 50);  // 0
+	}
+
+	//  Background color for testing
+	//.lead-in { 
+	//	background-color:rgba(255,0,0,0.25);
+	//}
+	//.content { 
+	//	background-color:rgba(0,255,0,0.25);
+	//}
+
+}	
+
+
+//  Text Color
+.wp-block-tbwa-blocks-paragraph-with-lead-in {
+	p { 
+		color:$color-dark-grey;
+	}
+	a {
+		color:$color-dark-grey;
+	}
+	a:hover {
+		color:$color-black;
+	}
+	.large .lead-in, .large .content { 
+		color:$color-black;
+	}
+}
+.background-black .wp-block-tbwa-blocks-paragraph-with-lead-in {
+	p { 
+		color:$color-light-grey;
+	}
+	a {
+		color:$color-light-grey;
+	}
+	a:hover {
+		color:$color-black;
+	}
+	.large .lead-in, .large .content { 
+		color:$color-white;
+	}
+}
+
+

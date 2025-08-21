@@ -1,0 +1,10 @@
+@use '../common' as *;
+
+
+.wp-block-tbwa-blocks-data-bite-container {
+	@include elastic('margin-top', 60, 90);
+	.h1, .h2, .h3, .h4, .h5, .h6 { 
+		@include elastic('margin-bottom', 60, 90);
+	}
+}
+

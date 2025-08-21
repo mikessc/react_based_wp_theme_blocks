@@ -1,0 +1,234 @@
+@use '../common' as *;
+
+
+//  Black bar at the top of the work loop
+.work-loop-half-black-bar { 
+
+	//  No padding on the top of this section
+	padding-top:0px;
+
+	//  Custom Black background bar behind the first item
+	$n : 50vw;
+	background: linear-gradient(180deg, $color-black $n, transparent $n);
+	@include md {
+		$n : calc(639 / 1920 * 992) + px;
+		background: linear-gradient(180deg, $color-black $n, transparent $n);
+	}
+	@include lg {
+		$n : calc(639 / 1920 * 100) + vw;
+		background: linear-gradient(180deg, $color-black $n, transparent $n);
+	}
+	@include xl {
+		$n : 639 + px;
+		background: linear-gradient(180deg, $color-black $n, transparent $n);
+	}
+
+	//  First items copy needs to be white on desktop
+	@include md {
+		.items:first-child { 
+			.client-name p, 
+			.title, 
+			.excerpt p { 
+				//color:$color-light-grey;
+				color: $color-black;
+			}
+			a:hover .client-name p, 
+			a:hover .title, 
+			a:hover .excerpt p { 
+				//color:$color-white;
+			}
+		}
+	}
+
+}
+
+.tbwa-card {
+	position: relative;
+	.copy {
+		a::after {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			content: '';
+		}
+	}
+}
+
+
+
+.wp-block-tbwa-blocks-work-loop {
+
+	position:relative;
+	display:block;
+	width:100%;
+
+	//  Columns
+	.items {
+
+		@include elastic('padding-top', 36);
+		&:first-child { 
+			padding-top:0px;
+		}
+
+		margin-right:auto;
+		display:grid;
+		@include elastic('gap', $column-gap);
+		grid-template-columns:1fr;
+
+
+		@include md {
+			&.tablet-1 { 
+				grid-template-columns:1fr;
+			}
+			&.tablet-2 { 
+				grid-template-columns:repeat(2, minmax(0, 1fr));
+			}
+			&.layout-staggered { 
+				grid-template-columns:repeat(2, minmax(0, 1fr));
+			}
+		}
+
+		@include lg {
+			&.desktop-1 {
+				grid-template-columns:1fr;
+			}
+			&.desktop-2 {
+				grid-template-columns:repeat(2, minmax(0, 1fr));
+			}
+			&.desktop-3 {
+				grid-template-columns:repeat(3, minmax(0, 1fr));
+			}
+			&.layout-staggered { 
+				grid-template-columns:repeat(3, minmax(0, 1fr));
+			}
+		}
+		@include xl {
+			&.desktop-1 {
+				grid-template-columns:1fr;
+			}
+			&.desktop-2 {
+				grid-template-columns:repeat(2, minmax(0, 1fr));
+			}
+			&.desktop-3 {
+				grid-template-columns:repeat(3, minmax(0, 1fr));
+			}
+		}
+
+		/* Layout Staggered */
+		&.layout-staggered { 
+
+			.columns-3-4 { 
+				display:none;
+			}
+			@include md {
+				.column-1 { 
+					@include elastic('margin-top', 90);
+				}
+				.column-3 { 
+					@include elastic('margin-top', 90);
+				}
+			}
+			@include lg {
+				.column-1 { 
+					margin-top:180px;
+				}
+				.column-2 { 
+					margin-top:90px;
+				}
+				.column-3 { 
+					display:none;
+				}
+				.column-4 { 
+					display:none;
+				}
+				.columns-3-4 { 
+					display:inline-block;
+					.column-3 { 
+						width:100%;
+						margin-top:0px;
+						display:inline-block;
+					}
+					.column-4 { 
+						width:100%;
+						@include elastic('margin-top', 36);
+						display:inline-block;
+					}
+				}
+			}
+
+
+		}
+
+	}
+
+	//  Column
+	.item { 
+
+		width:100%;
+		@include elastic('padding-bottom', 30, 60);
+
+		//  Text is above the image sometimes
+		a { 
+			display:flex;
+			flex-direction:column;
+		}
+		@include md {
+			&.jumbo a { 
+				flex-direction:column-reverse;
+			}
+		}
+
+		//  On mobile, all the images should be the same proportion
+		.image.proportion-16-by-9 {
+			aspect-ratio: 8/9;
+		}
+		@include md {
+			.image.proportion-16-by-9 {
+				aspect-ratio: 16/9;
+			}
+		}
+
+		//  Custom spacing
+		@include md {
+			&.jumbo { 
+				@include elastic('padding-bottom', 80);
+				.copy { 
+					@include elastic('padding-bottom', 15);
+				}
+			}
+		}	
+
+		//  Jumbo copy is only 8 cols wide on desktop
+		@include lg { 
+			&.jumbo { 
+				.excerpt { 
+					@include elastic('width', 1014);
+				}
+			}
+		}
+
+		//  Jumbo heading is h3 on desktop, h5 on mobile
+		&.jumbo {
+			h3 { 
+				display:none;
+			} 
+			h5 { 
+				display:block;
+			} 
+			@include md {
+				h3 { 
+					display:block;
+				} 
+				h5 { 
+					display:none;
+				} 
+			}
+		}
+
+
+	}
+
+
+}

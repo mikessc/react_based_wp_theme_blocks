@@ -1,0 +1,47 @@
+@use '../common' as *;
+
+
+//  This CSS solves inconsitencies or oddities in the design. 
+//  If CSS doesn't apply to the whole theme, and doesn't apply 
+//  to all instances of a block then it can be added here as a 
+//  special case class that can be applied to single instances of blocks. 
+
+
+//  On the intelligence page, move the purple hex grid up the page behind the columns higher on the page. 
+.tbwa-oddity-ajd8-intelligence-columns { 
+	position:relative;
+	z-index:99;
+}
+.tbwa-oddity-ajd8-intelligence-image { 
+	img { 
+		
+		margin-top: -300px;
+
+		width: 300vw!important;
+		margin-left: -100vw!important;
+
+		@include sm {
+			@include elastic('margin-top', -400);
+			width: 200vw!important;
+			margin-left: -50vw!important;
+		}
+
+		@include md {
+			width: 100vw!important;
+			margin-left: 0!important;
+		}
+
+	}
+}
+
+
+//  On the NEXT page, 
+//  On desktop a column of text is on the left, and a column with image is on the right.
+//  But on mobile we want the image to be above the text. 
+.tbwa-oddity-78sk-next-mobile-flip-image-order { 
+	order: 2;
+	@include md { 
+		order: 0;
+	}
+}
+

@@ -1,0 +1,17 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "tbwa-blocks/map-offices",
+	"version": "1.0",
+	"title": "Map Offices",
+	"category": "tbwa-blocks",
+	"description": "Displays a map showing the offices pushed to our site from an external feed.",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "tbwa-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./frontend.js"
+}

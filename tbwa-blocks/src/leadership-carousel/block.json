@@ -1,0 +1,39 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "tbwa-blocks/leadership-carousel",
+	"version": "1.0",
+	"title": "Leadership Carousel",
+	"category": "tbwa-blocks",
+	"description": "Displays multiple Leadership Carousel Items. ",
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"indicator": {
+			"type": "string", 
+			"default": "white"
+		},
+		"background": {
+			"type": "string",
+			"default": "black"
+		},
+		"text": {
+			"type": "string",
+			"source": "html",
+			"selector": "h3",
+			"attribute": "text"
+		},
+		"ctaText": {
+			"type": "string",
+			"source": "html",
+			"selector": "h5",
+			"attribute": "ctaText"
+		}
+	},
+	"textdomain": "tbwa-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./frontend.js" 
+}

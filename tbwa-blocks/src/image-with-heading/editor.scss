@@ -1,0 +1,27 @@
+.wp-block-tbwa-blocks-image-with-heading {
+	margin-top:24px;
+	margin-bottom:24px;
+
+	.no-media-selected { 
+		display:flex;
+		padding:40px;
+		line-height:1em;
+		aspect-ratio:1 / 1;
+	}
+	&.proportion-8-by-9 .no-media-selected { 
+		aspect-ratio:8 / 9;
+	}
+	&.proportion-8-by-4 .no-media-selected { 
+		aspect-ratio:8 / 4;
+	}
+	&.proportion-16-by-9 .no-media-selected { 
+		aspect-ratio:16 / 9;
+	}
+
+	img { 
+		border: 0px;
+	}
+
+}
+
+

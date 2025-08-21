@@ -1,0 +1,14 @@
+@use '../common' as *;
+
+
+.wp-block-tbwa-blocks-column-grid { 
+	width:100%;
+	display:grid;
+	grid-template-columns:repeat(12, [col-start] 6.18489%);
+	column-gap:2.34375%;
+}
+
+
+// page: 1536
+// gap: 36px
+// col: 95px 

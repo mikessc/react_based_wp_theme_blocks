@@ -1,0 +1,24 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "tbwa-blocks/language-selector",
+	"version": "1.0",
+	"title": "Language Selector",
+	"category": "tbwa-blocks",
+	"description": "A drop down menu to select language that links to another page in the site.",
+	"supports": {
+		"html": false, 
+		"align": ["left", "center", "right"]
+	},
+	"attributes": {
+		"instructions": {
+			"type": "string",
+			"default": "View this page in"
+		}
+	},
+	"textdomain": "tbwa-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./frontend.js"
+}

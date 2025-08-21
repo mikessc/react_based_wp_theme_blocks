@@ -1,0 +1,81 @@
+@use '../common' as *;
+
+.wp-block-tbwa-blocks-ticker-text {
+
+	position:relative;
+	width:100%;
+
+	//  See Save.jsx for animation speed / duration
+
+	//  Thankyou: https://stackoverflow.com/questions/65483819/ticker-marquee-effect-with-no-gaps
+	.ticker-wrap {
+		width: 100%;
+		@include elastic('height', 190, 230);
+		overflow: hidden;
+		white-space: nowrap;
+
+		@media(max-width: $screen-custom-md){
+			height: 109px;
+		}
+	}
+	.ticker {
+		display: inline-block;
+		animation-duration: 3s;
+		animation-name: wp-block-tbwa-blocks-ticker-text-marquee;
+		animation-timing-function: linear;
+		animation-iteration-count: infinite;
+		position: fixed;
+		@include md {
+			position: relative;
+		}
+
+	}
+	.item-collection-1 {
+		position: relative;
+		left: 0%;
+		animation-duration: 3s;
+		animation-name: wp-block-tbwa-blocks-ticker-text-swap;
+		animation-timing-function: linear;
+		animation-iteration-count: infinite;
+	}
+	.item {
+		display: inline-block;
+		@include elastic('font-size', 72, 187.5);
+		@include elastic('height', 210);
+		font-weight:$font-regular;
+		letter-spacing:-3%;
+		line-height:1.1em;
+		display:inline-block;
+		white-space:nowrap;
+		padding-right:3em;
+	}
+
+	/* Transitions */
+	@keyframes wp-block-tbwa-blocks-ticker-text-marquee {
+		0% {
+			transform: translateX(0);
+		}
+		100% {
+			transform: translateX(-100%);
+		}
+	}
+	@keyframes wp-block-tbwa-blocks-ticker-text-swap {
+		0%, 50% {
+			left: 0%;
+		}
+		50.01%,
+		100% {
+			left: 100%;
+		}
+	}
+
+
+	color:$color-black;
+	&.background-black {
+		background-color:$color-black;
+		color:$color-white;
+	}
+	
+}
+
+

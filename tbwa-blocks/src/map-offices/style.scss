@@ -1,0 +1,343 @@
+@use '../common' as *;
+
+
+.wp-block-tbwa-blocks-map-offices {
+	position:relative;
+	display:block;
+	overflow: hidden;
+
+	.inner { 
+		display:block;
+		overflow:unset;
+		width:100%;
+		height:66vh;
+
+		height:80vh;
+		@include elastic('min-height', 862);
+
+		//border:1px solid $color-dark-grey;
+		background-color:$color-black;
+	}
+
+	&.mobile {
+		padding-top: 80px;
+		background-color: $color-black;
+		overflow: hidden;
+
+		.leaflet-control-container {
+			position: absolute;
+			top: -74px;
+			width: 100%;
+
+			.leaflet-top {
+				width: 100%;
+			}
+
+			.leaflet-left .leaflet-control {
+				margin-top: 74px;
+			}
+
+			.leaflet-left .leaflet-searchbox-container {
+				top: 6px;
+				margin-left: 24px;
+				margin-top: 0;
+				position: absolute;
+				width: calc(100% - 48px);
+
+				.leaflet-searchbox-wrapper {
+					justify-content: left;
+
+					.leaflet-searchbox-left {
+						width: calc(100% - 60px) !important;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+.marker-cluster-small, 
+.marker-cluster-small div, 
+.marker-cluster-medium, 
+.marker-cluster-medium div, 
+.marker-cluster-large, 
+.marker-cluster-large div {
+	background-color: $color-yellow;
+	color:$color-black;
+	font-size:2em;
+}
+
+
+.marker-cluster-small div span, 
+.marker-cluster-medium div span, 
+.marker-cluster-large div span {
+	font-size:1.5em;
+	line-height:1.8em;
+	font-family:$font-stack;
+	font-weight:$font-bold;
+}
+
+
+.leaflet-container a.leaflet-popup-close-button {
+	@include elasticMany((
+		('width', 24, 24), 
+		('height', 24, 24), 
+	));
+	&::before {
+		content:url('data:image/svg+xml,<svg width="12" height="12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve"><path fill="%234D4D4D" d="M18.1,16.4l9.9-10l-2.1-2.1l-9.9,10L6.1,4.4L4,6.4l9.9,9.9L4,26.3l2.1,2.1l9.9-9.9l9.9,9.9l2.1-2.1L18.1,16.4z"/></svg>');
+	}
+	span { 
+		display:none;
+	}
+}
+
+
+
+
+.tbwa-blocks-map-offices-tool-tip { 
+
+	.h6 { 
+		color:$color-black;
+		font-size:1.5em;
+		font-family:$font-stack;
+		font-weight:$font-bold;
+		@include elastic('font-size', 14, 18);
+	}
+	.tbwa-blocks-map-offices-tool-tip-phone,  
+	.tbwa-blocks-map-offices-tool-tip-url,  
+	.tbwa-blocks-map-offices-tool-tip-address { 
+		color:$color-dark-grey;
+		font-family:$font-stack;
+		//word-break: break-all;
+		@include elasticMany((
+			('font-size', 12, 12.5),  
+			('padding-top', 5, 5), 
+			('padding-bottom', 5, 5), 
+		));
+		width:100%;
+		height:auto;
+		display:flex;
+		align-items:center;
+		span { 
+			flex-shrink:0;
+			@include elasticMany((
+				('width', 24, 24), 
+				('height', 24, 24), 
+				('padding-right', 20, 20), 
+			));
+			background-repeat:no-repeat;
+			background-position:left center;
+			background-size:auto 100%;
+		}
+	}
+	.tbwa-blocks-map-offices-tool-tip-address span { 
+		background-image:url('data:image/svg+xml;utf8,<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2ZM7 9C7 6.24 9.24 4 12 4C14.76 4 17 6.24 17 9C17 11.88 14.12 16.19 12 18.88C9.92 16.21 7 11.85 7 9ZM9.5 9C9.5 7.61929 10.6193 6.5 12 6.5C12.8932 6.5 13.7185 6.9765 14.1651 7.75C14.6116 8.5235 14.6116 9.4765 14.1651 10.25C13.7185 11.0235 12.8932 11.5 12 11.5C10.6193 11.5 9.5 10.3807 9.5 9Z" fill="%234D4D4D"/></svg>');
+	}
+	.tbwa-blocks-map-offices-tool-tip-phone span { 
+		background-image:url('data:image/svg+xml;utf8,<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M4 3H7.5C8.05 3 8.5 3.45 8.5 4C8.5 5.25 8.7 6.45 9.07 7.57C9.18 7.92 9.1 8.31 8.82 8.59L6.62 10.79C8.06 13.62 10.38 15.93 13.21 17.38L15.41 15.18C15.61 14.99 15.86 14.89 16.12 14.89C16.22 14.89 16.33 14.9 16.43 14.94C17.55 15.31 18.76 15.51 20 15.51C20.55 15.51 21 15.96 21 16.51V20C21 20.55 20.55 21 20 21C10.61 21 3 13.39 3 4C3 3.45 3.45 3 4 3ZM6.54 5C6.6 5.89 6.75 6.76 6.99 7.59L5.79 8.79C5.38 7.59 5.12 6.32 5.03 5H6.54ZM16.4 17.02C17.25 17.26 18.12 17.41 19 17.47V18.96C17.68 18.87 16.41 18.61 15.2 18.21L16.4 17.02Z" fill="%234D4D4D"/></svg>');
+	}
+	.tbwa-blocks-map-offices-tool-tip-url span { 
+		background-image:url('data:image/svg+xml;utf8,<svg width="24" height="24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;" xml:space="preserve"><path fill="%234D4D4D" d="M12,3.2c-4.8,0-8.8,3.9-8.8,8.8c0,4.8,3.9,8.8,8.8,8.8c4.8,0,8.8-3.9,8.8-8.8C20.8,7.2,16.8,3.2,12,3.2z M18.5,8.8h-2.6C15.4,7.3,14.8,6,14,5C16,5.6,17.6,7,18.5,8.8z M19.2,12c0,0.6-0.1,1.2-0.2,1.8h-2.9c0.1-0.6,0.1-1.2,0.1-1.8s-0.1-1.2-0.1-1.8H19C19.2,10.8,19.2,11.4,19.2,12z M12,18.7c-1-0.7-1.8-1.9-2.3-3.5h4.6C13.8,16.8,13,18.1,12,18.7z M9.4,13.8 c-0.1-0.6-0.1-1.1-0.1-1.8c0-0.6,0.1-1.2,0.1-1.8h5.2c0.1,0.6,0.1,1.1,0.1,1.8s-0.1,1.2-0.1,1.8H9.4z M4.8,12c0-0.6,0.1-1.2,0.2-1.8h2.9c-0.1,0.6-0.1,1.2-0.1,1.8c0,0.6,0.1,1.2,0.1,1.8H5C4.8,13.2,4.8,12.6,4.8,12z M12,5.3c1,0.7,1.8,1.9,2.3,3.5H9.7 C10.2,7.2,11,5.9,12,5.3z M10,5C9.2,6,8.6,7.3,8.2,8.8H5.5C6.4,7,8,5.6,10,5z M5.5,15.2h2.6c0.4,1.5,1,2.8,1.8,3.7C8.1,18.4,6.4,17,5.5,15.2z M14,19c0.8-1,1.4-2.2,1.8-3.7h2.6C17.6,17,16,18.4,14,19z"/></svg>');
+	}
+	a { 
+		color:$color-black!important;
+	}
+	a:hover { 
+		color:$color-black!important;
+	}
+
+}
+
+.leaflet-control-container {
+	&.mobile {
+		.leaflet-searchbox-container {
+			width: calc(100vw - 68px);
+			position: absolute;
+			top: -74px;
+
+			.closeBtn {
+				display: none;				
+			}
+
+			&.active {
+				width: calc(100vw - 118px);
+				position: fixed;
+				top: 56px;
+				left: 0;
+				margin: 0;
+				border: 12px solid $color-black;
+				z-index: 840;
+
+				&:before {
+					content: '';
+					position: fixed;
+					width: 100vw;
+					height: 100vh;
+					background: rgba(0, 0, 0, .5);
+					top: 0;
+					left: 0;
+				}
+
+				.closeBtn {
+					display: flex;
+					align-items: center;
+					width: auto;
+					height: 73px;
+					color: white;
+					background: black;
+					position: fixed;
+					top: 56px;
+					right: 0;
+					font-size: 24px;
+					padding: 0 24px;
+					cursor: pointer;			
+				}
+
+				#map-search-results {
+					max-height: calc(100vh - 74px) !important;
+					position: fixed;
+					top: 130px;
+					left: 0;
+					height: calc(100vh - 74px) !important;
+					overflow-y: scroll;
+				}
+			}
+
+			.leaflet-searchbox-wrapper {
+				.leaflet-searchbox {
+					width: 100% !important;
+				}
+			}
+		}
+	}
+	.leaflet-searchbox-icon {
+		filter: invert(1);
+		width: 30px !important;
+	}
+	.leaflet-top {
+		display: flex;
+		z-index: 840;
+
+		.leaflet-searchbox-wrapper {
+			flex-direction: row-reverse;
+			border-radius: 2px;
+			height: 100%;
+			border: 1px solid $color-black;
+			z-index: 20;
+			position: relative;
+
+			.leaflet-searchbox, .leaflet-searchbox-button {
+				border-radius: 0;
+				border: none;
+				font-size: 24px;
+			}
+
+			.leaflet-searchbox {
+				padding: 0;
+			}
+
+			.leaflet-searchbox-button {
+				border: none;
+				width: 60px;
+			}
+
+			.clear-search {
+				background: url(icons/clear.png) top left no-repeat;
+				background-size: cover;
+				filter: invert(1);
+				position: absolute;
+				top: 50%;
+				right: 20px;
+				transform: translateY(-50%);
+				width: 17px;
+				height: 17px;
+				cursor: pointer;
+				z-index: 980;
+				display: none;
+
+				&.active {
+					display: block;
+				}
+			}
+		}
+
+		.leaflet-searchbox-autocomplete {
+			top: 45px !important;
+			border: 1px solid $color-black;
+			z-index: 10;
+			box-sizing: border-box;
+			.leaflet-searchbox-autocomplete-item {
+				box-sizing: border-box;
+				color: $color-black;
+				border: none;
+			}
+		}
+	}
+}
+
+#map-search-results {
+	position: absolute;
+	display: none;
+	overflow-x: hidden;
+	overflow-y: auto;
+	background: $color-white;
+	border-left: 1px solid $color-black;
+	border-right: 1px solid $color-black;
+	border-bottom: 1px solid $color-black;
+	width: 100%;
+	box-sizing: border-box;
+
+	&.active {
+		display: block;
+	}
+
+	.tbwa-blocks-map-offices-tool-tip {
+		display: block;
+		width: 100%;
+		padding: 10px;
+		border-bottom: 1px solid $color-light-grey;
+		cursor: pointer;
+		box-sizing: border-box;
+
+		.h6, div {
+			display: block;
+		}
+	}
+
+	@include md {
+		width: 100%;
+		background: white;
+	}
+
+	.no-results-container {
+		padding: 45px 24px;
+		color: $color-black;
+
+		.bold {
+			font-weight: bold;
+		}
+	}
+}
+
+body.map-searching {
+	overflow: hidden;
+}
+
+.noscroll .leaflet-searchbox-container {
+	display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

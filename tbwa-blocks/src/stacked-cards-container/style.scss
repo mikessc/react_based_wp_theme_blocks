@@ -1,0 +1,50 @@
+@use '../common' as *;
+
+
+.wp-block-tbwa-blocks-stacked-cards-container {
+
+	//  Same padding-top used below
+	@include elasticMany((
+		('min-height', 100), 
+		('padding-top', 60, 180), 			
+		('padding-bottom', 60, 180)
+	));
+
+	> div {
+
+
+		> .h1, > .h2, > .h3, > .h4, > .h5, > .h6, > div, { 
+
+			//  Heading needs to be within the column, same as the section css
+			//  But the inner blocks for the cards below the heading need to be full window 
+	
+			position:relative;
+			width:100%;
+			padding-left:$column-margin + px;
+			padding-right:$column-margin + px;
+			@include lg {
+				padding-left:0px;
+				padding-right:0px;
+			}		
+
+			@include md {
+				@include elastic('max-width', $column-width);
+				margin-left:auto;
+				margin-right:auto;
+			}
+
+		}
+
+		.wp-block-tbwa-blocks-stacked-cards {
+			@include elastic('margin-top', 60, 90);
+			padding-left:0px;
+			padding-right:0px;
+			max-width:none;
+		}
+
+	} 
+
+	
+
+}
+

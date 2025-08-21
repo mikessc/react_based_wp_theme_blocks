@@ -1,0 +1,42 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "tbwa-blocks/heading",
+	"version": "1.0",
+	"title": "Heading",
+	"category": "tbwa-blocks",
+	"description": "Custom heading block with a restricted set of options",
+	"supports": {
+		"html": false,
+		"anchor": true
+	},
+	"attributes": {
+		"display": {
+			"type": "string", 
+			"default": "h1"
+		},
+		"seo": {
+			"type": "string", 
+			"default": "h1"
+		},
+		"content": {
+			"type": "string"
+		}, 
+		"icon": {
+			"type": "string", 
+			"default": ""
+		}, 
+		"font": {
+			"type": "string", 
+			"default": ""
+		},
+		"anchor": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"textdomain": "tbwa-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

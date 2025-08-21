@@ -1,0 +1,218 @@
+
+
+////////////////////
+//  Fonts
+$font-stack: "TBWAGrotesk", "times", Helvetica, sans-serif;
+$font-stack-backslanted: "TBWAGrotesk-Backslash", "times", Helvetica, sans-serif;
+
+$font-regular: 400;
+$font-medium: 600;
+$font-bold: 700;
+
+$tbwa-font-weight-regular: 400;
+$tbwa-font-weight-medium: 500;
+$tbwa-font-weight-semibold: 600;
+$tbwa-font-weight-bold: 700;
+$tbwa-font-weight-black: 900;
+
+
+////////////////////
+//  Colors
+$color-black: var(--tbwa_theme_color_black);
+$color-white: var(--tbwa_theme_color_white);
+$color-yellow: var(--tbwa_theme_color_yellow);
+$color-yellow-inverted: var(--tbwa_theme_color_yellow_inverted);
+
+//  Body copy on white is this color:
+$color-dark-grey:  var(--tbwa_theme_color_dark_grey);
+
+//  Body copy on black is this color:
+$color-light-grey: var(--tbwa_theme_color_light_grey);
+
+//  Errors
+$color-error-red: var(--tbwa_theme_color_error_red);
+
+//  Legal nav grey can be darker because the text is large
+$legal-nav-grey: var(--tbwa_theme_color_legal_nav_grey);
+
+//  Form on white
+$color-form-on-white: $color-dark-grey;
+$color-form-on-white-hint: var(--tbwa_theme_color_white_hint);
+$color-form-on-white-error: $color-error-red;
+$color-form-on-white-active: $color-black;
+$color-form-on-white-disabled: var(--tbwa_theme_color_white_disabled);
+
+//  Form on black
+$color-form-on-black: $color-light-grey;
+$color-form-on-black-hint: var(--tbwa_theme_color_black_hint);
+$color-form-on-black-error: $color-error-red;
+$color-form-on-black-active: $color-white;
+$color-form-on-black-disabled: var(--tbwa_theme_color_black_disabled);
+
+
+
+////////////////////
+//  Animation
+$rollover-duration-half: 0.15s;
+$rollover-duration: 0.3s;
+$rollover-duration-double: 0.6s;
+
+////////////////////
+//  Follow cursor
+$follow-cursor-small: 120;
+$follow-cursor-medium: 190;
+$follow-cursor-large: 264.3;
+
+////////////////////
+//  Breakpoints
+//
+//  border:3px dashed red;
+//  @include sm {
+//  	border:3px dashed green;
+//  }
+//  @include md {
+//  	border:3px dashed blue;
+//  }
+//  @include lg {
+//  	border:3px dashed cyan;
+//  }
+//  @include xl {
+//  	border:3px dashed pink;
+//  }
+
+$screen-xs: 320px;
+$screen-sm: 576px;
+$screen-md: 768px;
+$screen-lg: 992px;
+$screen-xl: 1920px;
+
+$column-width: 1536;
+$screen-custom-md: 767px;
+$column-width-half: 768;
+$column-gap: 36;
+$column-margin: 24;
+
+@mixin xs {
+	@media (min-width: #{$screen-xs}) {
+		@content;
+	}
+}
+@mixin sm {
+	@media (min-width: #{$screen-sm}) {
+		@content;
+	}
+}
+@mixin md {
+	@media (min-width: #{$screen-md}) {
+		@content;
+	}
+}
+@mixin lg {
+	@media (min-width: #{$screen-lg}) {
+		@content;
+	}
+}
+@mixin xl {
+	@media (min-width: #{$screen-xl}) {
+		@content;
+	}
+}
+
+
+////////////////////
+//  Elastic Breakpoint 
+//  Stretch this property depending on the breakpoint
+//
+//	@include breakpoint.elastic('font-size', 25);		
+//  	Under 992, the font size is 12.91px
+//  	Between 992 and 1920, the font size is scaled to match the view width.
+//  	Wider than 1920, the font size is 25px. 
+//
+//	@include breakpoint.elastic('font-size', 25, 25);
+//  	Under 768, the font size is 25px 
+//  	Between 768 and 992, the font size is 12.91px
+//  	Between 992 and 1920, the font size is scaled to match the view width.
+//  	Wider than 1920, the font size is 25px. 
+//
+@mixin elastic($item...) { 
+	$property: nth($item, 1);
+	@if length($item) == 2 {
+		#{$property}:calc(nth($item,2) / 1920 * 992) + px;
+		@media (min-width: #{$screen-lg}) {
+			#{$property}:calc(nth($item,2) / 1920 * 100) + vw;
+		}
+		@media (min-width: #{$screen-xl}) {
+			#{$property}:nth($item,2) + px;
+		}
+	} @else if length($item) == 3 { 
+		#{$property}:nth($item,2) + px;
+		@media (min-width: #{$screen-md}) {
+			#{$property}:calc(nth($item,3) / 1920 * 992) + px;
+		}
+		@media (min-width: #{$screen-lg}) {
+			#{$property}:calc(nth($item,3) / 1920 * 100) + vw;
+		}
+		@media (min-width: #{$screen-xl}) {
+			#{$property}:nth($item,3) + px;
+		}
+	}
+}
+
+////////////////////
+//  Elastic Breakpoint Many
+//  Stretches properties depending on the breakpoint
+//
+//		@include breakpoint.elasticMany((
+//			('width', 92, 104),
+//			('height', 22, 26)
+//		));
+//
+//		@include breakpoint.elasticMany((
+//			('width', 100),
+//			('height', 22, 26)
+//		));
+//
+//  Works the same as elasticOne above, 
+//  but groups the properties resulting in significantly smaller css. 
+// 
+@mixin elasticMany($items) { 
+	@each $item in $items {
+		$property: nth($item, 1);
+		@if length($item) == 2 {
+			#{$property}:calc(nth($item,2) / 1920 * 992) + px;
+		} @else if length($item) == 3 { 
+			#{$property}:nth($item,2) + px;
+		}
+	}
+	@media (min-width: #{$screen-md}) {
+		@each $item in $items {
+			$property: nth($item, 1);
+			@if length($item) == 2 {
+				#{$property}:calc(nth($item,2) / 1920 * 992) + px;
+			} @else if length($item) == 3 { 
+				#{$property}:calc(nth($item,3) / 1920 * 992) + px;
+			}
+		}
+	}
+	@media (min-width: #{$screen-lg}) {
+		@each $item in $items {
+			$property: nth($item, 1);
+			@if length($item) == 2 {
+				#{$property}:calc(nth($item,2) / 1920 * 100) + vw;
+			} @else if length($item) == 3 { 
+				#{$property}:calc(nth($item,3) / 1920 * 100) + vw;
+			}
+		}
+	}
+	@media (min-width: #{$screen-xl}) {
+		@each $item in $items {
+			$property: nth($item, 1);
+			@if length($item) == 2 {
+				#{$property}:nth($item,2) + px;
+			} @else if length($item) == 3 { 
+				#{$property}:nth($item,3) + px;
+			}
+		}
+	}
+}
+

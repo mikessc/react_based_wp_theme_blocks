@@ -1,0 +1,38 @@
+@use '../common' as *;
+
+
+.wp-block-tbwa-blocks-top-nav-button {
+
+	> * { 
+		display:inline-block;
+		color:$color-white;
+		transition: color $rollover-duration;
+		font-family:$font-stack;
+		font-weight:$font-regular;
+		text-decoration:none;
+
+		padding-top:0px;
+		padding-bottom:30px;
+		padding-left:10px;
+		padding-right:10px;
+		white-space: nowrap;
+		@include md {
+			padding-top:3px;
+			padding-bottom:3px;
+			padding-left:0px;
+			padding-right:0px;
+		}
+		@include elastic('font-size', 36, 25);
+	}
+	a:hover, a:focus { 
+		color:$color-yellow;
+	}
+	a:active { 
+		text-decoration:underline;
+	}
+	a.active { 
+		text-decoration:underline;
+	}
+
+}
+

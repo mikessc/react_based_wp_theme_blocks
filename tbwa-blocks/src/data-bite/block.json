@@ -1,0 +1,25 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "tbwa-blocks/data-bite",
+	"version": "1.0",
+	"title": "Data Bite",
+	"category": "tbwa-blocks",
+	"description": "A yellow bite of data with a paragraph of text underneath.",
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"content": {
+			"type": "string",
+			"default": "33<sup>%</sup>"
+		}, 
+		"detail": {
+			"type": "string"
+		}
+	},
+	"textdomain": "tbwa-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

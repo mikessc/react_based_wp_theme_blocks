@@ -1,0 +1,47 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "tbwa-blocks/three-items-carousel-item-group",
+	"version": "1.0",
+	"title": "3 Items Carousel Item Group",
+	"category": "tbwa-blocks",
+	"parent":["tbwa-blocks/three-items-carousel-item"],
+	"description": "Carousel Item Group blocks hold content within a Carousel.",
+	"supports": {
+		"html":false
+	},
+	"attributes": {
+		"background": {
+			"type": "string", 
+			"default": "yellow"
+		}, 
+		"mediaId": {
+			"type": "number", 
+			"default": 0
+		}, 
+		"mediaUrl": {
+			"type": "string", 
+			"default": ""
+		}, 
+		"mediaAlt": {
+			"type": "string", 
+			"default": ""
+		}, 
+		"mediaTitle": {
+			"type": "string", 
+			"default": ""
+		},
+		"mediaType": {
+			"type": "string", 
+			"default": ""
+		}, 
+		"mediaMime": {
+			"type": "string", 
+			"default": ""
+		}
+	},
+	"textdomain": "tbwa-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

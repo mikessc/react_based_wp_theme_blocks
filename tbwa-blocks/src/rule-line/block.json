@@ -1,0 +1,22 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "tbwa-blocks/rule-line",
+	"version": "1.0",
+	"title": "Rule Line",
+	"category": "tbwa-blocks",
+	"description": "A narrow or full width rule line.",
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"width": {
+			"type": "string", 
+			"default": "full"
+		}
+	},
+	"textdomain": "tbwa-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

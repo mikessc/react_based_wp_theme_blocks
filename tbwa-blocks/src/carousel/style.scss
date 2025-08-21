@@ -1,0 +1,92 @@
+@use '../common' as *;
+
+
+.wp-block-tbwa-blocks-carousel {
+
+	position:relative;
+	width:100%;
+	overflow:hidden;
+
+
+	.indicators { 
+		position:absolute;
+		@include elastic('top', 800);
+		width:100%;
+		display:flex;
+		justify-content:center;
+		align-items:center;
+		//mix-blend-mode:exclusion;
+
+		.indicator-min, .indicator-max { 
+			@include elasticMany((
+				('width', 36),
+				('height', 36)
+			));
+			display:flex;
+			justify-content:center;
+			align-items:center;
+			color:$color-white;
+		}
+		.indicator { 
+			position:relative;
+			.indicator-base { 
+				@include elastic('width', 95);
+				height:1px;
+				background-color:RGBA(255,255,255,0.5);
+			}
+			.indicator-knob { 
+				//transition:all 0.5s ease-in-out;
+				position:absolute;
+				top:0px;
+				left:0%;
+				height:1px;
+				width:0%;
+				background-color:$color-white;
+			}
+		}
+		.indicator-play-pause {
+			position:relative;
+			@include elasticMany((
+				('width', 32), 
+				('height', 32) 
+			));
+			.button-play,  
+			.button-pause { 
+				position:absolute;
+				top:0px;
+				left:0px;
+				@include elasticMany((
+					('width', 32), 
+					('height', 32)
+				));
+				cursor:pointer;
+			}
+			.button-play {
+				display:none;
+			}
+		}
+	}
+
+	.items { 
+		@include elastic('height', 863);
+	}
+
+}
+
+
+.wp-block-tbwa-blocks-carousel.indicator-black { 
+	.indicators { 
+		.indicator-min, .indicator-max { 
+			color:$color-black;
+		}
+		.indicator { 
+			.indicator-base { 
+				background-color:RGBA(0,0,0,0.5);
+			}
+			.indicator-knob { 
+				background-color:$color-black;
+			}
+		}
+	}
+}
+

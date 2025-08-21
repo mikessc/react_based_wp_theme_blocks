@@ -1,0 +1,29 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "tbwa-blocks/star-rating",
+	"version": "1.0",
+	"title": "Star Rating",
+	"category": "tbwa-blocks",
+	"description": "This block register on a CSV the rating from url while shows a thanks image or message. ",
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"imageID": {
+			"type": "number"
+		},
+		"imageURL": {
+			"type": "string"
+		},
+		"customText": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"textdomain": "tbwa-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./frontend.js" 
+}

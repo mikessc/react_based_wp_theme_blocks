@@ -1,0 +1,29 @@
+@use '../common' as *;
+
+
+.wp-block-tbwa-blocks-heading {
+	margin-top:24px;
+	margin-bottom:24px;
+
+	&.is-selected { 
+		background-color:rgba(128, 128, 128, 0.05);
+	}
+
+	display:flex;
+
+}
+
+.wp-block-tbwa-blocks-heading .hidden { 
+	display:block;
+	font-weight:$font-medium;
+	font-size:50px;
+	letter-spacing:-3%;
+	line-height:1em;
+	margin:0px;
+	padding:0px;
+
+	background-color:#444;
+	background: repeating-linear-gradient( -45deg, #666, #666 10px, #999 10px, #999 20px);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}

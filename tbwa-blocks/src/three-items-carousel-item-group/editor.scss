@@ -1,0 +1,15 @@
+.block-editor-block-list__block {
+	.wp-block-tbwa-blocks-three-items-carousel-item-group {
+		.block-editor-block-list__layout {
+			.wp-block-tbwa-blocks-image {
+				display: inline-block;
+				width: 45%;
+			}
+			.wp-block-tbwa-blocks-heading,
+			.wp-block-tbwa-blocks-paragraph,
+			.wp-block-tbwa-blocks-image {
+				margin-left: 2%;
+			}
+		}
+	}
+}

@@ -1,0 +1,18 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "tbwa-blocks/work-categories",
+	"version": "1.0",
+	"title": "Work Categories",
+	"category": "tbwa-blocks",
+	"description": "The block shows a list of work category tags. ",
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+	},
+	"textdomain": "tbwa-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

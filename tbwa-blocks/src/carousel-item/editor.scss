@@ -1,0 +1,38 @@
+
+
+//  Hide
+.wp-block-tbwa-blocks-carousel-item {
+	display:none;
+}
+
+//  If none selected, show the first
+.wp-block-tbwa-blocks-carousel:not(.has-child-selected) {
+	.wp-block-tbwa-blocks-carousel-item:first-child { 
+		display:block;
+	}	
+}
+
+//  If one selected, show that one
+.wp-block-tbwa-blocks-carousel-item {
+	&.is-selected,
+	&.has-child-selected {
+		display:block;
+	}
+}
+
+
+.wp-block-tbwa-blocks-carousel-item {
+	margin-top:24px;
+	margin-bottom:24px;
+	margin-left:0px;
+	margin-right:0px;
+
+	.media { 
+		min-height:400px;
+		img, video { 
+			min-height:560px;
+		}
+	}
+
+
+}

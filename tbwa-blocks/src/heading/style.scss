@@ -1,0 +1,183 @@
+@use '../common' as *;
+
+h1, h2, h3, h4, h5, h6 { 
+	&.hidden { 
+		display:none;
+	}
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6 { 
+	letter-spacing:-3%;
+	line-height:1em;	//  Also need to change this in the theme Parallax.jsx
+	margin: 0;
+	padding: 0;
+	color:$color-black;
+	.icon { 
+		fill:$color-black;
+		display:inline;
+		vertical-align:text-bottom;
+	}
+
+	&[id] {
+		margin-top: -80px;
+		padding-top: 80px;
+	}
+
+	&[id="noMarginsHeading"] {
+		margin-top: 0;
+		padding-top: 0;
+	}
+
+	.block-editor-block-list__block & {
+		margin: 20px 0 !important;
+	}
+	.wp-block-tbwa-blocks-column-grid & {
+		margin-top: 0 !important;
+	}
+}
+.background-white { 
+	.h1, .h2, .h3, .h4, .h5, .h6 { 
+		color:$color-black;
+		.icon { 
+			fill:$color-black;
+		}
+	}
+}
+.background-black { 
+	.h1, .h2, .h3, .h4, .h5, .h6 { 
+		color:$color-white;
+		.icon { 
+			fill:$color-white;
+		}
+	}
+}
+.background-yellow { 
+	.h1, .h2, .h3, .h4, .h5, .h6 { 
+		color:$color-black;
+		.icon { 
+			fill:$color-black;
+		}
+	}
+}
+
+.h1 { 
+	font-weight:$font-regular;
+	@include elasticMany((
+		('font-size', 50, 100),
+		('padding-bottom', 15)
+	));
+	.icon { 
+		@include elasticMany((
+			('padding-left', 2, 6),
+			('width', 50, 100),
+			('height', 50, 100)
+		));
+	}
+}
+.h2 { 
+	font-weight:$font-regular;
+	@include elasticMany((
+		('font-size', 40, 75),
+		('padding-bottom', 15)
+	));	
+	.icon { 
+		@include elasticMany((
+			('padding-left', 2, 6),
+			('width', 40, 75),
+			('height', 40, 75)
+		));
+	}
+}
+.h3 { 
+	font-weight:$font-medium;
+	@include elasticMany((
+		('font-size', 30, 50),
+		('padding-bottom', 12)
+	));
+	letter-spacing:-0.02em;
+	line-height:1.5em;  //  Also need to change this in the theme Parallax.jsx
+	.icon { 
+		@include elasticMany((
+			('padding-left', 2, 6),
+			('width', 30, 50),
+			('height', 30, 50)
+		));
+	}
+}
+.h4 { 
+	font-weight:$font-medium;
+	@include elasticMany((
+		('font-size', 24, 40),
+		('padding-bottom', 10)
+	));
+	letter-spacing:-0.02em;
+	line-height:1.5em;  //  Also need to change this in the theme Parallax.jsx
+	.icon { 
+		@include elasticMany((
+			('padding-left', 2, 6),
+			('width', 24, 40),
+			('height', 24, 40)
+		));
+	}
+}
+.h5 { 
+	font-weight:$font-medium;
+	@include elasticMany((
+		('font-size', 18, 30),
+		('padding-bottom', 5)
+	));
+	letter-spacing:0;
+	line-height:1.3em;  //  Also need to change this in the theme Parallax.jsx
+	.icon { 
+		@include elasticMany((
+			('padding-left', 2, 6),
+			('width', 18, 30),
+			('height', 18, 30)
+		));
+	}
+}
+.h6 { 
+	font-weight:$font-regular;
+	@include elasticMany((
+		('font-size', 16, 25),
+		('padding-bottom', 5)
+	));
+	letter-spacing:0;
+	line-height:1.5em;  //  Also need to change this in the theme Parallax.jsx
+	.icon { 
+		@include elasticMany((
+			('padding-left', 2, 6),
+			('width', 16, 25),
+			('height', 16, 25)
+		));
+	}
+}
+
+//  Slanted and Backslanted variations 
+.h1, .h2, .h3, .h4, .h5, .h6 { 
+	&.font-backslanted { 
+		font-family:$font-stack-backslanted;
+	}
+	&.font-slanted { 
+		font-style:italic;
+	}
+}
+
+
+//  Remove padding from first or last headings
+.h1:first-child, 
+.h2:first-child, 
+.h3:first-child, 
+.h4:first-child, 
+.h5:first-child, 
+.h6:first-child { 
+	padding-top:0;
+}
+.h1:last-child,  
+.h2:last-child,  
+.h3:last-child,  
+.h4:last-child,  
+.h5:last-child,  
+.h6:last-child { 
+	padding-bottom:0;
+}

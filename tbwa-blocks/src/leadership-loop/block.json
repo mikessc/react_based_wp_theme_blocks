@@ -1,0 +1,18 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "tbwa-blocks/leadership-loop",
+	"version": "1.0",
+	"title": "Leadership Loop",
+	"category": "tbwa-blocks",
+	"description": "Displays a list of all Leader Posts. ",
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+	},
+	"textdomain": "tbwa-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

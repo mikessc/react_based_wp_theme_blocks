@@ -1,0 +1,17 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "tbwa-blocks/three-items-carousel-item",
+	"version": "1.0",
+	"title": "3 Items Carousel Item",
+	"category": "tbwa-blocks",
+	"parent":["tbwa-blocks/three-items-carousel"],
+	"description": "Carousel Items blocks hold content within a Carousel.",
+	"supports": {
+		"html":false
+	},
+	"textdomain": "tbwa-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

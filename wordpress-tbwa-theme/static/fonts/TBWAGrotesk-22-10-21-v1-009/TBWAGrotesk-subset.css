@@ -1,0 +1,119 @@
+
+
+
+/* TBWA Grotesk */
+@font-face {
+  font-family: 'TBWAGrotesk';
+  font-weight: 400;
+  font-style: normal;
+  src: url('TBWAGrotesk-Regular.woff2') format('woff2'), 
+       url('TBWAGrotesk-Regular.woff') format('woff')
+}
+@font-face {
+  font-family: 'TBWAGrotesk';
+  font-weight: 500;
+  font-style: normal;
+  src: url('TBWAGrotesk-Medium.woff2') format('woff2'), 
+       url('TBWAGrotesk-Medium.woff') format('woff')
+}
+@font-face {
+  font-family: 'TBWAGrotesk';
+  font-weight: 600;
+  font-style: normal;
+  src: url('TBWAGrotesk-SemiBold.woff2') format('woff2'), 
+       url('TBWAGrotesk-SemiBold.woff') format('woff')
+}
+@font-face {
+  font-family: 'TBWAGrotesk';
+  font-weight: 700;
+  font-style: normal;
+  src: url('TBWAGrotesk-Bold.woff2') format('woff2'), 
+       url('TBWAGrotesk-Bold.woff') format('woff')
+}
+@font-face {
+  font-family: 'TBWAGrotesk';
+  font-weight: 900;
+  font-style: normal;
+  src: url('TBWAGrotesk-Black.woff2') format('woff2'), 
+       url('TBWAGrotesk-Black.woff') format('woff')
+}
+
+
+/* TBWA Grotesk - Italic aka "Slanted" */
+@font-face {
+  font-family: 'TBWAGrotesk';
+  font-weight: 400;
+  font-style: italic;
+  src: url('TBWAGrotesk-Italic.woff2') format('woff2'), 
+       url('TBWAGrotesk-Italic.woff') format('woff')
+}
+@font-face {
+  font-family: 'TBWAGrotesk';
+  font-weight: 500;
+  font-style: italic;
+  src: url('TBWAGrotesk-MediumItalic.woff2') format('woff2'), 
+       url('TBWAGrotesk-MediumItalic.woff') format('woff')
+}
+@font-face {
+  font-family: 'TBWAGrotesk';
+  font-weight: 600;
+  font-style: italic;
+  src: url('TBWAGrotesk-SemiBoldItalic.woff2') format('woff2'), 
+       url('TBWAGrotesk-SemiBoldItalic.woff') format('woff')
+}
+@font-face {
+  font-family: 'TBWAGrotesk';
+  font-weight: 700;
+  font-style: italic;
+  src: url('TBWAGrotesk-BoldItalic.woff2') format('woff2'), 
+       url('TBWAGrotesk-BoldItalic.woff') format('woff')
+}
+@font-face {
+  font-family: 'TBWAGrotesk';
+  font-weight: 900;
+  font-style: italic;
+  src: url('TBWAGrotesk-BlackItalic.woff2') format('woff2'), 
+       url('TBWAGrotesk-BlackItalic.woff') format('woff')
+}
+
+
+/* TBWA Grotesk - Backslash aka "Backslanted" */
+@font-face {
+  font-family: 'TBWAGrotesk-Backslash';*
+  font-weight: 400;
+  font-style: normal;
+  src: url('TBWAGroteskBackslash-Regular.woff2') format('woff2'), 
+       url('TBWAGroteskBackslash-Regular.woff') format('woff')
+}
+@font-face {
+  font-family: 'TBWAGrotesk-Backslash';
+  font-weight: 500;
+  font-style: normal;
+  src: url('TBWAGroteskBackslash-Medium.woff2') format('woff2'), 
+       url('TBWAGroteskBackslash-Medium.woff') format('woff')
+}
+@font-face {
+  font-family: 'TBWAGrotesk-Backslash';
+  font-weight: 600;
+  font-style: normal;
+  src: url('TBWAGroteskBackslash-SemiBold.woff2') format('woff2'), 
+       url('TBWAGroteskBackslash-SemiBold.woff') format('woff')
+}
+@font-face {
+  font-family: 'TBWAGrotesk-Backslash';
+  font-weight: 700;
+  font-style: normal;
+  src: url('TBWAGroteskBackslash-Bold.woff2') format('woff2'), 
+       url('TBWAGroteskBackslash-Bold.woff') format('woff')
+}
+@font-face {
+  font-family: 'TBWAGrotesk-Backslash';
+  font-weight: 900;
+  font-style: normal;
+  src: url('TBWAGroteskBackslash-Black.woff2') format('woff2'), 
+       url('TBWAGroteskBackslash-Black.woff') format('woff')
+}
+
+
+
+

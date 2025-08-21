@@ -1,0 +1,31 @@
+@use '../common' as *;
+
+
+
+#parallax-wrapper-outer {
+	position:fixed;
+	display:block;
+	width:100%;
+	#parallax-wrapper-inner { 
+		position:relative;
+		background-color:$color-white;
+	} 
+}
+
+.wp-block-tbwa-blocks-parallax-container {
+	@media (prefers-reduced-motion: reduce) {
+		
+		transform: none !important;
+		  position: relative !important;
+		  will-change: auto !important;
+		  
+		  * {
+		  animation-duration: 0.001ms !important;
+		  animation-iteration-count: 1 !important;
+		  transition-duration: 0.001ms !important;
+		  scroll-behavior: auto !important;
+		  }
+
+	  }
+}
+

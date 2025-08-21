@@ -1,0 +1,65 @@
+@use '../common' as *;
+
+
+.wp-block-tbwa-blocks-footer {
+	position:relative;
+
+	&.background-black { 
+		width:100%;
+
+		.column { 
+
+			//  Height and padding
+			@include elasticMany((
+				('min-height', 100), 
+				('padding-top', 90, 300), 
+				('padding-bottom', 30, 60)
+			));
+
+			//  Width and padding
+			padding-left:$column-margin + px;
+			padding-right:$column-margin + px;
+			@include md {
+				@include elastic('max-width', $column-width);
+				margin-left:auto;
+				margin-right:auto;
+			}
+			@include lg {
+				padding-left:0px;
+				padding-right:0px;
+			}		
+
+			//  Flex to position logo, content and buttons 
+			display:flex;
+			align-items:flex-start;
+			flex-direction:column-reverse;
+			gap:0px;
+			.wp-block-tbwa-blocks-footer-content {
+				padding-top:30px;
+				padding-bottom:0px;
+			} 
+			@include md {
+				gap:0px;
+				align-items:flex-end;
+				flex-direction:row;
+				.wp-block-tbwa-blocks-footer-content { 
+					width:auto;
+					flex-grow:10;
+					padding-top:0px;
+					padding-bottom:0px;
+				}
+				.wp-block-tbwa-blocks-footer-buttons { 
+					width:auto;
+					flex-grow:1;
+				}
+			}
+
+
+
+
+		}
+	}
+
+
+}
+

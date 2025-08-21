@@ -1,0 +1,16 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "tbwa-blocks/logo-grid-container",
+	"version": "1.0",
+	"title": "Logo Grid Container",
+	"category": "tbwa-blocks",
+	"description": "Container including a Rule Line and Heading with Logo Grid.",
+	"supports": {
+		"html":false
+	},
+	"textdomain": "tbwa-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

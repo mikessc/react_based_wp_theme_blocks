@@ -1,0 +1,21 @@
+@use '../common' as *;
+
+
+
+
+.wp-block-tbwa-blocks-footer {
+	margin-top:24px;
+	margin-bottom:24px;
+	margin-left:0px;
+	margin-right:0px;
+
+	.column > div { 
+		width:100%;
+	}
+	.column > div > div { 
+		display:flex;
+		align-items:flex-end;
+		flex-direction:row;
+	}
+
+}

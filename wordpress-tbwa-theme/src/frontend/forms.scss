@@ -1,0 +1,560 @@
+@use '../common' as *;
+
+
+
+//  Contact and career forms use the Contact Form 7 plugin
+//  This file styles those forms. 
+
+
+.wpcf7 {
+	width:100%;
+
+	@include elastic('padding-top', 30, 90);
+
+
+	//  Wrapper
+	.wpcf7-form-control-wrap { 
+		display:block;
+		@include elasticMany((
+			('padding-top', 16, 25),
+			('padding-bottom', 16, 25)
+		));
+	}
+	
+	//  Remove ios safari yellow auto fill background
+	@-webkit-keyframes autofill {
+		0%,100% {
+			color: #666;
+			background: transparent;
+		}
+	}
+	input:-webkit-autofill {
+		-webkit-animation-delay: 1s; /* Safari support - any positive time runs instantly */
+		-webkit-animation-name: autofill;
+		-webkit-animation-fill-mode: both;
+	}
+
+	//  Focus
+	textarea:focus, 
+	input:focus {
+		outline:none!important;
+	}
+
+	//  Font size and style
+	label, 
+	.wpcf7-text, 
+	.wpcf7-select, 
+	.wpcf7-select option,  
+	.wpcf7-textarea, 
+	.wpcf7-number, 
+	.wpcf7-date, 
+	.wpcf7-quiz,
+	.wpcf7-file, 
+	.wpcf7-response-output,
+	input.wpcf7-submit {
+		font-family:$font-stack;
+		font-weight:$font-regular;
+		letter-spacing:0;
+		line-height:1.2em;
+		color:$color-form-on-white;
+		margin:0px;	
+		padding:0px;
+		@include elastic('font-size', 16, 25);
+	}
+
+	//  Labels
+	label {
+		@include elastic('font-size', 16, 25);
+	}
+
+	//  Checkboxes
+	input[type="checkbox"] {
+		border-radius:0px;
+	}
+
+	//  Text fields
+	.wpcf7-text {
+		background-color:transparent;
+		border: none;
+		border-radius:0px;
+		border-bottom: 1px solid $color-form-on-white-active;
+		color:$color-form-on-white-active;
+		width:100%;
+		@include elastic('padding-bottom', 6, 10);
+	}
+	.wpcf7-text:focus, 
+	.wpcf7-text:active, 
+	.wpcf7-text:visited {
+		color:$color-form-on-white-active;
+		border-bottom: 1px solid $color-form-on-white-active;
+	}
+	.wpcf7-text::placeholder {
+		color:$color-form-on-white;
+	}
+	.wpcf7-text:placeholder-shown {
+		color:$color-form-on-white;
+		border-bottom: 1px solid $color-form-on-white;
+	}
+	.wpcf7-text.wpcf7-not-valid { 
+		border-bottom:1px solid $color-form-on-white-error;
+	}
+
+
+	//  Select Drop Downs
+	.wpcf7-select { 
+		appearance:none;   
+		width:100%;
+		border-radius:0;
+		border:none;
+		color: $color-form-on-white-active;
+		border-bottom: 1px solid $color-form-on-white-active;
+		background-color:transparent;
+		background-image:url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 18 14" style="enable-background:new 0 0 18 14;" xml:space="preserve"><path d="M17.7,4.7V0.6L9,9.3L0.3,0.6v4.1L9,13.4L17.7,4.7z" fill="%230A0A0D" /></svg>');
+		background-position:right center;
+		background-size:auto 33%;
+		background-repeat:no-repeat;
+		padding-left:0px;
+		padding-right:0px;
+		@include elasticMany((
+			('padding-top', 6, 10), 
+			('padding-bottom', 6, 10) 
+		));
+		&.wpcf7-not-valid { 
+			border-bottom:1px solid $color-form-on-white-error;
+		}
+		&[data-value=""] { 
+			color: $color-form-on-white-hint;
+			border-bottom: 1px solid $color-form-on-white-hint;
+			background-image:url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 18 14" style="enable-background:new 0 0 18 14;" xml:space="preserve"><path d="M17.7,4.7V0.6L9,9.3L0.3,0.6v4.1L9,13.4L17.7,4.7z" fill="%23868686" /></svg>');
+		}
+	}
+
+	//  Drop Downs - multi select
+	.wpcf7-select[multiple="multiple"] {
+		background:transparent;
+		option { 
+			@include elasticMany((
+				('font-size', 16, 25), 
+				('padding-bottom', 6, 10) 
+			));
+		}
+	}
+
+	//  Textarea
+	.wpcf7-textarea { 
+		width:90%;
+		border-radius:0px;
+		color:$color-form-on-white-active;
+		border: 1px solid $color-form-on-white-active;
+		@include elastic('padding', 8, 12.5);
+	}
+	.wpcf7-textarea:placeholder-shown {
+		border: 1px solid $color-light-grey;
+	}
+	.wpcf7-textarea:focus, 
+	.wpcf7-textarea:active, 
+	.wpcf7-textarea:visited {
+		color:$color-form-on-white-active;
+		border: 1px solid $color-form-on-white-active;
+	}
+	.wpcf7-textarea::placeholder {
+		color:$color-form-on-white;
+	}
+
+	//  Radio and Checkboxes
+	.wpcf7-checkbox, 
+	.wpcf7-acceptance {
+		.wpcf7-list-item { 
+			margin-left:0px;
+		}
+		input[type='checkbox']:checked {
+			filter: grayscale(100%);
+		}
+	} 
+	.wpcf7-radio {
+		input[type='radio']:checked {
+			filter: grayscale(100%);
+		}
+	}
+	.wpcf7-free-text { 
+		border: none;
+		background:transparent;
+		border-radius:0px;
+		color:$color-form-on-white-active;
+		border-bottom: 1px solid $color-form-on-white-active;
+		font-family:$font-stack;
+		font-weight:$font-regular;
+		letter-spacing:0;
+		line-height:1.2em;
+		@include elasticMany((
+			('font-size', 16, 25), 
+			('width', 200)
+		));
+	}
+	.wpcf7-free-text:focus, 
+	.wpcf7-free-text:active, 
+	.wpcf7-free-text:visited {
+		color:$color-form-on-white-active;
+		border-bottom: 1px solid $color-form-on-white-active;
+	}
+	.wpcf7-free-text::placeholder {
+		color:$color-form-on-white;
+	}
+	.wpcf7-free-text:placeholder-shown {
+		color:$color-form-on-white;
+		border-bottom: 1px solid $color-form-on-white;
+	}
+	.wpcf7-list-item { 
+		margin-right:1em;
+		&.first { 
+			margin-left:0px;
+		}
+	}
+	
+	//  Number
+	.wpcf7-number { 
+		width:50%;
+		border: none;
+		background:transparent;
+		border-radius:0px;
+		color:$color-form-on-white-active;
+		border-bottom: 1px solid $color-form-on-white-active;
+		@include elastic('padding-bottom', 6, 10);
+		&.wpcf7-not-valid { 
+			border-bottom:1px solid $color-form-on-white-error;
+		}
+	}
+	.wpcf7-number:focus, 
+	.wpcf7-number:active, 
+	.wpcf7-number:visited {
+		color:$color-form-on-white-active;
+		border-bottom: 1px solid $color-form-on-white-active;
+	}
+	.wpcf7-number::-webkit-inner-spin-button, 
+	.wpcf7-number::-webkit-outer-spin-button { 
+		appearance: none; 
+		margin: 0; 
+	}
+
+	//  Range
+	.wpcf7-range { 
+		appearance: none;
+		width:50%;
+		height:1px;
+		background:rgba(255, 255, 255, 0.6);
+		border-radius:0px;
+		background-image: linear-gradient($color-form-on-white, $color-form-on-white);
+	}
+	.wpcf7-range::-webkit-slider-thumb {
+		appearance: none;
+		height: 20px;
+		width: 20px;
+		border-radius: 50%;
+		background: $color-form-on-black;
+		cursor:pointer;
+		transition: background .3s ease-in-out;
+	}
+	.wpcf7-range::-webkit-slider-runnable-track  {
+		appearance: none;
+		box-shadow: none;
+		border: none;
+		background: transparent;
+	}
+
+	//  Date
+	.wpcf7-date {
+		background-color:transparent;
+		border: none;
+		border-radius:0px;
+		color:$color-form-on-white-active;
+		border-bottom: 1px solid $color-form-on-white-active;
+		width:100%;
+		@include elastic('padding-bottom', 6, 10);
+		&.wpcf7-not-valid { 
+			border-bottom:1px solid $color-form-on-white-error;
+		}
+		&::-webkit-date-and-time-value {
+			text-align: left;
+		}
+	}
+
+	//  Quiz
+	.wpcf7-quiz-label { 
+	}
+	.wpcf7-quiz {
+		background-color:transparent;
+		border: none;
+		border-radius:0px;
+		color:$color-form-on-white-active;
+		border-bottom: 1px solid $color-form-on-white-active;
+		display:inline;
+		width:100px;
+		@include elastic('padding-bottom', 6, 10);
+		&.wpcf7-not-valid { 
+			border-bottom:1px solid $color-form-on-white-error;
+		}
+	}
+	.wpcf7-quiz:focus, 
+	.wpcf7-quiz:active, 
+	.wpcf7-quiz:visited {
+		color:$color-form-on-white-active;
+		border-bottom: 1px solid $color-form-on-white-active;
+	}
+	.wpcf7-quiz::placeholder {
+		color:$color-form-on-white;
+	}	
+	.wpcf7-quiz:placeholder-shown {
+		color:$color-form-on-white;
+		border-bottom: 1px solid $color-form-on-white;
+	}
+
+
+	//  File 
+	.wpcf7-file { 
+		width:80%;
+		cursor:pointer;
+	}
+	.wpcf7-file::-webkit-file-upload-button {
+		cursor:pointer;
+	}
+	.wpcf7-file::file-selector-button { 
+		cursor:pointer;
+		border:none;
+		filter: grayscale(100%);
+		border-radius:0px;
+		background-color:transparent;
+		background-image:url('data:image/svg+xml;charset=UTF-8,<svg width="22" height="24" viewBox="0 0 22 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.4383 11.2774L11.2483 20.4674C10.1225 21.5932 8.59552 22.2257 7.00334 22.2257C5.41115 22.2257 3.88418 21.5932 2.75834 20.4674C1.63249 19.3415 1 17.8146 1 16.2224C1 14.6302 1.63249 13.1032 2.75834 11.9774L11.9483 2.78737C12.6989 2.0368 13.7169 1.61514 14.7783 1.61514C15.8398 1.61514 16.8578 2.0368 17.6083 2.78737C18.3589 3.53793 18.7806 4.55591 18.7806 5.61737C18.7806 6.67882 18.3589 7.69681 17.6083 8.44737L8.40834 17.6374C8.03306 18.0126 7.52406 18.2235 6.99334 18.2235C6.46261 18.2235 5.95362 18.0126 5.57834 17.6374C5.20306 17.2621 4.99222 16.7531 4.99222 16.2224C4.99222 15.6916 5.20306 15.1826 5.57834 14.8074L14.0683 6.32737" stroke="%234D4D4D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+		background-position:left center;
+		background-size:auto 80%;
+		background-repeat:no-repeat;
+		@include elasticMany((
+			('padding-left', 34), 
+			('font-size', 16, 25)
+		));
+		text-decoration:none;
+	}
+	.wpcf7-file::file-selector-button:hover { 
+		text-decoration:underline;
+	}
+	//  Error
+	.wpcf7-not-valid-tip { 
+		color:$color-form-on-white-error;
+		@include elasticMany((
+			('padding-top', 4, 6), 
+			('font-size', 12, 15)
+		));
+	}
+	.wpcf7-response-output { 
+		padding:0px!important;
+		margin:0px!important;
+		color:$color-form-on-white-error;
+		border:none!important;
+	}
+
+	//  Spinner	
+	.wpcf7-spinner {
+		@include elasticMany((
+			('margin-left', 0),  
+			('margin-top', 18) 
+		));
+	}
+
+}
+
+
+//  The default submit button is very similar to the Button Block
+.wpcf7 input.wpcf7-submit {
+	border:none;
+	appearance: none;
+	-webkit-appearance: none;
+	text-decoration:none;
+	border-radius:0px;
+	@include elasticMany((
+		('padding-top', 24, 32), 
+		('padding-bottom', 22, 30), 
+		('padding-left', 40, 45), 
+		('padding-right', 40, 45), 
+		('margin-right', 24, 24), 
+		('margin-bottom', 24, 24)
+	));
+	background-color:$color-yellow;
+	color:$color-black;
+	transition-property: all;
+	transition-duration: $rollover-duration;
+	transition-timing-function: ease-out;
+
+	//  But the fancy hover animation doesn't work on input fields, because it relies on before
+	&:hover, &:focus, &:active {
+		background-color:$color-black;
+		color:$color-white;
+	}
+
+}
+
+//  On black
+.background-black .wpcf7 {
+
+	//  Font size and style
+	label, 
+	.wpcf7-text, 
+	.wpcf7-select, 
+	.wpcf7-select option,  
+	.wpcf7-textarea, 
+	.wpcf7-date, 
+	.wpcf7-quiz,
+	.wpcf7-file, 
+	.wpcf7-response-output,
+	input.wpcf7-submit {
+		color:$color-form-on-black;
+	}
+
+	//  Text fields
+	.wpcf7-text {
+		color:$color-form-on-black-active;
+		border-bottom: 1px solid $color-form-on-black-active;
+		&.wpcf7-not-valid { 
+			border-bottom:1px solid $color-form-on-black-error;
+		}
+	}
+	.wpcf7-text:focus, 
+	.wpcf7-text:active, 
+	.wpcf7-text:visited {
+		color:$color-form-on-black-active;
+		border-bottom: 1px solid $color-form-on-black-active;
+	}
+	.wpcf7-text::placeholder {
+		color:$color-form-on-black;
+	}
+	.wpcf7-text:placeholder-shown {
+		color:$color-form-on-white;
+		border-bottom: 1px solid $color-form-on-white;
+	}
+
+	//  Drop Downs
+	.wpcf7-select { 
+		color: $color-form-on-black-active;
+		border-bottom: 1px solid $color-form-on-black-active;
+		background-image:url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 18 14" style="enable-background:new 0 0 18 14;" xml:space="preserve"><path d="M17.7,4.7V0.6L9,9.3L0.3,0.6v4.1L9,13.4L17.7,4.7z" fill="%23FFFFFF" /></svg>');
+		&.wpcf7-not-valid { 
+			border-bottom:1px solid $color-form-on-black-error;
+		}
+		&[data-value=""] { 
+			color: $color-form-on-black-hint;
+			border-bottom: 1px solid $color-form-on-black-hint;
+			background-image:url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 18 14" style="enable-background:new 0 0 18 14;" xml:space="preserve"><path d="M17.7,4.7V0.6L9,9.3L0.3,0.6v4.1L9,13.4L17.7,4.7z" fill="%23D0D0D0" /></svg>');
+		}
+	}
+
+
+	//  Drop Downs - multi select
+	.wpcf7-select[multiple="multiple"] {
+		background:transparent;
+	}
+
+	//  Textarea
+	.wpcf7-textarea { 
+		background:transparent;
+		color:$color-form-on-black-active;
+		border: 1px solid $color-form-on-black-active;
+	}
+	.wpcf7-textarea:placeholder-shown {
+		color:$color-form-on-black;
+		border: 1px solid $color-dark-grey;
+	}
+	.wpcf7-textarea:focus, 
+	.wpcf7-textarea:active, 
+	.wpcf7-textarea:visited {
+		color:$color-form-on-black-active;
+		border: 1px solid $color-form-on-black-active;
+	}
+	.wpcf7-textarea::placeholder {
+		color:$color-form-on-black;
+	}
+
+	//  Radio and Checkboxes
+	.wpcf7-checkbox, 
+	.wpcf7-acceptance {
+		input[type='checkbox'] {
+			filter: grayscale(100%) invert(100%);
+		}
+	} 
+	.wpcf7-radio {
+		input[type='radio'] {
+			filter: grayscale(100%) invert(100%);
+		}
+	}
+	.wpcf7-free-text { 
+		border-bottom: 1px solid $color-form-on-black;
+		color:$color-form-on-black;
+	}
+	.wpcf7-free-text:focus, 
+	.wpcf7-free-text:active, 
+	.wpcf7-free-text:visited {
+		color:$color-form-on-black-active;
+		border-bottom: 1px solid $color-form-on-black-active;
+	}
+	.wpcf7-free-text::placeholder {
+		color:$color-form-on-black;
+	}
+
+	//  Number
+	.wpcf7-number { 
+		color: $color-form-on-black-active;
+		border-bottom: 1px solid $color-form-on-black-active;
+	}
+
+	//  Range
+	.wpcf7-range { 
+		background:rgba(255, 255, 255, 0.2);
+		background:red;
+		background-image: linear-gradient($color-form-on-black, $color-form-on-black);
+	}
+	.wpcf7-range::-webkit-slider-thumb {
+		background: $color-form-on-black;
+	}
+
+	//  Date
+	.wpcf7-date {
+		color: $color-form-on-black-active;
+		border-bottom: 1px solid $color-form-on-black-active;
+	}
+
+	//  Quiz
+	.wpcf7-quiz {
+		border-bottom: 1px solid $color-form-on-black;
+	}
+	.wpcf7-quiz:focus, 
+	.wpcf7-quiz:active, 
+	.wpcf7-quiz:visited {
+		color:$color-form-on-black-active;
+		border-bottom: 1px solid $color-form-on-black-active;
+	}
+	.wpcf7-quiz::placeholder {
+		color:$color-form-on-black;
+	}
+
+	//  File 
+	.wpcf7-file::file-selector-button { 
+		color:$color-form-on-black;
+		background-image:url('data:image/svg+xml;charset=UTF-8,<svg width="22" height="24" viewBox="0 0 22 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.4383 11.2774L11.2483 20.4674C10.1225 21.5932 8.59552 22.2257 7.00334 22.2257C5.41115 22.2257 3.88418 21.5932 2.75834 20.4674C1.63249 19.3415 1 17.8146 1 16.2224C1 14.6302 1.63249 13.1032 2.75834 11.9774L11.9483 2.78737C12.6989 2.0368 13.7169 1.61514 14.7783 1.61514C15.8398 1.61514 16.8578 2.0368 17.6083 2.78737C18.3589 3.53793 18.7806 4.55591 18.7806 5.61737C18.7806 6.67882 18.3589 7.69681 17.6083 8.44737L8.40834 17.6374C8.03306 18.0126 7.52406 18.2235 6.99334 18.2235C6.46261 18.2235 5.95362 18.0126 5.57834 17.6374C5.20306 17.2621 4.99222 16.7531 4.99222 16.2224C4.99222 15.6916 5.20306 15.1826 5.57834 14.8074L14.0683 6.32737" stroke="%23BDBDBD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+	}
+
+	//  Submit
+	input.wpcf7-submit { 
+		background-color:$color-yellow;
+		color:$color-black;
+		&:hover, &:focus, &:active {
+			background-color:$color-form-on-black;
+			color:$color-black;
+		}
+	}
+
+}
+
+
+
+
+
+
+
+

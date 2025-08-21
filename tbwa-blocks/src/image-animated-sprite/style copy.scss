@@ -1,0 +1,85 @@
+@use "../common" as *;
+
+.wp-block-tbwa-blocks-image-animated-sprite {
+	//box-sizing:border-box;
+	position: relative;
+	width: 100%;
+	height: auto;
+
+	//  Fix the gap added by non-zero font size white space
+	font-size: 0;
+	line-height: 0;
+	//  Don't use flex for this, it breaks the layout
+	//display:flex;
+
+	.no-media-selected {
+		display: none;
+	}
+
+	// &.proportion-8-by-9 {
+	// 	aspect-ratio: 8 / 9;
+	// }
+	// &.proportion-8-by-4 {
+	// 	aspect-ratio: 8 / 4;
+	// }
+	// &.proportion-16-by-9 {
+	// 	aspect-ratio: 16 / 9;
+	// }
+	&.proportion-original {
+		width: 100%;
+		height: auto;
+	}
+
+	// &.proportion-8-by-9,
+	// &.proportion-8-by-4,
+	// &.proportion-16-by-9,
+	// &.proportion-original,
+	// &.proportion-top-cut {
+	// 	img {
+	// 		width: 100%;
+	// 		height: auto;
+	// 		object-fit: cover;
+	// 		object-position: center center;
+	// 	}
+	// }
+	&.proportion-original-size {
+		width: initial;
+		height: initial;
+	}
+
+	//  Used by the Work Next block to cut the featured image in half
+	// &.proportion-top-cut {
+	// 	width: 100%;
+	// 	height: auto;
+	// 	aspect-ratio: 1536 / 432;
+	// 	img {
+	// 		object-position: top center;
+	// 	}
+	// }
+
+	&.border-white {
+		border: 1px solid $color-white;
+	}
+	&.border-black {
+		border: 1px solid $color-black;
+	}
+	&.border-light-grey {
+		border: 1px solid $color-light-grey;
+	}
+	&.border-dark-grey {
+		border: 1px solid $color-dark-grey;
+	}
+
+	&.margin-bottom-25 {
+		@include elastic("margin-bottom", 25);
+	}
+	&.margin-bottom-50 {
+		@include elastic("margin-bottom", 50);
+	}
+}
+
+.sprite {
+	width: 100% !important;
+	height: 0;
+	padding-top: 100%;
+}

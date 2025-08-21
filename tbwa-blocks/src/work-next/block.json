@@ -1,0 +1,19 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "tbwa-blocks/work-next",
+	"version": "1.0",
+	"title": "Work Next",
+	"category": "tbwa-blocks",
+	"description": "The block shows a summary of the next work / case study item. ",
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+	},
+	"textdomain": "tbwa-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./frontend.js" 
+}

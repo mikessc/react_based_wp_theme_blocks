@@ -1,0 +1,204 @@
+@use '../common' as *;
+
+
+
+$section-with-media-width:1010;
+$section-with-media-height:862;
+
+.wp-block-tbwa-blocks-section-with-media {
+
+	position:relative;
+	width:100%;
+
+	> div { 
+		position:relative;
+	}
+
+	&.background-black {
+		background-color:$color-black;
+		color:$color-white;
+	}
+	&.background-white {
+		//background-color:$color-white;
+		color:$color-black;
+	}
+
+	.no-media-selected { 
+		display:none;
+	}
+
+	//  Mobile 
+	//  All layouts work the same way, media first, then column-inner below. 
+	.column-outer { 
+		.media { 
+			display:flex;
+			width:100%;
+			height:auto;
+			z-index:99;
+			img, video, .no-media-selected { 
+				object-fit:cover;
+				width:100%; 
+				height:100%;
+				border:0px;
+			}
+		}
+		.column-inner { 
+			padding-left:$column-margin + px;
+			padding-right:$column-margin + px;
+			.column-inner-inner { 
+				@include elastic('margin-top', 36, 36);
+				padding-bottom:$column-margin + px;
+				z-index:100;
+				max-height:auto;
+			}
+			.column-inner-inner:empty { 
+				display:none;
+			}
+		}
+	}
+	.mobile { 
+		display:inline-block;
+	}
+	.desktop { 
+		display:none;
+	}
+	.desktop.mobile { 
+		display:inline-block;
+	}
+
+
+	//  Desktop
+	//  There are three separate layouts for desktop 
+	@include md {
+		.media {
+			.mobile { 
+				display:none;
+			}
+			.desktop { 
+				display:inline-block;
+			}
+		}
+
+		//  Reset mobile
+		.column-outer { 
+			padding-bottom:0;
+			.column-inner { 
+				margin-top:0vw;
+				padding-left:0px;
+				padding-right:0px;
+			}
+		}
+
+		//  Desktop - Cover Page
+		&.media-position-cover-page { 
+			.media { 
+				position:absolute;
+				top:0px;
+				left:0px;
+				width:100%;
+				height:100%;
+				z-index:1;
+				img, video, .no-media-selected { 
+					object-fit:cover;
+					width:100%; 
+					height:100%;
+				}
+			}
+			.column-inner { 
+				position:relative;
+				@include elastic('max-width', $column-width);
+				@include elastic('height', $section-with-media-height);
+				margin-left:auto;
+				margin-right:auto;
+				padding-left:$column-margin + px;
+				padding-right:$column-margin + px;
+				.column-inner-inner { 
+					position:absolute;
+					bottom:40px;
+					@include elastic('max-width', $column-width-half);
+					z-index:2;
+				}
+			}
+		}
+
+		//  Desktop - Cover Column
+		&.media-position-cover-column { 
+			.column-outer { 
+				position:relative;
+				@include elastic('max-width', $column-width);
+				@include elastic('height', $section-with-media-height);
+				margin-left:auto;
+				margin-right:auto;
+				padding-left:$column-margin + px;
+				padding-right:$column-margin + px;
+				@include lg { 
+					padding-left:0px;
+					padding-right:0px;
+				}
+				.media { 
+					position:relative;
+					@include elastic('max-width', $column-width);
+					@include elastic('height', $section-with-media-height);
+					z-index:1;
+					img, video, .no-media-selected { 
+						object-fit:cover;
+						width:100%; 
+						height:100%;
+					}
+				}
+				.column-inner-inner { 
+					position:absolute;
+					bottom:40px;
+					@include elastic('width', $column-width-half);
+					z-index:2;
+				}
+			}
+		}
+
+		//  Desktop - Square Right
+		&.media-position-square-right { 
+			.column-outer { 
+				position:relative;
+				display:block;
+				@include elastic('max-width', $column-width);
+				@include elastic('height', $section-with-media-height);
+				margin-left:auto;
+				margin-right:auto;
+				padding-left:$column-margin + px;
+				padding-right:$column-margin + px;
+				@include lg { 
+					padding-left:0px;
+					padding-right:0px;
+				}
+				.media { 
+					position:absolute;
+					top:0px;
+					right:$column-margin + px;
+					@include lg {
+						right:0px;
+					}
+					@include elastic('width', $section-with-media-width);
+					@include elastic('height', $section-with-media-height);
+					z-index:1;
+					img, video, .no-media-selected { 
+						object-fit:contain;
+						object-position: right center;
+						@include elastic('width', $section-with-media-width);
+						@include elastic('height', $section-with-media-height);
+					}
+				}
+				.column-inner-inner { 
+					position:absolute;
+					bottom:40px;
+					@include elastic('width', $column-width-half);
+					z-index:2;
+				}
+			}
+		}
+	}
+
+	 
+
+
+
+}

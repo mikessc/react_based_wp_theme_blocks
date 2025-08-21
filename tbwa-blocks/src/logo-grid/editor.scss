@@ -1,0 +1,27 @@
+@use '../common' as *;
+
+
+.wp-block-tbwa-blocks-logo-grid {
+	margin-top:24px;
+	margin-bottom:24px;
+	margin-left:0px;
+	margin-right:0px;
+	width:100%;
+	display:inline;
+
+	.block-editor-inner-blocks { 
+		width:100%;
+		display:inline;
+
+		.block-editor-block-list__layout { 
+			width:100%;
+			display: grid;
+			grid-template-columns: repeat(auto-fit, 160px); 
+			justify-content: space-between;
+			gap:25px;
+		}
+
+	}
+
+
+}

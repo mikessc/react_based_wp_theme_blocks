@@ -1,0 +1,22 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "tbwa-blocks/email-container",
+	"version": "1.0",
+	"title": "Email Container",
+	"category": "tbwa-blocks",
+	"description": "Container to remove email obfuscation.",
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"email": {
+			"type": "string", 
+			"default": ""
+		}
+	},
+	"textdomain": "tbwa-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

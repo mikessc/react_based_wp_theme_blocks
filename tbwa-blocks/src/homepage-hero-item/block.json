@@ -1,0 +1,47 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "tbwa-blocks/homepage-hero-item",
+	"version": "1.0",
+	"title": "Homepage Hero Item",
+	"category": "tbwa-blocks",
+	"description": "A single section within the Homepage Hero carousel. ",
+	"supports": {
+		"html": false
+	},
+	"parent": ["tbwa-blocks/homepage-hero"],
+	"attributes": {
+		"title":{ 
+			"type": "string", 
+			"default": "" 
+		},
+		"subtitle":{ 
+			"type": "string", 
+			"default": "" 
+		},
+		"background": { 
+			"type": "object", 
+			"default": {"id":0, "url":"", "alt":"", "title":"", "type":"", "mime":""}
+		},  
+		"foregroundOpen": { 
+			"type": "object", 
+			"default": {"id":0, "url":"", "alt":"", "title":"", "type":"", "mime":""}
+		},  
+		"foregroundClosed": { 
+			"type": "object", 
+			"default": {"id":0, "url":"", "alt":"", "title":"", "type":"", "mime":""}
+		},  
+		"linkURL":{ 
+			"type": "string", 
+			"default": "" 
+		},
+		"linkTarget":{ 
+			"type": "string", 
+			"default": "_blank" 
+		}
+	},
+	"textdomain": "tbwa-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

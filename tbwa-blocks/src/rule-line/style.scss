@@ -1,0 +1,47 @@
+@use '../common' as *;
+
+
+.wp-block-tbwa-blocks-rule-line {
+
+	//box-sizing:border-box;
+	position:relative;
+
+	@include elasticMany((
+		('padding-top', 30, 30),
+		('padding-bottom', 30, 30)
+	));
+	&:first-child { 
+		padding-top:0;
+	}
+	&:last-child { 
+		padding-bottom:0;
+	}
+
+	.width-narrow, .width-full { 
+		border-top:1px solid $color-black;
+	}
+	.width-narrow { 
+		@include elastic('width', 95, 95);
+	}
+	.width-full { 
+		width:100%;
+	}
+
+}
+
+.center .wp-block-tbwa-blocks-rule-line .width-narrow {
+	margin-left:auto;
+	margin-right:auto;
+}
+
+
+
+.background-black .wp-block-tbwa-blocks-rule-line > div {
+	border-top:1px solid $color-white;
+}
+.background-white .wp-block-tbwa-blocks-rule-line > div  {
+	border-top:1px solid $color-black;
+}
+.background-yellow .wp-block-tbwa-blocks-rule-line > div  {
+	border-top:1px solid $color-black;
+}

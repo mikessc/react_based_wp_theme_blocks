@@ -1,0 +1,32 @@
+.block-editor-block-list__block .wp-block-tbwa-blocks-heading-circle {
+
+	> * { 
+		padding-top:27px;
+		padding-bottom:33px;
+		padding-left:45px;
+		padding-right:45px;
+		font-size:25px;
+	}
+
+	&:hover, .rich-text, label {
+		mix-blend-mode: difference;
+	}
+
+	width: 100%;
+	height: auto;
+	padding: 10px;
+	border: none;
+	border-radius: 0;
+
+	&:hover {
+		background-color: transparent;
+		z-index: 0;
+		mix-blend-mode: difference;
+	}
+
+}
+
+.block-editor-block-list__block.wp-block-tbwa-blocks-heading-circle-container.background-black .wp-block-tbwa-blocks-heading-circle:hover {
+	color: white;
+}
+

@@ -1,0 +1,25 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "tbwa-blocks/form-emailed-file",
+	"version": "1.1",
+	"title": "Form with file upload",
+	"category": "tbwa-blocks",
+	"description": "AI Submission Form with file upload",
+	"supports": {
+		"html": true
+	},
+	"attributes": {
+		"email": {
+			"type": "string"
+		},
+		"subject": {
+			"type": "string"
+		}
+	},
+	"textdomain": "tbwa-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./frontend.js" 
+}

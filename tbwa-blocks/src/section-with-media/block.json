@@ -1,0 +1,36 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "tbwa-blocks/section-with-media",
+	"version": "1.0",
+	"title": "Section with media",
+	"category": "tbwa-blocks",
+	"description": "This top level block is used at the top of pages to show content and a large media element. ",
+	"supports": {
+		"html": false
+	},
+	"parent": ["core/post-content", "tbwa-blocks/page"],
+	"attributes": {
+		"background": {
+			"type": "string", 
+			"default": "black"
+		},
+		"mediaPosition": {
+			"type": "string", 
+			"default": "cover-page"
+		},
+		"mediaDesktop": {
+			"type": "object",
+			"default": { "id":0, "url":"", "alt":"", "title":"", "type":"", "mime":""} 
+		},
+		"mediaMobile": {
+			"type": "object",
+			"default": { "id":0, "url":"", "alt":"", "title":"", "type":"", "mime":""} 
+		}
+
+	},
+	"textdomain": "tbwa-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

@@ -1,0 +1,77 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "tbwa-blocks/work-hero",
+	"version": "1.0",
+	"title": "Work Hero",
+	"category": "tbwa-blocks",
+	"description": "The block is used at the top of the Work (aka Case Study) pages. ",
+	"supports": {
+		"html": false
+	},
+	"parent": ["core/post-content", "tbwa-blocks/page"],
+	"attributes": {
+		"background": {
+			"type": "string", 
+			"default": "black"
+		},
+		"title": {
+			"type": "string", 
+			"default": "Work title"
+		},
+		"client": {
+			"type": "string", 
+			"default": "Client name"
+		},
+		"agency": {
+			"type": "string", 
+			"default": "Agency name"
+		},
+		"ctaEnabled": {
+			"type": "boolean", 
+			"default": true
+		},
+		"ctaText": {
+			"type": "string", 
+			"default": "Visit Website"
+		},
+		"ctaUrl": {
+			"type": "string", 
+			"default": ""
+		},
+		"ctaTarget": {
+			"type": "string", 
+			"default": "_blank"
+		},
+		"mediaId": {
+			"type": "number", 
+			"default": 0
+		}, 
+		"mediaUrl": {
+			"type": "string", 
+			"default": ""
+		},
+		"mediaAlt": {
+			"type": "string", 
+			"default": ""
+		}, 
+		"mediaTitle": {
+			"type": "string", 
+			"default": ""
+		},
+		"mediaType": {
+			"type": "string", 
+			"default": ""
+		}, 
+		"mediaMime": {
+			"type": "string", 
+			"default": ""
+		}
+
+	},
+	"textdomain": "tbwa-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./frontend.js" 
+}

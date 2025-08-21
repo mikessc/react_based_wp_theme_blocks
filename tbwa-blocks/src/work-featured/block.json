@@ -1,0 +1,22 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "tbwa-blocks/work-featured",
+	"version": "1.0",
+	"title": "Work Featured",
+	"category": "tbwa-blocks",
+	"description": "The block shows a single featured summary for one work / case study you select. ",
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"postID": {
+			"type": "string", 
+			"default": ""
+		}
+	},
+	"textdomain": "tbwa-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

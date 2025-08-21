@@ -1,0 +1,17 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "tbwa-blocks/footer-content",
+	"version": "1.0",
+	"title": "Footer Content",
+	"category": "tbwa-blocks",
+	"description": "Footer Content block, used to hold the sharing links and terms text.",
+	"supports": {
+		"html":false
+	},
+	"parent": ["tbwa-blocks/footer"],
+	"textdomain": "tbwa-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}
