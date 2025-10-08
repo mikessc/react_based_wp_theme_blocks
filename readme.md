@@ -35,7 +35,7 @@ Docker will read the instructions in ***docker-compose.yml***, and create three 
 The containers will be named based on your project folder's name, "tbwacom-wordpress-1", "tbwacom-db-1", "tbwacom-phpmyadmin-1". 
 
 For bonus points, you could alternatively use this docker command to use a custom project name to instead of the folder name in the container names:
->`docker compose -p project_name up -d`
+>`docker compose -p react_based_wp_theme_blocks up -d`
 
 To stop running your project Docker containers, use the following command:
 >`docker-compose stop`
